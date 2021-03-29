@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+   
+   @font-face {
+    font-family: "Rhesmanisa";
+    src: local("Rhesmanisa"),
+     url("./Fonts/Rhesmanisa/Rhesmanisa.otf") format("truetype");
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+     
+   }
+   @font-face {
+    font-family: "abeatbyKai";
+    src: local("abeatbyKai"),
+     url("./Fonts/abeatbyKai/ABEAKRG_0.TTF") format("truetype");
+ 
+
+   }
+
+body{
+    font-family:  Helvetica;
+    background-color: #141620;
 }

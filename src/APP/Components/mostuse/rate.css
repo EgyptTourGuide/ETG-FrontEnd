@@ -1,0 +1,12 @@
+
+
+.fillstar{
+    color: #ffe227;
+}
+.strokestar{
+    color: rgb(0, 0, 0,0);
+    -webkit-text-stroke: 1px #ffe227;
+}
+.ratemarrgen{
+    margin: 1px;
+}
