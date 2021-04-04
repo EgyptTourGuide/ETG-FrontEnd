@@ -1,44 +1,42 @@
 .font-face-rh {
-    font-family: "Rhesmanisa";
-  }
-  .font-face-ab {
+  font-family: "Rhesmanisa";
+}
+.font-face-ab {
+  font-family: "abeatbyKai";
+}
 
-    font-family: "abeatbyKai";
-  
-  }
-
-
-
-  /*input*/
-  .input{
-    border-radius: 25px;
-    color: #141620;
-    background-color: rgb(255, 255, 255,0.7);
-    border: none;
-    outline: none;
-    position: relative;
-  
-  }
-  .input:hover ,.input:focus{
-    border-radius: 25px;
-    box-shadow: 0 0 0pt 2pt #007965;
-    outline: none !important;
-    
-  }
-.inputerror{
+/*input*/
+.input {
+  border-radius: 25px;
+  color: #141620;
+  background-color: rgb(255, 255, 255, 0.7);
+  border: none;
+  outline: none;
+  position: relative;
+}
+.input:hover,
+.input:focus {
+  border-radius: 25px;
+  box-shadow: 0 0 0pt 2pt #007965;
+  outline: none !important;
+}
+.inputerror {
   box-shadow: 0 0 0pt 2pt tomato;
   outline: none !important;
 }
-
 
 .label {
   color: #141620;
   position: absolute;
   pointer-events: none;
   background: none;
-
 }
-
+.white {
+  color: white;
+}
+.black {
+  color: #141620;
+}
 .input:invalid + .label {
   transform: translateY(0);
 }
@@ -47,5 +45,3 @@
   color: #007965;
   transform: translateY(-25px);
 }
-
-  

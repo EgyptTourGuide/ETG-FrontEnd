@@ -1,142 +1,93 @@
-/* background */
-.background{
-width: 100vw;
-height: 100vh;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-position:relative;
-top: 0;
-z-index: -1;
-opacity: 0.5;
-clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 0px 100%);
-}
 /*background video*/
 #myVideo {
   position: relative;
-object-fit: cover;
+  object-fit: cover;
   right: 0;
   bottom: 0;
   width: 100%;
   height: 100vh;
   z-index: -1;
-opacity: 0.3;
-clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 0px 100%);
+  top: -95px;
+  opacity: 0.3;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 0px 100%);
 }
 
-
-.items{
+.items {
   position: absolute;
   top: 40%;
-width: 100vw;
-text-align: center;
-
-
-  
+  width: 100vw;
+  text-align: center;
 }
 
-
-#search .search_icon {
-  right: 11vw;
-    color: #141620;
-    position: absolute;
-    z-index: 2;
-}
-#s-bar {
-  position: relative;
-  z-index: 1;
-    height: 35px;
-    width: 80vw;
-    border: none;
-    border-radius: 15px;
-    color: #141620;
-    background-color: rgb(255, 255, 255,0.5);
-    border: none;
-    font-weight: bold;
-}
-
-
-
-#s-bar:focus {
-    outline: none !important;
-    border: 2px solid tomato;
-    border-radius: 15px;
-}
-
-.black:hover{
-  color: tomato;
-}
-#scroll{
- position: absolute;
- z-index: 2;
+#scroll {
+  position: absolute;
+  z-index: 2;
   bottom: 3.2vh;
 }
 
 /*City*/
-.tex{
+.tex {
   letter-spacing: 3.5px;
 }
-.city-card{
+.city-card {
   background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-  height:250px;
-  border-radius:25px;
-  
-
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  border-radius: 25px;
 }
-.card-contant{
-  background-image: linear-gradient(to bottom, rgba(20, 22, 32,0),rgba(20, 22, 32,0.5),rgba(20, 22, 32,0.9));
-  border-radius:0 0 25px 25px;
+.card-contant {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(20, 22, 32, 0),
+    rgba(20, 22, 32, 0.5),
+    rgba(20, 22, 32, 0.9)
+  );
+  border-radius: 0 0 25px 25px;
 }
-.city-link{
-  text-decoration: none; 
+.city-link {
+  text-decoration: none;
 }
 
 /*end city*/
 /*uppercase*/
-.upe{
+.upe {
   text-transform: capitalize;
 }
 
 /*Slider*/
 
-.S-slid{
+.S-slid {
   cursor: pointer;
   height: 50vh;
-  border-radius:25px;
+  border-radius: 25px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
-.slidedata{
-position:absolute;
-z-index: 3;
+.slidedata {
+  position: absolute;
+  z-index: 3;
 }
 .slideshape {
-position:absolute;
-z-index: 1;
-bottom: 5px;
-background-color: #141620;
+  position: absolute;
+  z-index: 1;
+  bottom: 5px;
+  background-color: #141620;
   width: 60vw;
   height: 20vh;
-  clip-path: polygon(0 0,  100% 100%, 0px 100%);
+  clip-path: polygon(0 0, 100% 100%, 0px 100%);
 }
-
-
 
 /*arrow-slide style and animate*/
 
-
-.icon:hover{
+.icon:hover {
   opacity: 0.5;
 }
-.icon:focus{
+.icon:focus {
   opacity: 1;
 }
 .left {
-
   position: absolute;
   z-index: 4;
   width: 50px;
@@ -146,9 +97,18 @@ background-color: #141620;
 }
 
 @keyframes leftarrow {
-  0%   {opacity: 0.6; left:10px; }
- 50%  {opacity: 0.8; left:20px}
-100% {opacity: 1; left:10px}
+  0% {
+    opacity: 0.6;
+    left: 10px;
+  }
+  50% {
+    opacity: 0.8;
+    left: 20px;
+  }
+  100% {
+    opacity: 1;
+    left: 10px;
+  }
 }
 
 .right {
@@ -158,16 +118,19 @@ background-color: #141620;
   animation-name: rightarrow;
   animation-duration: 3s;
   animation-iteration-count: infinite;
-
 }
 
 @keyframes rightarrow {
-  0%   {opacity: 0.6; right:10px; }
-  50%  {opacity: 0.8; right:20px}
- 100% {opacity: 1; right:10px}
+  0% {
+    opacity: 0.6;
+    right: 10px;
+  }
+  50% {
+    opacity: 0.8;
+    right: 20px;
+  }
+  100% {
+    opacity: 1;
+    right: 10px;
+  }
 }
-
-
-
-
-

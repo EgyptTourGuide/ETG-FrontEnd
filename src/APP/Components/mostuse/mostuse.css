@@ -1,0 +1,36 @@
+.fillstar {
+  color: #ffe227;
+}
+.strokestar {
+  color: rgb(0, 0, 0, 0);
+  -webkit-text-stroke: 1px #ffe227;
+}
+.ratemarrgen {
+  margin: 1px;
+}
+
+.search_icon {
+  position: absolute;
+  color: #141620;
+  z-index: 3;
+  right: 10vw;
+}
+
+.search_icon:hover {
+  color: tomato;
+}
+#s-bar {
+  height: 35px;
+  width: 80vw;
+  border: none;
+  border-radius: 15px;
+  color: #141620;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: none;
+  font-weight: bold;
+}
+#s-bar:focus {
+  outline: none !important;
+  border: 2px solid tomato;
+  border-radius: 15px;
+}

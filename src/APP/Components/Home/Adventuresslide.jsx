@@ -10,24 +10,20 @@ import $ from "jquery";
 function NextArrow(props) {
   var { onClick } = props;
   return (
-  
     <div
       className="arrow  h-100 d-flex align-items-center justify-content-center p-2 right  text-white fas fa-chevron-right fa-2x"
       onClick={onClick}
     />
-
   );
 }
 
 function PrevArrow(props) {
   const { onClick } = props;
   return (
- 
     <div
       className="h-100 d-flex align-items-center justify-content-center  p-2 left  text-white fas fa-chevron-left fa-2x"
       onClick={onClick}
     />
-  
   );
 }
 
@@ -56,7 +52,6 @@ class Adventuresslide extends Component {
 
   render() {
     const settings = {
-      
       className: "center d-flex  justify-content-center  align-items-center",
       centerMode: true,
       infinite: true,
@@ -86,14 +81,14 @@ class Adventuresslide extends Component {
                 It's Time To Escape.
               </p>
             </div>
-           
-           
-           
+
             <div className="row justify-content-center align-items-center   p-0 m-0">
               <Slider {...settings}>
                 <div>
                   <div
-                  onClick={event =>  window.location.href=`/adventures/${this.state.pestadventure[0].advname.toLowerCase()}`}
+                    onClick={(event) =>
+                      (window.location.href = `/adventures/${this.state.pestadventure[0].advname.toLowerCase()}`)
+                    }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[0].urlimg})`,
                     }}
@@ -122,7 +117,9 @@ class Adventuresslide extends Component {
                 </div>
                 <div>
                   <div
-                    onClick={event =>  window.location.href=`/adventures/${this.state.pestadventure[1].advname.toLowerCase()}`}
+                    onClick={(event) =>
+                      (window.location.href = `/adventures/${this.state.pestadventure[1].advname.toLowerCase()}`)
+                    }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[1].urlimg})`,
                     }}
@@ -151,7 +148,9 @@ class Adventuresslide extends Component {
                 </div>
                 <div>
                   <div
-                  onClick={event =>  window.location.href=`/adventures/${this.state.pestadventure[2].advname.toLowerCase()}`}
+                    onClick={(event) =>
+                      (window.location.href = `/adventures/${this.state.pestadventure[2].advname.toLowerCase()}`)
+                    }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[2].urlimg})`,
                     }}

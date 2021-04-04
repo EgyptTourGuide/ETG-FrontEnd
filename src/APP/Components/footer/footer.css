@@ -1,70 +1,73 @@
-
-.footer{
-    background-color: rgb(255, 255, 255, 0.04);
+.footer {
+  background-color: rgb(255, 255, 255, 0.04);
 }
-.social-icon{
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    opacity: 0.7;
+.social-icon {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  opacity: 0.7;
 }
-.fa-facebook-f:hover{
-    color: 	#3b5998;
-    opacity: 1;
-    transform: scale(1.5); 
+.fa-facebook-f:hover {
+  color: #3b5998;
+  opacity: 1;
+  transform: scale(1.5);
 }
 
-
-.fa-twitter:hover{
-    color: 	#1DA1F2;
-    opacity: 1;
-    transform: scale(1.5); 
-
+.fa-twitter:hover {
+  color: #1da1f2;
+  opacity: 1;
+  transform: scale(1.5);
 }
-.fa-linkedin-in:hover{
-    opacity: 1;
-    transform: scale(1.5); 
+.fa-linkedin-in:hover {
+  opacity: 1;
+  transform: scale(1.5);
 }
-.decoration
-{text-decoration: none;}
-
+.decoration {
+  text-decoration: none;
+}
 
 /*TOP ARROW*/
-.top-arrow{
-    color: white;
-position: relative;
+.top-arrow {
+  color: white;
+  position: relative;
 
-animation-name: toparrow;
-animation-duration: 3s;
-animation-iteration-count: infinite;
+  animation-name: toparrow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes toparrow {
-0%   {opacity: 0.6; bottom:0px; }
-50%  {opacity: 0.8; bottom:10px}
-100% {opacity: 1; bottom:0px}
+  0% {
+    opacity: 0.6;
+    bottom: 0px;
+  }
+  50% {
+    opacity: 0.8;
+    bottom: 10px;
+  }
+  100% {
+    opacity: 1;
+    bottom: 0px;
+  }
 }
-
 
 /*app icon*/
-.fa-android:hover{
-opacity: 1;
-color:  #3DDC84;
-transform: scale(1.5); 
+.fa-android:hover {
+  opacity: 1;
+  color: #3ddc84;
+  transform: scale(1.5);
 }
 
-.fa-apple:hover{
-    opacity: 1;
-    color: white;
-    transform: scale(1.5); 
-    }
+.fa-apple:hover {
+  opacity: 1;
+  color: white;
+  transform: scale(1.5);
+}
 
-
-.connectus:hover{
-
-        color: red;
+.connectus:hover {
+  color: red;
 }
 /*Rights*/
-.Rights{
-    font-size: 11px;
+.Rights {
+  font-size: 11px;
 }

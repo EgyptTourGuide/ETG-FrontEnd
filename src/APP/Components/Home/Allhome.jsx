@@ -4,7 +4,7 @@ import Homecity from "./Homecity";
 import Header from "./../Header/Header";
 import Home from "./Home";
 import Adventuresslide from "./Adventuresslide";
-import Footer from'../footer/footer.jsx';
+import Footer from "../footer/footer.jsx";
 
 class Allhome extends Component {
   state = {
@@ -15,12 +15,12 @@ class Allhome extends Component {
   render() {
     return (
       <React.Fragment>
-        <Home city={this.state.city} />
+        <Home city={this.state.city} adventure={this.props.adventure} />
         <Header user={this.props.user} />
         <BackGround bgimg={this.state.bgimg}> </BackGround>
         <Homecity city={this.state.city}></Homecity>
         <Adventuresslide adventure={this.props.adventure}></Adventuresslide>
-       <Footer></Footer>
+        <Footer></Footer>
       </React.Fragment>
     );
   }
