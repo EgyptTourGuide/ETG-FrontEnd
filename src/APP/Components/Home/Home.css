@@ -67,11 +67,11 @@
 }
 .slidedata {
   position: absolute;
-  z-index: 3;
+  z-index: 9;
 }
 .slideshape {
   position: absolute;
-  z-index: 1;
+  z-index: 8;
   bottom: 5px;
   background-color: #141620;
   width: 60vw;

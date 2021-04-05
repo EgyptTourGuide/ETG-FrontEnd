@@ -108,7 +108,7 @@ class Adventuresslide extends Component {
                       <div className="row p-0 m-0">
                         <Rate
                           rate={this.state.pestadventure[0].rate}
-                          size={"xl"}
+                          size={"sm"}
                         ></Rate>
                       </div>
                     </div>
@@ -139,7 +139,7 @@ class Adventuresslide extends Component {
                       <div className="row p-0 m-0">
                         <Rate
                           rate={this.state.pestadventure[1].rate}
-                          size={"xl"}
+                          size={"sm"}
                         ></Rate>
                       </div>
                     </div>
@@ -170,7 +170,7 @@ class Adventuresslide extends Component {
                       <div className="row p-0 m-0">
                         <Rate
                           rate={this.state.pestadventure[2].rate}
-                          size={"xl"}
+                          size={"sm"}
                         ></Rate>
                       </div>
                     </div>

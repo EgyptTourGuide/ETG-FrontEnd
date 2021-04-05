@@ -100,7 +100,7 @@ ul {
 .slid {
   height: 100vh;
   position: absolute;
-  z-index: 4;
+  z-index: 9;
   top: 0%;
   align-content: center;
   /* background-color: rgba(255, 255, 255, 0.8); */
@@ -113,7 +113,7 @@ ul {
   width: 0vw;
   height: 100vh;
   display: block;
-  z-index: 3;
+  z-index: 8;
   top: 0;
   right: 0;
 
@@ -121,5 +121,5 @@ ul {
 }
 
 .zim {
-  z-index: 6;
+  z-index: 10;
 }

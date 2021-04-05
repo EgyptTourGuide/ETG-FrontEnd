@@ -1,29 +1,35 @@
 import React, { Component } from "react";
 import "./mostuse.css";
 import { Link } from "react-router-dom";
+import Rate from "./rate";
+import $ from 'jquery';
 class Search extends Component {
   state = { data: this.props, value: "", newdata: [] };
   constructor(props) {
     super(props);
-    console.log(this.props.city);
     let newdata = this.props.city;
     this.setState({ newdata });
   }
 
   search = (e) => {
+    $(".search-slid").animate({
+      height: 'toggle'
+    });
     let value = { ...this.state.value };
     value = e.currentTarget.value;
     this.setState({ value });
     console.log(value);
+    var newdata=this.state.data.city.filter((data) => data.startsWith("e"));
+    this.setState({newdata });
     const data = Object.keys(this.state.data)[0];
-    // let newdata=data.filter((d)=>d.includes(value));
-    console.log(data);
+
+    
+    console.log(newdata);
   };
   render() {
-    console.log(this.state.newdata);
     return (
       <React.Fragment>
-        <div className="container-fluid text-center p-0 m-0 ">
+        <div className="search container-fluid text-center p-0 m-0 ">
           <div className="col  p-0 m-0">
             <input
               id="s-bar"
@@ -48,6 +54,38 @@ class Search extends Component {
             </Link>
           </div>
         </div>
+
+
+        
+{/*  
+        <div  className=" search-slid">
+        {this.state.city.map((city, index) => {
+          return (
+          <div key={index} className="element row p-0 m-0">
+            <div
+              id="dataimg"
+              className="col-1 "
+              style={{
+                backgroundImage: `url(${this.state.data.city[0].urlimg})`,
+              }}
+            ></div>
+            <div className="col black ">
+              <span>
+                <h2 className="d-inline fw-bold"> {this.state.data.city[0].cityname.charAt(0).toUpperCase() + this.state.data.city[0].cityname.slice(1)}{" "} </h2>
+                <Rate className="d-inline"rate={this.state.data.city[0].rate}size={"xs"}></Rate>
+              </span>
+
+              <p className="titel">
+                {(this.state.data.city[0].about.charAt(0).toUpperCase()+this.state.data.city[0].about.slice(1)).slice(0,this.state.data.city[0].about.search(/[^\w\s]/g) + 1)}
+              </p>
+            </div>
+            <span className="px-5">
+         <hr />
+         </span>
+          </div>
+          );})}
+        </div>
+            */}
       </React.Fragment>
     );
   }

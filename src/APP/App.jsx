@@ -13,7 +13,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/1.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -21,7 +21,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/2.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -29,7 +29,7 @@ class App extends Component {
         cityname: "Alex",
         urlimg: "/images/5.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -37,7 +37,7 @@ class App extends Component {
         cityname: "Cairo",
         urlimg: "/images/3.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 4,
       },
       {
@@ -45,7 +45,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/8.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -53,7 +53,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/9.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 3,
       },
       {
@@ -61,7 +61,7 @@ class App extends Component {
         cityname: "alex",
         urlimg: "/images/10.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 2,
       },
       {
@@ -69,7 +69,7 @@ class App extends Component {
         cityname: "cairo",
         urlimg: "/images/11.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 1,
       },
       {
@@ -77,7 +77,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/1.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -85,7 +85,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/2.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -93,7 +93,7 @@ class App extends Component {
         cityname: "alex",
         urlimg: "/images/5.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -101,7 +101,7 @@ class App extends Component {
         cityname: "cairo",
         urlimg: "/images/3.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 4,
       },
       {
@@ -109,7 +109,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/8.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 5,
       },
       {
@@ -117,7 +117,7 @@ class App extends Component {
         cityname: "egypt",
         urlimg: "/images/9.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 3,
       },
       {
@@ -125,7 +125,7 @@ class App extends Component {
         cityname: "alex",
         urlimg: "/images/10.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 2,
       },
       {
@@ -133,7 +133,7 @@ class App extends Component {
         cityname: "cairo",
         urlimg: "/images/11.jpg",
         about:
-          "is the capital and largest-city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         rate: 1,
       },
     ],

@@ -18,15 +18,13 @@ class Header extends Component {
     this.slide();
   };
   slide = () => {
-    let menu = this.state.menu;
+    
     if (this.state.play === false) {
       /*cancel scroll*/
 
       const body = document.body;
       body.style.height = "100vh";
       body.style.overflowY = "hidden";
-
-      menu = "Close";
       /*show slide*/
       $(".sslid").removeClass("d-none");
       $(".bg").animate({ width: "100vw" });
@@ -49,8 +47,6 @@ class Header extends Component {
       body.style.top = "";
       body.style.height = "";
       body.style.overflowY = "";
-
-      menu = "Menu";
       /*show slide*/
       $(".bg").animate({ width: "0vw" });
       setTimeout(function () {

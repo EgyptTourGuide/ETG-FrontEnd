@@ -6,10 +6,13 @@ class Rate extends Component {
   state = { rate: this.props.rate, size: this.props.size };
   constructor(props) {
     super(props);
+ 
+  }
+  componentDidMount(){
     $(".sicon").addClass(`fa-${this.state.size}`);
   }
   render() {
-    this.state.rate = this.props.rate;
+
     return (
       <React.Fragment>
         <span className="allstar col  p-0 m-0">
