@@ -44,10 +44,10 @@ class Footer extends Component {
 
               <div className="col d-flex justify-content-end  p-0 m-0">
                 <Link className="me-0 mx-2 social-icon ">
-                  <i class=" fab fa-android fa-2x"></i>
+                  <i className=" fab fa-android fa-2x"></i>
                 </Link>
                 <Link className="me-0 mx-2 social-icon ">
-                  <i class="fab fa-apple fa-2x"></i>
+                  <i className="fab fa-apple fa-2x"></i>
                 </Link>
               </div>
             </div>

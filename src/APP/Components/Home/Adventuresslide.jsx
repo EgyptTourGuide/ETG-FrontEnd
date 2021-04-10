@@ -87,7 +87,7 @@ class Adventuresslide extends Component {
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[0].advname.toLowerCase()}`)
+                      (window.location.href = `/adventures/${this.state.pestadventure[0].name.toLowerCase()}`)
                     }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[0].urlimg})`,
@@ -96,13 +96,13 @@ class Adventuresslide extends Component {
                   >
                     <div className="row text-start m-1 p-0 slidedata">
                       <div className="row p-0 m-0 ">
-                        <h2 className=" text-white p-0 m-0">
-                          {this.state.pestadventure[0].advname}
+                        <h2 className="upe text-white p-0 m-0">
+                          {this.state.pestadventure[0].name}
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
                         <p className="text-white p-0 m-0">
-                          {this.state.pestadventure[0].about}
+                          {this.state.pestadventure[0].city}
                         </p>
                       </div>
                       <div className="row p-0 m-0">
@@ -118,7 +118,7 @@ class Adventuresslide extends Component {
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[1].advname.toLowerCase()}`)
+                      (window.location.href = `/adventures/${this.state.pestadventure[1].name.toLowerCase()}`)
                     }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[1].urlimg})`,
@@ -127,13 +127,13 @@ class Adventuresslide extends Component {
                   >
                     <div className="row text-start m-1  p-0 slidedata">
                       <div className="row p-0 m-0">
-                        <h2 className=" text-white p-0 m-0">
-                          {this.state.pestadventure[1].advname}
+                        <h2 className="upe text-white p-0 m-0">
+                          {this.state.pestadventure[1].name}
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
                         <p className="text-white p-0 m-0">
-                          {this.state.pestadventure[1].about}
+                          {this.state.pestadventure[1].city}
                         </p>
                       </div>
                       <div className="row p-0 m-0">
@@ -149,7 +149,7 @@ class Adventuresslide extends Component {
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[2].advname.toLowerCase()}`)
+                      (window.location.href = `/adventures/${this.state.pestadventure[2].name.toLowerCase()}`)
                     }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[2].urlimg})`,
@@ -158,13 +158,13 @@ class Adventuresslide extends Component {
                   >
                     <div className="row text-start m-1  p-0 slidedata">
                       <div className="row p-0 m-0">
-                        <h2 className=" text-white p-0 m-0">
-                          {this.state.pestadventure[2].advname}
+                        <h2 className="upe text-white p-0 m-0">
+                          {this.state.pestadventure[2].name}
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
                         <p className="text-white p-0 m-0">
-                          {this.state.pestadventure[2].about}
+                          {this.state.pestadventure[2].city}
                         </p>
                       </div>
                       <div className="row p-0 m-0">

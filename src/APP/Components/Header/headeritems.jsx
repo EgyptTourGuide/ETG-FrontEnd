@@ -6,7 +6,7 @@ export const navitem = [
   },
   {
     title: "What To Do",
-    path: "/whattodo",
+    path: "/adventure",
     cname: "nav-text",
   },
   {

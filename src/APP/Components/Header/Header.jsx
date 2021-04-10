@@ -65,7 +65,23 @@ class Header extends Component {
       };
     }
   };
+ 
+  componentDidMount(){
+    $("#w-g").toggle(
+      function(){
+        $("#c-slide").show();
+        $(".h-slide").animate({height:200});
+        
+},
+      function(){
+        $(".h-slide").animate({height:0});
+        $("#c-slide").hide();
+       
+        
+      });
+  }
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
         <div className="header container-fluid  p-0 m-0">
@@ -81,29 +97,31 @@ class Header extends Component {
             <span className="col-8 d-flex justify-content-end  d-none d-xl-block">
               <span className=" col-12 d-flex align-items-center justify-content-end   ">
                 <div className="col-2 p-0 m-0 ">
-                  <Link className="linkst d-inline text-white  fs-6" to="/city">
+                  <Link className="linkst d-inline   fs-6" to="/city">
                     Where To Go
                   </Link>
-                  <Link className="linkst d-inline text-white px-1 " to="">
+                  <span id="w-g" className="linkst d-inline  px-1 ">
                     <i className="fas fa-chevron-down"></i>
-                  </Link>
+                  </span>
+
                 </div>
                 <div className=" col-2  p-0 m-0  ">
-                  <Link className="linkst d-inline text-white  fs-6" to="">
+                  <Link className="linkst d-inline  fs-6" to="/">
                     What To Do
                   </Link>
-                  <Link className="linkst d-inline text-white  px-1" to="">
+                  <span className="linkst d-inline  px-1" >
                     <i className="fas fa-chevron-down"></i>
-                  </Link>
+
+                  </span>
                 </div>
                 <div className="col-2 p-0 m-0 ">
-                  <Link className="linkst d-inline text-white  fs-6" to="">
+                  <Link className="linkst d-inline  fs-6" to="">
                     Visit Planner
                   </Link>
                 </div>
                 <div className="col-2 p-0 m-0 ">
                   <Link
-                    className="linkst d-inline text-white p-0 m-0 fs-6"
+                    className="linkst d-inline p-0 m-0 fs-6"
                     to=""
                   >
                     <img
@@ -125,6 +143,8 @@ class Header extends Component {
                   </Link>
                 </div>
               </span>
+          
+          
             </span>
 
             <span className="zim col-10 d-flex justify-content-end align-items-center  d-xl-none d-block">
@@ -185,7 +205,33 @@ class Header extends Component {
           </div>
 
           <div className="sslid d-xl-none d-none bg"></div>
+       
+       
+           {/* Slides */}
+           <div id="c-slide">
+          <div  className="h-slide p-0 m-0 "> 
+         <div className=" ph-item" style={{ backgroundImage: `url(${this.props.city[0].urlimg})` }}>
+         </div>
+<div className="l-name text-center">
+  <p className="black p-0 m-0 fw-bold" >{this.props.city[0].name}</p>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${this.props.city[0].name.toLowerCase()}`)} >Read More</button>
+  </div>
+       <div className="h-data">
+         {this.props.city.map((e,index)=>{
+           return(
+            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/city/${e.name.toLowerCase()}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
+           );
+         })}
+       
+    
+       </div>
         </div>
+          </div>
+          </div>
+     
+        
+        
+
       </React.Fragment>
     );
   }

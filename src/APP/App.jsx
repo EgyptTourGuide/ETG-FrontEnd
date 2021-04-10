@@ -3,6 +3,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Allhome from "./Components/Home/Allhome";
 import "./App.css";
 import City from "./Components/City/City";
+import Searchpage from './Components/mostuse/searchpage';
+import Adventure from './Components/City/Adventure';
 
 class App extends Component {
   state = {
@@ -10,7 +12,7 @@ class App extends Component {
     city: [
       {
         id: 1,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/1.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -18,7 +20,7 @@ class App extends Component {
       },
       {
         id: 2,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/2.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -26,7 +28,7 @@ class App extends Component {
       },
       {
         id: 3,
-        cityname: "Alex",
+        name: "Alex",
         urlimg: "/images/5.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -34,7 +36,7 @@ class App extends Component {
       },
       {
         id: 4,
-        cityname: "Cairo",
+        name: "Cairo",
         urlimg: "/images/3.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -42,7 +44,7 @@ class App extends Component {
       },
       {
         id: 5,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/8.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -50,7 +52,7 @@ class App extends Component {
       },
       {
         id: 6,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/9.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -58,7 +60,7 @@ class App extends Component {
       },
       {
         id: 7,
-        cityname: "alex",
+        name: "alex",
         urlimg: "/images/10.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -66,7 +68,7 @@ class App extends Component {
       },
       {
         id: 8,
-        cityname: "cairo",
+        name: "cairo",
         urlimg: "/images/11.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -74,7 +76,7 @@ class App extends Component {
       },
       {
         id: 9,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/1.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -82,7 +84,7 @@ class App extends Component {
       },
       {
         id: 10,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/2.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -90,7 +92,7 @@ class App extends Component {
       },
       {
         id: 11,
-        cityname: "alex",
+        name: "alex",
         urlimg: "/images/5.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -98,7 +100,7 @@ class App extends Component {
       },
       {
         id: 12,
-        cityname: "cairo",
+        name: "cairo",
         urlimg: "/images/3.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -106,7 +108,7 @@ class App extends Component {
       },
       {
         id: 13,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/8.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -114,7 +116,7 @@ class App extends Component {
       },
       {
         id: 14,
-        cityname: "egypt",
+        name: "egypt",
         urlimg: "/images/9.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -122,7 +124,7 @@ class App extends Component {
       },
       {
         id: 15,
-        cityname: "alex",
+        name: "alex",
         urlimg: "/images/10.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -130,7 +132,7 @@ class App extends Component {
       },
       {
         id: 16,
-        cityname: "cairo",
+        name: "cairo",
         urlimg: "/images/11.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -140,44 +142,62 @@ class App extends Component {
     adventure: [
       {
         id: 1,
-        advname: "Safary",
+        name: "asafary",
+        city:"sadat city",
         urlimg: "/images/12.jpg",
-        about: "egypt",
+        about:
+        "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+      
         rate: 5,
       },
       {
         id: 2,
-        advname: "Diving",
+        name: "diving",
+        city:"shpeen elkom",
         urlimg: "/images/13.jpg",
-        about: "red sea",
+        about:
+        "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+      
         rate: 1,
       },
       {
         id: 3,
-        advname: "Ballon",
+        name: "ballon",
+        city:"sadat city",
         urlimg: "/images/8.jpg",
-        about: "luxor",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
         rate: 3,
       },
       {
         id: 4,
-        advname: "Safary",
+        name: "safary",
+        city:"sadat city",
         urlimg: "/images/12.jpg",
-        about: "egypt",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
         rate: 1,
       },
       {
         id: 5,
-        advname: "Diving",
+        name: "diving",
+        city:"red see",
         urlimg: "/images/13.jpg",
-        about: "red sea",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
         rate: 2,
       },
       {
         id: 6,
-        advname: "Ballon",
+        name: "ballon",
+        city:"luxor",
         urlimg: "/images/8.jpg",
-        about: "luxor",
+        about:
+        "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+      
         rate: 1,
       },
     ],
@@ -206,10 +226,7 @@ class App extends Component {
     /*end sort*/
   }
 
-  toupdatestate = (fillstar, strokesta) => {
-    this.setState({ fillstar });
-    this.setState({ strokesta });
-  };
+
   render() {
     return (
       <React.Fragment>
@@ -217,19 +234,39 @@ class App extends Component {
           <Route
             path="/"
             exact
-            render={() => (
+            render={props => (
               <Allhome
                 city={this.state.city}
                 user={this.state.user}
                 adventure={this.state.adventure}
+                {...props}
               />
             )}
           />
           <Route
             path="/city"
             exact
-            render={() => (
-              <City city={this.state.city} user={this.state.user} />
+            render={props => (
+              <City city={this.state.city} user={this.state.user} {...props}/>
+            )}
+          />
+             <Route
+            path="/adventure"
+            exact
+            render={props => (
+              <Adventure adventure={this.state.adventure} user={this.state.user} {...props}/>
+            )}
+          />
+            <Route
+            path="/:name/search/:name"
+            render={props => (
+              <Searchpage city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
+            )}
+          />
+            <Route
+            path="/:name/search"
+            render={props => (
+              <Searchpage city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
             )}
           />
           <Redirect from="/home" to="/" />

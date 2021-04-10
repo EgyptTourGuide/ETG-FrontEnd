@@ -12,11 +12,14 @@ class Allhome extends Component {
     bgimg: this.props.bgimg,
     user: this.props.user,
   };
+  constructor(props){
+    super(props);
+  }
   render() {
     return (
       <React.Fragment>
-        <Home city={this.state.city} adventure={this.props.adventure} />
-        <Header user={this.props.user} />
+        <Home {...this.props} />
+        <Header {...this.props} />
         <BackGround bgimg={this.state.bgimg}> </BackGround>
         <Homecity city={this.state.city}></Homecity>
         <Adventuresslide adventure={this.props.adventure}></Adventuresslide>
