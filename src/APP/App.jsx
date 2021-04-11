@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Allhome from "./Components/Home/Allhome";
 import "./App.css";
-import City from "./Components/City/City";
+import Citypage from "./Components/Citypage/Citypage";
 import Searchpage from './Components/mostuse/searchpage';
-import Adventure from './Components/City/Adventure';
+import Adventurepage from './Components/Citypage/Adventurepage';
+import City from './Components/City/City';
 
 class App extends Component {
   state = {
@@ -20,7 +21,7 @@ class App extends Component {
       },
       {
         id: 2,
-        name: "egypt",
+        name: "cairo",
         urlimg: "/images/2.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -36,7 +37,7 @@ class App extends Component {
       },
       {
         id: 4,
-        name: "Cairo",
+        name: "sadat-city",
         urlimg: "/images/3.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -44,7 +45,7 @@ class App extends Component {
       },
       {
         id: 5,
-        name: "egypt",
+        name: "gamasa",
         urlimg: "/images/8.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -52,7 +53,7 @@ class App extends Component {
       },
       {
         id: 6,
-        name: "egypt",
+        name: "baltem",
         urlimg: "/images/9.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -60,7 +61,7 @@ class App extends Component {
       },
       {
         id: 7,
-        name: "alex",
+        name: "ras-elbar",
         urlimg: "/images/10.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -68,7 +69,7 @@ class App extends Component {
       },
       {
         id: 8,
-        name: "cairo",
+        name: "elgona",
         urlimg: "/images/11.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -76,7 +77,7 @@ class App extends Component {
       },
       {
         id: 9,
-        name: "egypt",
+        name: "abozaabl",
         urlimg: "/images/1.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -84,7 +85,7 @@ class App extends Component {
       },
       {
         id: 10,
-        name: "egypt",
+        name: "usa",
         urlimg: "/images/2.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -92,7 +93,7 @@ class App extends Component {
       },
       {
         id: 11,
-        name: "alex",
+        name: "ura",
         urlimg: "/images/5.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -100,7 +101,7 @@ class App extends Component {
       },
       {
         id: 12,
-        name: "cairo",
+        name: "shpeen",
         urlimg: "/images/3.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -108,7 +109,7 @@ class App extends Component {
       },
       {
         id: 13,
-        name: "egypt",
+        name: "kafr",
         urlimg: "/images/8.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -116,7 +117,7 @@ class App extends Component {
       },
       {
         id: 14,
-        name: "egypt",
+        name: "tamalay",
         urlimg: "/images/9.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -124,7 +125,7 @@ class App extends Component {
       },
       {
         id: 15,
-        name: "alex",
+        name: "sharm",
         urlimg: "/images/10.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -132,7 +133,7 @@ class App extends Component {
       },
       {
         id: 16,
-        name: "cairo",
+        name: "mandelef",
         urlimg: "/images/11.jpg",
         about:
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
@@ -169,6 +170,96 @@ class App extends Component {
           "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
         
         rate: 3,
+      },
+      {
+        id: 4,
+        name: "safary",
+        city:"sadat city",
+        urlimg: "/images/12.jpg",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
+        rate: 1,
+      },
+      {
+        id: 5,
+        name: "diving",
+        city:"red see",
+        urlimg: "/images/13.jpg",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
+        rate: 2,
+      },
+      {
+        id: 6,
+        name: "ballon",
+        city:"luxor",
+        urlimg: "/images/8.jpg",
+        about:
+        "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+      
+        rate: 1,
+      },
+      {
+        id: 4,
+        name: "safary",
+        city:"sadat city",
+        urlimg: "/images/12.jpg",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
+        rate: 1,
+      },
+      {
+        id: 5,
+        name: "diving",
+        city:"red see",
+        urlimg: "/images/13.jpg",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
+        rate: 2,
+      },
+      {
+        id: 6,
+        name: "ballon",
+        city:"luxor",
+        urlimg: "/images/8.jpg",
+        about:
+        "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+      
+        rate: 1,
+      },
+      {
+        id: 4,
+        name: "safary",
+        city:"sadat city",
+        urlimg: "/images/12.jpg",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
+        rate: 1,
+      },
+      {
+        id: 5,
+        name: "diving",
+        city:"red see",
+        urlimg: "/images/13.jpg",
+        about:
+          "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+        
+        rate: 2,
+      },
+      {
+        id: 6,
+        name: "ballon",
+        city:"luxor",
+        urlimg: "/images/8.jpg",
+        about:
+        "is the capital and largest city of Egypt. The Cairo metropolitan area, with a population of 21.3 million, is the largest in Africa.",
+      
+        rate: 1,
       },
       {
         id: 4,
@@ -247,14 +338,14 @@ class App extends Component {
             path="/city"
             exact
             render={props => (
-              <City city={this.state.city} user={this.state.user} {...props}/>
+              <Citypage city={this.state.city} adventure={this.state.adventure} user={this.state.user} {...props}/>
             )}
           />
              <Route
             path="/adventure"
             exact
             render={props => (
-              <Adventure adventure={this.state.adventure} user={this.state.user} {...props}/>
+              <Adventurepage city={this.state.city} adventure={this.state.adventure} user={this.state.user} {...props}/>
             )}
           />
             <Route
@@ -267,6 +358,12 @@ class App extends Component {
             path="/:name/search"
             render={props => (
               <Searchpage city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
+            )}
+          />
+           <Route
+            path="/city/:name"
+            render={props => (
+              <City city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
             )}
           />
           <Redirect from="/home" to="/" />

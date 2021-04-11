@@ -6,12 +6,20 @@ import $ from "jquery";
 import Logo from "./../logo/logo";
 import "./Header.css";
 
+
+var scity=[];
+var sadventure=[];
 class Header extends Component {
-  state = {
-    user: this.props.user,
-    play: false,
-    menu: "Menu",
-  };
+  state = {user: this.props.user, play: false, menu: "Menu" ,city:this.props.city,adventure:this.props.adventure};
+constructor(props){
+super(props);
+this.updataS();
+}
+updataS=()=>{
+   scity=this.state.city.slice(0,14);
+ sadventure=this.state.adventure.slice(0,14);
+}
+
 
   ani = () => {
     this.setState(({ play }) => ({ play: !play }));
@@ -65,23 +73,26 @@ class Header extends Component {
       };
     }
   };
- 
-  componentDidMount(){
-    $("#w-g").toggle(
-      function(){
-        $("#c-slide").show();
-        $(".h-slide").animate({height:200});
-        
-},
-      function(){
-        $(".h-slide").animate({height:0});
-        $("#c-slide").hide();
-       
-        
-      });
+  showslide=(t)=>{
+$(t).fadeToggle();
   }
+componentDidMount(){
+  $(window).scroll(function(){$("#c-slide").fadeOut(); });
+  $(window).scroll(function(){$("#a-slide").fadeOut(); });
+  $(document).mouseup(function (e)
+  {
+
+  if (!$("#c-slide").is(e.target) && $("#c-slide").has(e.target).length === 0) 
+  {
+    $("#c-slide").fadeOut(); 
+  }
+  if (!$("#a-slide").is(e.target) && $("#a-slide").has(e.target).length === 0) 
+  {
+    $("#a-slide").fadeOut(); 
+  }
+  })
+}
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <div className="header container-fluid  p-0 m-0">
@@ -100,16 +111,16 @@ class Header extends Component {
                   <Link className="linkst d-inline   fs-6" to="/city">
                     Where To Go
                   </Link>
-                  <span id="w-g" className="linkst d-inline  px-1 ">
+                  <span   className=" linkst d-inline  px-1" onClick={()=>this.showslide("#c-slide")}>
                     <i className="fas fa-chevron-down"></i>
                   </span>
 
                 </div>
                 <div className=" col-2  p-0 m-0  ">
-                  <Link className="linkst d-inline  fs-6" to="/">
+                  <Link className="linkst d-inline  fs-6" to="/adventure">
                     What To Do
                   </Link>
-                  <span className="linkst d-inline  px-1" >
+                  <span className="linkst d-inline  px-1" onClick={()=>this.showslide("#a-slide")} >
                     <i className="fas fa-chevron-down"></i>
 
                   </span>
@@ -207,26 +218,51 @@ class Header extends Component {
           <div className="sslid d-xl-none d-none bg"></div>
        
        
-           {/* Slides */}
-           <div id="c-slide">
-          <div  className="h-slide p-0 m-0 "> 
-         <div className=" ph-item" style={{ backgroundImage: `url(${this.props.city[0].urlimg})` }}>
+           {/* Slides city */}
+     <span id="c-slide">
+          <div  className="h-slide p-0 m-0  "> 
+         <div className=" ph-item" style={{ backgroundImage: `url(${scity[0].urlimg})` }}>
          </div>
 <div className="l-name text-center">
-  <p className="black p-0 m-0 fw-bold" >{this.props.city[0].name}</p>
-  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${this.props.city[0].name.toLowerCase()}`)} >Read More</button>
+  <p className="black p-0 m-0 fw-bold" >{scity[0].name}</p>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${scity[0].name.toLowerCase()}`)} >Read More</button>
   </div>
        <div className="h-data">
-         {this.props.city.map((e,index)=>{
+         {scity.map((e,index)=>{
            return(
             <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/city/${e.name.toLowerCase()}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
            );
          })}
-       
+            <div  className="s-data " onClick={(event) =>(window.location.href = '/city')} ><p className="d-name black p-0 fw-bold see-more" >See More</p></div>
+
     
        </div>
         </div>
-          </div>
+        </span>
+
+
+ {/* Slides adv */}
+ <span id="a-slide">
+          <div  className="a-slide p-0 m-0  "> 
+         <div className=" ph-item" style={{ backgroundImage: `url(${ sadventure[0].urlimg})` }}>
+         </div>
+<div className="l-name text-center">
+  <p className="black p-0 m-0 fw-bold" >{ sadventure[0].name}</p>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/adventure/${ sadventure[0].name.toLowerCase()}`)} >Read More</button>
+  </div>
+       <div className="h-data">
+         { sadventure.map((e,index)=>{
+           return(
+            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/adventure/${e.name.toLowerCase()}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
+           );
+         })}
+            <div  className="s-data " onClick={(event) =>(window.location.href = '/adventure')} ><p className="d-name black p-0 fw-bold see-more" >See More</p></div>
+
+    
+       </div>
+        </div>
+        </span>
+
           </div>
      
         

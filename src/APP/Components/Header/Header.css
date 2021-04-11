@@ -127,16 +127,47 @@ ul {
 #c-slide{
   display: none;
 }
+
 .h-slide{
-  display: flex;
+display: flex;
   position: absolute;
-  top: 5vw;
+  z-index: 5;
+  top: 6vw;
   right: 18vw;
   width: 32vw;
-height: 30vh;
+  height: 180px;
   background-color: rgb(255, 255, 255,0.8);
   align-items: center;
 border-radius: 0 15px 15px 0;
+}
+@media only screen and (max-width: 1199px) {
+  .h-slide{
+    display:none;
+  }
+}
+#a-slide{
+  display: none;
+}
+.a-slide{
+  display: flex;
+    position: absolute;
+    z-index: 5;
+    top: 6vw;
+    right: 7vw;
+    width: 32vw;
+    height: 180px;
+    background-color: rgb(255, 255, 255,0.8);
+    align-items: center;
+  border-radius: 0 15px 15px 0;
+  }
+  @media only screen and (max-width: 1199px) {
+    .a-slide{
+      display:none;
+    }
+  }
+
+.see-more{
+  font-size: 14px;
 }
 .ph-item{
   width: 8vw;
