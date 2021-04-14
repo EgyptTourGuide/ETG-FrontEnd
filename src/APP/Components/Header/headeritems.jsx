@@ -14,9 +14,5 @@ export const navitem = [
     path: "/visitplanner",
     cname: "nav-text",
   },
-  {
-    title: "Visit Planner",
-    path: "/visitplanner",
-    cname: "nav-text",
-  },
+
 ];

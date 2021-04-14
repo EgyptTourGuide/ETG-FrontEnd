@@ -1,7 +1,4 @@
-.header {
-  position: relative;
-  top: 0;
-}
+
 .nodiewction {
   text-decoration: none;
 }
@@ -166,6 +163,7 @@ border-radius: 0 15px 15px 0;
     }
   }
 
+
 .see-more{
   font-size: 14px;
 }
@@ -208,7 +206,7 @@ margin-left: 3vw;
   margin: 0;
   font-size: 10px;
   height: 20px;
-  width: 64px;
+  width: 70px;
   border-radius: 25px;
   border:1px solid #141620;
   background-color:transparent;
@@ -216,4 +214,13 @@ margin-left: 3vw;
 .btn-r:hover{
   color: white;
   background-color: #141620;
+}
+
+@media only screen and (max-width: 1199px) {
+  .lo-slide{
+    display:none;
+  }
+}
+#lo-slide{
+  display: none;
 }

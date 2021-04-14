@@ -21,7 +21,7 @@ class Allhome extends Component {
         <Home {...this.props} />
         <Header {...this.props} />
         <BackGround bgimg={this.state.bgimg}> </BackGround>
-        <Homecity city={this.state.city}></Homecity>
+        <Homecity city={this.state.city} {...this.props}></Homecity>
         <Adventuresslide adventure={this.props.adventure}></Adventuresslide>
         <Footer></Footer>
       </React.Fragment>

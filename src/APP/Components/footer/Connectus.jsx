@@ -3,25 +3,47 @@ import "./footer.css";
 
 class ConnectUS extends Component {
   state = {};
+  constructor(props){
+super(props);
+  }
   render() {
     return (
       <React.Fragment>
-        <div className="container-fluid text-center p-0 m-0">
-          <div className="row p-0 m-0">
-            <p className="text-white p-0 m-0">personal information</p>
+        <div className="conus">
+        <form >
+        <div className="flex-container-c text-center p-0 m-0">
+          <div className=" clos-con text-end ">
+            <span className="clo-icon" onClick={()=>this.props.closeconnectus()}>
+            <i class="fas fa-times fa-lg"></i>
+            </span>
           </div>
-          <div className="row text-start p-0 m-0">
-            <input className="input" type="text" id="name" placeholder="" />
-            <label className="label" for="name">
-              Full Name
-            </label>
+          <div className=" p-0 m-1">
+            <h5 className="text-white p-0 m-0">Personal Information</h5>
           </div>
-          <div className="row text-start p-0 m-0">
-            <input className="input" type="text" id="name" />
-            <label className="label" for="name">
-              Full Name
-            </label>
+          <div>
+          <div className="text-start  p-0 m-1">
+            <label className=" text-white p-0 m-0" htmlFor="name">Full Name</label>
+            <input className=" input p-2" type="text" placeholder="Enter your full name"  id="name" />
+
           </div>
+          <div className="text-start  p-0 m-1">
+            <label className=" text-white p-0 m-0" htmlFor="email">Email</label>
+            <input className=" input p-2" type="text" placeholder="Enter your Email"  id="email" />
+          </div>
+          <div className=" p-0 m-0">
+            <h5 className="text-white p-0 m-1">Your Message</h5>
+          </div>
+          <div>
+          <textarea  className="tex-are p-2"  placeholder="Enter your Message"/>
+          </div>
+         <div className=" p-0 m-1">
+          <button className="sendbtn">Send</button>
+         </div>
+         
+          </div>
+       
+        </div>
+        </form>
         </div>
       </React.Fragment>
     );

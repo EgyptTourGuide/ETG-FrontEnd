@@ -10,7 +10,8 @@
 }
 .s-icon{
   position: absolute;
-  z-index: 1;
+ z-index: 1;
+
 }
 
 
@@ -86,4 +87,6 @@ border-radius: 0 0 15px 15px;
   display: none;
 }
 
-
+.s-data{
+  cursor: pointer;
+}

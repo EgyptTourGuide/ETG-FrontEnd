@@ -8,8 +8,11 @@ import Adventurepage from './Components/Citypage/Adventurepage';
 import City from './Components/City/City';
 
 class App extends Component {
+//     user: { name: "Clark", imgurl: "/images/man.png" },
+
+
   state = {
-    user: { name: "Clark", imgurl: "/images/man.png" },
+    
     city: [
       {
         id: 1,

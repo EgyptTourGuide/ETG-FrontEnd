@@ -8,14 +8,14 @@ import Search from "../mostuse/Search";
 const Adventurepage = props => {
 
   return (  <React.Fragment>
-    <Header {...props} user={props.user} className="position-relative"></Header>
+    <Header {...props} user={props.user} ></Header>
     <div className="container-fluid text-center text-white">
       <h2 className="fw-bold">Whate To Do</h2>
       <p className="text">It's Time To Escape</p>
     </div>
     <Search  data={props.adventure} user={props.user} path={"/adventure"}></Search>
 
-        <Cityshow data={props.adventure} {...props}></Cityshow>
+        <Cityshow data={props.adventure} type={"adventure"}></Cityshow>
         
     <Footer></Footer>
   </React.Fragment> );

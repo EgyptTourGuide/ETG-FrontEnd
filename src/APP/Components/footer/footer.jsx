@@ -10,10 +10,34 @@ class Footer extends Component {
   backtotop = () => {
     $("html,body").animate({ scrollTop: 0 }, "slow");
   };
+  showconnectus(){
+    $(".con-s").fadeToggle();
+    $("#message-icon").toggleClass('fa-envelope-open fa-envelope');
+  }
+  closeconnectus(){
+    $(".con-s").fadeOut();
+    $("#message-icon").toggleClass('fa-envelope fa-envelope-open ');
+  }
+
+
+  componentDidMount(){
+    $(window).scroll(function(){
+      $(".con-s").fadeOut();
+      $("#message-icon").removeClass(' fa-envelope-open ');
+      $("#message-icon").addClass('fa-envelope ');
+     });
+  }
   render() {
     return (
       <React.Fragment>
+
+<div className="d-flex align-items-end">
+<div className="con-s">
+           <ConnectUS closeconnectus={()=>this.closeconnectus()} />
+           </div>
         <div className="footer container-fluid p-0 mt-3 m-0">
+       
+       
           <div className="row justify-content-center align-items-center   p-3 m-0">
             <div className="row justify-content-between  m-0 p-0">
               <div className="col-6 p-0 m-0">
@@ -37,9 +61,11 @@ class Footer extends Component {
             </div>
             <div className="row justify-content-between align-items-center  m-0 p-0">
               <div className="col p-0 m-0">
-                <Link className="connectus decoration text-white ">
+                <span className="connectus " onClick={()=>this.showconnectus()}>
+                <i id="message-icon" className="far fa-envelope me-2"></i>
+                 
                   Connect Us
-                </Link>
+                </span>
               </div>
 
               <div className="col d-flex justify-content-end  p-0 m-0">
@@ -47,7 +73,7 @@ class Footer extends Component {
                   <i className=" fab fa-android fa-2x"></i>
                 </Link>
                 <Link className="me-0 mx-2 social-icon ">
-                  <i className="fab fa-apple fa-2x"></i>
+                  <i className="fab fa-apple fa-2x "></i>
                 </Link>
               </div>
             </div>
@@ -59,25 +85,13 @@ class Footer extends Component {
               </p>
             </div>
           </div>
+         
         </div>
-
-        <span>{/* <ConnectUS/> */}</span>
+  
+        </div>
       </React.Fragment>
     );
   }
 }
 
 export default Footer;
-
-/*
-
-
-<div className="col-12"> 
-             <div className=" top-arrow p-0 m-0" onClick={()=>this.backtotop()}>
-             <i className=" fas fa-chevron-up fa-2x"></i>
-             <p className="top">Top</p>
-             </div>
-    </div>
-
-
-*/

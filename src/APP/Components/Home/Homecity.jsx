@@ -41,7 +41,7 @@ class Homecity extends Component {
               </p>
             </div>
             <div className="row  justify-content-center p-0 m-0">
-              <Cityshow data={this.state.filtercity}></Cityshow>
+              <Cityshow data={this.state.filtercity} type={"city"}></Cityshow>
             </div>
           </div>
         </div>

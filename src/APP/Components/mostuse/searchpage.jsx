@@ -42,7 +42,7 @@ super(props);
   render() {
     return (
       <React.Fragment>
-        <Header {...this.props} user={this.props.user} className="position-relative"></Header>
+        <Header {...this.props} user={this.props.user}></Header>
 
         <div className="container-fluid b-s d-flex  justify-content-center align-items-center p-0 m-0">
           <div className="row p-0 m-0">
