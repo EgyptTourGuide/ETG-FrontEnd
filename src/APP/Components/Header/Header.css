@@ -217,9 +217,22 @@ margin-left: 3vw;
 }
 
 @media only screen and (max-width: 1199px) {
-  .lo-slide{
+  .login{
     display:none;
   }
+}
+
+
+.login{
+  position: absolute;
+  padding: 1vw;
+  z-index: 3;
+  top: 6vw;
+  right: 1vw;
+  width: 32vw;
+  background-color:  rgb(22, 23, 32,0.9) ;
+  align-items: center;
+border-radius:15px;
 }
 #lo-slide{
   display: none;

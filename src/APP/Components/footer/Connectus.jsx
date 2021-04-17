@@ -14,7 +14,7 @@ super(props);
         <div className="flex-container-c text-center p-0 m-0">
           <div className=" clos-con text-end ">
             <span className="clo-icon" onClick={()=>this.props.closeconnectus()}>
-            <i class="fas fa-times fa-lg"></i>
+            <i className="fas fa-times fa-lg"></i>
             </span>
           </div>
           <div className=" p-0 m-1">
@@ -22,13 +22,13 @@ super(props);
           </div>
           <div>
           <div className="text-start  p-0 m-1">
-            <label className=" text-white p-0 m-0" htmlFor="name">Full Name</label>
-            <input className=" input p-2" type="text" placeholder="Enter your full name"  id="name" />
+            <label className=" text-white p-0 m-0" htmlFor="c-name">Full Name</label>
+            <input className=" input p-2" type="text" placeholder="Enter your full name"  id="c-name" />
 
           </div>
           <div className="text-start  p-0 m-1">
-            <label className=" text-white p-0 m-0" htmlFor="email">Email</label>
-            <input className=" input p-2" type="text" placeholder="Enter your Email"  id="email" />
+            <label className=" text-white p-0 m-0" htmlFor="c-email">Email</label>
+            <input className=" input p-2" type="text" placeholder="Enter your Email"  id="c-email" />
           </div>
           <div className=" p-0 m-0">
             <h5 className="text-white p-0 m-1">Your Message</h5>

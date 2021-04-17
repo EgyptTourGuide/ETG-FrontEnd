@@ -90,3 +90,10 @@ border-radius: 0 0 15px 15px;
 .s-data{
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1199px) {
+
+.ele-phone{
+  flex-direction: column;
+}
+}

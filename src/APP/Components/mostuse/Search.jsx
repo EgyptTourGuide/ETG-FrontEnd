@@ -14,7 +14,7 @@ class Search extends Component {
     var newdata =[];
     if (value) {
        newdata = this.state.data.filter((e) =>e.name.startsWith(value) );
-   if(newdata.length==0)
+   if(newdata.length===0)
    {
     $("#error").show();
    }
@@ -67,7 +67,8 @@ $("#s-bar").click(()=>{
               />
 
               <div className=" search-slid p-3">
-                <span id="error" className="black text-center"><i className="far fa-frown fa-lg m-2"></i>No Results Found</span>
+                <span id="error" className="black ">
+                  <i className="far fa-frown fa-lg m-2"></i>No Results Found</span>
  {this.state.newdata.map((data, index) => {
                   return (
                     <div
@@ -79,24 +80,32 @@ $("#s-bar").click(()=>{
                     >
                       <div
                         id="dataimg"
-                        className="col-1p-0 m-0"
+                        className="col-1 p-0 m-0"
                         style={{
                           backgroundImage: `url(${data.urlimg})`,
                         }}
                       ></div>
-                      <div className="col">
-                        <span>
-                          <h2 className="d-inline fw-bold">
-                            {" "}
+
+
+
+                      <div className="col text-start">
+                        <div className="ele-phone d-flex flex-xl-row p-0 m-0 align-items-center">
+                          <div >
+                          <h2 className="fw-bold">
+                          
                             {data.name.charAt(0).toUpperCase() +
-                              data.name.slice(1)}{" "}
+                              data.name.slice(1)}
                           </h2>
+                          </div>
+
+                          <div className="mx-xl-2">
+                        
                           <Rate
-                            className="d-inline"
                             rate={data.rate}
-                            size={"xs"}
+                            size={"sm"}
                           ></Rate>
-                        </span>
+                          </div>
+                        </div>
 
                         <p className="titel p-0 m-0">
                           {(

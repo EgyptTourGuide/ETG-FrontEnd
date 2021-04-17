@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Typical from "react-typical";
 import Scroll from "./../Header/scroll/scroll";
 import "./Home.css";

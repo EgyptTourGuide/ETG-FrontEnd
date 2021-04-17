@@ -37,8 +37,6 @@ changeloginwithuse=()=>{
     );
   }
 }
-
-
 changeloginwithuseformenu=()=>{
   if(this.state.user){
     return(
@@ -59,7 +57,7 @@ changeloginwithuseformenu=()=>{
     return(
       <React.Fragment>
         <li className= " nav-text my-3   d-flex justify-content-center align-items-center">
- <Link  className=" linkst  black  fs-5" >
+ <Link  className=" linkst  black  fs-5" to="/login">
                     Login
                   </Link> 
                   </li>
@@ -104,7 +102,7 @@ updataS=()=>{
       };
     } else {
       /*show scroll */
-      const body = document.body;
+     
     
       /*show slide*/
       $(".bg").animate({ width: "0vw" });
@@ -324,7 +322,9 @@ componentDidMount(){
 
  {/* Slide login */}
  <div id="lo-slide">
- <Login ></Login>
+   <div className="login">
+ <Login  ></Login>
+ </div>
  </div>
           </div>
      

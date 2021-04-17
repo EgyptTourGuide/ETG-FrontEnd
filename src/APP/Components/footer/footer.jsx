@@ -35,7 +35,7 @@ class Footer extends Component {
 <div className="con-s">
            <ConnectUS closeconnectus={()=>this.closeconnectus()} />
            </div>
-        <div className="footer container-fluid p-0 mt-3 m-0">
+        <div className="container-fluid p-0  m-0">
        
        
           <div className="row justify-content-center align-items-center   p-3 m-0">

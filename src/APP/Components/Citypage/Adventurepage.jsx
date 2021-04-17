@@ -16,8 +16,9 @@ const Adventurepage = props => {
     <Search  data={props.adventure} user={props.user} path={"/adventure"}></Search>
 
         <Cityshow data={props.adventure} type={"adventure"}></Cityshow>
-        
-    <Footer></Footer>
+        <div className="footer-bg">
+    <Footer ></Footer>
+    </div>
   </React.Fragment> );
 }
  

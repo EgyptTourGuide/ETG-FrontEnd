@@ -13,8 +13,9 @@ const Citypage = props => {
     </div>
     <Search data={props.city} user={props.user} path={"/city"}></Search>
      <Cityshow  data={props.city} {...props}></Cityshow>
-  
-    <Footer></Footer>
+     <div className="footer-bg">
+    <Footer ></Footer>
+    </div>
   </React.Fragment> );
 }
  

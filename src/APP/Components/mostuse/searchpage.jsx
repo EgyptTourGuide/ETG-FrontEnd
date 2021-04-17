@@ -57,7 +57,7 @@ super(props);
             </div>
           </div>
         </div>
-        <Footer></Footer>
+        <Footer className="footer-bg"></Footer>
       </React.Fragment>
     );
   }

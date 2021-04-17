@@ -23,7 +23,8 @@ class Allhome extends Component {
         <BackGround bgimg={this.state.bgimg}> </BackGround>
         <Homecity city={this.state.city} {...this.props}></Homecity>
         <Adventuresslide adventure={this.props.adventure}></Adventuresslide>
-        <Footer></Footer>
+        <div className="footer-bg">
+        <Footer></Footer></div>
       </React.Fragment>
     );
   }

@@ -1,0 +1,62 @@
+.register-bg-img{
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.register-bg-color{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(20,22,32,0.8);
+    background-image: linear-gradient(to right, rgba(20,22,32,0) , #141620);
+ 
+}
+
+
+
+
+.form-check-input{
+    background-color: rgb(255, 255, 255,0.5);
+}
+.sin-btn{
+    width: 140px;
+height: 35px;
+    border: 1px solid #16c79a;
+    background-color: #16c79a;
+    border-radius: 25px;
+    color: white;
+
+}
+.sin-btn:hover{
+    color:white;
+    border: 1px solid #16c79a;
+    background-color: transparent;
+  }
+
+  .r-e{
+    font-size:120px ;
+}
+.r-tg{
+position: absolute;
+font-size:13px ;
+margin-left: 2px;
+   margin-top: -5px;
+   letter-spacing: 8px;
+}
+
+
+
+@media only screen and (max-width: 1199px) {
+
+    .register-bg-color{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(20,22,32,0.8);
+        background-image: linear-gradient(to bottom, rgba(20,22,32,0) , #141620);
+     
+    }
+  }
+ 

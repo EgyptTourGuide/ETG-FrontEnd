@@ -6,6 +6,8 @@ import Citypage from "./Components/Citypage/Citypage";
 import Searchpage from './Components/mostuse/searchpage';
 import Adventurepage from './Components/Citypage/Adventurepage';
 import City from './Components/City/City';
+import Register from "./Components/register/Register";
+import LoginPhone from './Components/login/LoginPhone';
 
 class App extends Component {
 //     user: { name: "Clark", imgurl: "/images/man.png" },
@@ -368,6 +370,21 @@ class App extends Component {
             render={props => (
               <City city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
             )}
+          />
+ <Route
+            path="/login"
+            exact
+            render={props => (
+              <LoginPhone city={this.state.city}  adventure={this.state.adventure} user={this.state.user} {...props}/>
+            )}
+          />
+            <Route
+            path="/register"
+            exact
+            render={props => (
+              <Register city={this.state.city}  adventure={this.state.adventure} user={this.state.user} {...props}/>
+            )}
+  
           />
           <Redirect from="/home" to="/" />
           <Redirect to="/notfound" />
