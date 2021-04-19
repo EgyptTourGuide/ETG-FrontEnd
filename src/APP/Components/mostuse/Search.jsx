@@ -88,8 +88,8 @@ $("#s-bar").click(()=>{
 
 
 
-                      <div className="col text-start">
-                        <div className="ele-phone d-flex flex-xl-row p-0 m-0 align-items-center">
+                      <div className="col ">
+                        <div className="d-flex flex-xl-row p-0 m-0  align-items-center">
                           <div >
                           <h2 className="fw-bold">
                           
@@ -98,7 +98,7 @@ $("#s-bar").click(()=>{
                           </h2>
                           </div>
 
-                          <div className="mx-xl-2">
+                          <div className=" mx-xl-2">
                         
                           <Rate
                             rate={data.rate}

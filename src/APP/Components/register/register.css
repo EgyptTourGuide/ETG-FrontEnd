@@ -1,14 +1,12 @@
 .register-bg-img{
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .register-bg-color{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
+  
+    min-height: 100vh;
     background-color: rgba(20,22,32,0.8);
     background-image: linear-gradient(to right, rgba(20,22,32,0) , #141620);
  
@@ -58,5 +56,16 @@ margin-left: 2px;
         background-image: linear-gradient(to bottom, rgba(20,22,32,0) , #141620);
      
     }
+    .c-p{
+        flex-direction: column;
+    }
   }
- 
+ .error-m{
+     font-size: 12px;
+ }
+.foot {
+    position: relative;
+
+    bottom: 0;
+width: 100%;
+}
