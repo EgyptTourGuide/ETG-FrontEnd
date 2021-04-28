@@ -51,7 +51,6 @@ $("#s-bar").click(()=>{
     });
   };
   render() {
-    console.log(this.state.newdata);
     return (
       <React.Fragment>
         <div className="container-fluid d-flex justify-content-center s-w p-0 m-0 ">

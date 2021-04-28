@@ -11,7 +11,7 @@ const LoginPhone = (props) => {
         <Header {...props} user={props.user}></Header>
         <div className="d-flex align-items-center justify-content-center ">
           <div className="loginpage">
-            <Login></Login>
+            <Login setuser={props.setuser}></Login>
           </div>
         </div>
         <div className="cc w-100">

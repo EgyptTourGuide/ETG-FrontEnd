@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import { Link } from "react-router-dom";
 import { navitem } from "./headeritems.jsx";
 import { Animate } from "react-simple-animate";
@@ -6,70 +6,22 @@ import $ from "jquery";
 import Logo from "./../logo/logo";
 import "./Header.css";
 import Login from "../login/Login.jsx";
+import UserorLogin from "./userorlogin.jsx";
+import Profile from './Profile';
 
 
 var scity=[];
 var sadventure=[];
 class Header extends Component {
-  state = {user: this.props.user, play: false, menu: "Menu" ,city:this.props.city,adventure:this.props.adventure};
+  state = {play: false, menu: "Menu" ,city:this.props.city,adventure:this.props.adventure};
 constructor(props){
 super(props);
 this.updataS();
 }
-changeloginwithuse=()=>{
-  if(this.state.user){
-    return(
-      <React.Fragment>
-<Link className="linkst d-inline p-0 m-0 fs-6"  to="">
-                    <img className="profile " src={this.state.user.imgurl} width="50px" alt={this.state.user.name} /> 
-                    {this.state.user.name}
-                  </Link>
-      </React.Fragment>
-    );
-  }
-  else{
-    return(
-      <React.Fragment>
- <span   className=" linkst d-inline  px-1" onClick={()=>this.showslide("#lo-slide")}>
-                    <p id="al"  className="p-0 m-0">Login</p>
-                  </span> 
-      </React.Fragment>
-    );
-  }
-}
-changeloginwithuseformenu=()=>{
-  if(this.state.user){
-    return(
-      <React.Fragment>
-        <li  className= " nav-text my-3   d-flex justify-content-center align-items-center" >
-                   <Link className="linkst d-inline black  p-0 m-0 fs-5"  to="">
-                    <img className="profile " src={this.state.user.imgurl} width="50px" alt={this.state.user.name} /> 
-                    <p className="fw-bold p-0 m-0">
-                    {this.state.user.name}
-                    </p>
-                  </Link>
-                  </li>
-      </React.Fragment>
-      
-    );
-  }
-  else{
-    return(
-      <React.Fragment>
-        <li className= " nav-text my-3   d-flex justify-content-center align-items-center">
- <Link  className=" linkst  black  fs-5" to="/login">
-                    Login
-                  </Link> 
-                  </li>
-      </React.Fragment>
-    );
-  }
-}
-
-
 updataS=()=>{
    scity=this.state.city.slice(0,14);
  sadventure=this.state.adventure.slice(0,14);
+
 }
 
 
@@ -131,7 +83,9 @@ componentDidMount(){
   $(window).scroll(function(){
     $("#c-slide").fadeOut();
    $("#a-slide").fadeOut(); 
-   $("#lo-slide").fadeOut();});
+   $("#lo-slide").fadeOut();
+   $("#p-slide").fadeOut();
+  });
 
 
 
@@ -193,9 +147,9 @@ componentDidMount(){
                     Visit Planner
                   </Link>
                 </div>
-                <div className="col-2 p-0 m-0  text-center">
+                <div className="col-3 p-0 m-0  text-center " >
                   {/* show login or user */}
-                {this.changeloginwithuse()}
+                   <UserorLogin showslide={this.showslide}/>
                 </div>
                 {/* language */}
                 <div className="col-1 p-0 m-0 text-center">
@@ -237,18 +191,22 @@ componentDidMount(){
               <Animate
                 play={this.state.play}
                 start={{
-                  transform: "translateX(38vw)",
+                  transform: "translateX(68vw)",
                   opacity: "0",
                   willChange: "transform, opacity",
                 }}
                 end={{
-                  transform: "translateX(38vw)",
+                  transform: "translateX(33.5vw)",
                   opacity: "1",
                   willChange: "transform, opacity",
                 }}
               >
                 <ul className=" m-0 p-0">
-                  {this.changeloginwithuseformenu()}
+                <li  className= " nav-text my-3 text-center  d-flex justify-content-center align-items-center" >
+                          <UserorLogin/> 
+                      
+                 
+                 </li>
                   {navitem.map((item, index) => {
                     return (
                       <li
@@ -276,7 +234,7 @@ componentDidMount(){
            {/* Slide city */}
      <span id="c-slide">
           <div  className="h-slide p-0 m-0  "> 
-         <div className=" ph-item" style={{ backgroundImage: `url(${scity[0].urlimg})` }}>
+         <div className=" ph-item" style={{ backgroundImage: `url(${scity[0].media[0]})` }}>
          </div>
 <div className="l-name text-center">
   <p className="black p-0 m-0 fw-bold" >{scity[0].name}</p>
@@ -299,7 +257,7 @@ componentDidMount(){
  {/* Slide adv */}
  <span id="a-slide">
           <div  className="a-slide p-0 m-0  "> 
-         <div className=" ph-item" style={{ backgroundImage: `url(${ sadventure[0].urlimg})` }}>
+         <div className=" ph-item" style={{ backgroundImage: `url(${ sadventure[0].imgurl})` }}>
          </div>
 <div className="l-name text-center">
   <p className="black p-0 m-0 fw-bold" >{ sadventure[0].name}</p>
@@ -323,7 +281,15 @@ componentDidMount(){
  {/* Slide login */}
  <div id="lo-slide">
    <div className="login">
- <Login  ></Login>
+ <Login setuser={this.props.setuser} />
+ </div>
+ </div>
+
+
+  {/* Slide login */}
+  <div id="p-slide" >
+   <div className="pro">
+ <Profile/>
  </div>
  </div>
           </div>

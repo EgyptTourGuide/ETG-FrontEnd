@@ -69,3 +69,16 @@ margin-left: 2px;
     bottom: 0;
 width: 100%;
 }
+.profile-photo{
+    border-radius: 50%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

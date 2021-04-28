@@ -13,9 +13,19 @@ cursor: pointer;
 
 }
 .profile {
+  width: 4vw;
+  height: 4vw;
+  overflow: 'hidden';
+  object-fit: cover;
   border-radius: 50%;
+  border:white solid 0.5px;
 }
-
+@media only screen and (max-width: 1199px) {
+  .profile {
+    width: 15vw;
+    height: 15vw;
+  }
+}
 /*menu*/
 :root {
   --bar-bg: white;
@@ -220,8 +230,8 @@ margin-left: 3vw;
   .login{
     display:none;
   }
-}
 
+}
 
 .login{
   position: absolute;
@@ -235,5 +245,20 @@ margin-left: 3vw;
 border-radius:15px;
 }
 #lo-slide{
+  display: none;
+}
+
+.pro{
+  position: absolute;
+  padding: 1vw;
+  z-index: 3;
+  top: 6vw;
+  right: 7vw;
+  width: 15vw;
+  background-color:  rgb(22, 23, 32,0.9) ;
+  align-items: center;
+border-radius:15px;
+}
+#p-slide{
   display: none;
 }

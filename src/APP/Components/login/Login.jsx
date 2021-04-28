@@ -1,10 +1,43 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./login.css";
+import { backendurl } from "./../call-backend/URLs";
+
+
+
+
 class Login extends Component {
-  state = {};
-  render() {
+  state = {username:"",password:"",backenderror:""}
+  handelchange=(e)=> {
+   let state={...this.state}
+    state[e.currentTarget.name] = e.currentTarget.value;
+    this.setState(state);
+  };
+  setuser=data=>{
+    this.props.setuser(data)}
+   login=async e=>{
+    e.preventDefault();
+    var state={...this.state}
+    delete state.backenderror;
+    var backenderror="";
+    var user={};
+    await axios
+      .post(`${backendurl}/login`, state)
+      .then((response) => {
+        user =response.data;
+        window.location.replace("/home");
+      })
+      .catch(function (error) {
+         backenderror = error.response.data.errors[0];
+    
+      });
+      this.setuser(user);
+      this.setState({backenderror});
+  };
+  render() { 
     return (
+    
       <React.Fragment>
         <div className="text-center flex-container-c  ">
           <div>
@@ -15,43 +48,59 @@ class Login extends Component {
               </Link>
             </p>
           </div>
-       
-          <div className="inp  text-start  p-0 m-1">
-            <label className=" text-white p-0 m-0" htmlFor="l-email">
-              Email Address
-            </label>
-            <input
-              className=" input p-2"
-              type="text"
-              placeholder="Enter your email address"
-              id="l-email"
-            />
-          </div>
-
-          <div className="inp  text-start  p-0 m-1">
-            <label className=" text-white p-0 m-0" htmlFor="l-password">
-              Password
-            </label>
-            <input
-              className=" input p-2"
-              type="password"
-              placeholder="Enter your password"
-              id="l-password"
-            />
-          </div>
-
-          <div className="d-flex justify-content-center align-items-center p-0 m-0 my-2">
-        
-        
-            <button className="log-btn me-2">Login</button>
-              <p className="text-white p-0 m-0 mx-2">Or login by</p>
-              <Link className="googel-icon p-0 m-0"><i className="fab fa-google fa-lg"></i></Link>
+          <form>
+            <div className="inp  text-start  p-0 m-1">
+              <label className=" text-white p-0 m-0" htmlFor="l-email">
+                Email Address or Username
+              </label>
+              <input
+                name="username"
+                onChange={this.handelchange}
+                className=" input p-2"
+                type="text"
+                placeholder="Enter your email address or Username"
+                id="l-email"
+              />
             </div>
-      
+  
+            <div className="inp  text-start  p-0 m-1">
+              <label className=" text-white p-0 m-0" htmlFor="l-password">
+                Password
+              </label>
+              <input
+                name="password"
+                onChange={this.handelchange}
+                className=" input p-2"
+                type="password"
+                placeholder="Enter your password"
+                id="l-password"
+              />
+            </div>
+  
+            <div className="d-flex justify-content-center align-items-center p-0 m-0 my-2">
+              <button className="log-btn me-2" onClick={this.login}>
+                Login
+              </button>
+              <p className="text-white p-0 m-0 mx-2">Or login by</p>
+              <Link className="googel-icon p-0 m-0">
+                <i className="fab fa-google fa-lg"></i>
+              </Link>
+            </div>
+            {this.state.backenderror && (
+              <p className="text-danger">
+                *Couldn’t find account. Please try again or register now.
+              </p>
+            )}
+          </form>
         </div>
       </React.Fragment>
     );
   }
 }
-
+ 
 export default Login;
+
+
+
+
+

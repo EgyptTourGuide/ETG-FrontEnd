@@ -90,7 +90,7 @@ class Adventuresslide extends Component {
                       (window.location.href = `/adventures/${this.state.pestadventure[0].name.toLowerCase()}`)
                     }
                     style={{
-                      backgroundImage: `url(${this.state.pestadventure[0].urlimg})`,
+                      backgroundImage: `url(${this.state.pestadventure[0].media})`,
                     }}
                     className="col mx-3 m-0 p-0  S-slid d-flex  align-items-end"
                   >
@@ -121,7 +121,7 @@ class Adventuresslide extends Component {
                       (window.location.href = `/adventures/${this.state.pestadventure[1].name.toLowerCase()}`)
                     }
                     style={{
-                      backgroundImage: `url(${this.state.pestadventure[1].urlimg})`,
+                      backgroundImage: `url(${this.state.pestadventure[1].media})`,
                     }}
                     className="colm x-3 m-0 p-0  S-slid d-flex  align-items-end"
                   >
@@ -152,7 +152,7 @@ class Adventuresslide extends Component {
                       (window.location.href = `/adventures/${this.state.pestadventure[2].name.toLowerCase()}`)
                     }
                     style={{
-                      backgroundImage: `url(${this.state.pestadventure[2].urlimg})`,
+                      backgroundImage: `url(${this.state.pestadventure[2].media})`,
                     }}
                     className="col mx-3 m-0 p-0  S-slid d-flex  align-items-end"
                   >

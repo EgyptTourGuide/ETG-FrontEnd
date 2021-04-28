@@ -7,9 +7,17 @@ class Homecity extends Component {
   constructor(props) {
     super(props);
 
+    const len=this.state.city.length;
+var val;
+    if(len<8){
+val=len;
+    }
+    else{
+      val=8;
+    }
     /*choose best 8 of city*/
     let filtercity = this.state.filtercity;
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < val; i++) {
       filtercity.push(this.state.city[i]);
       /*end choose */
     }

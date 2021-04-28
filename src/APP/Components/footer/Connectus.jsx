@@ -3,9 +3,6 @@ import "./footer.css";
 
 class ConnectUS extends Component {
   state = {};
-  constructor(props){
-super(props);
-  }
   render() {
     return (
       <React.Fragment>

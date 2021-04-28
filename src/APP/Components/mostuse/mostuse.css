@@ -89,6 +89,11 @@ border-radius: 0 0 15px 15px;
 
 .s-data{
   cursor: pointer;
+  opacity: 0.8;
+}
+.s-data:hover{
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 @media only screen and (max-width: 1199px) {
@@ -97,3 +102,121 @@ border-radius: 0 0 15px 15px;
   flex-direction: column;
 }
 }
+
+
+/*loading*/
+
+.le{
+  font-size:120px ;
+}
+.ltg{
+position: relative;
+font-size:10px ;
+margin-left: 2px;
+ margin-top: -5px;
+ letter-spacing: 12px;
+}
+
+
+.loading{
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+justify-content: center
+}
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+
+
+#loadingIndicator {
+	position: relative;
+	height: 90px;
+	width: 150px;
+	top: 10px;
+	left: 50%;
+	transform: translate(-50%, 0%);
+}
+
+.loadingBar {
+	position: absolute;
+	top: 30px;
+	width: 25px;
+	height: 25px;
+	border-radius: 30px;
+	animation: loadingAnimation 3s infinite;
+}
+
+#loadingBar1 {
+	background: #1e00ff;
+	animation-delay: 0s;
+	left: 0px;
+}
+#loadingBar2 {
+	background: #ff0061;
+	animation-delay: 0.2s;
+	left: 40px;
+}
+
+#loadingBar3 {
+	background: #e1ff00;
+	animation-delay: 0.4s;
+	left: 80px;
+}
+#loadingBar4 {
+	background: #00ff9e;
+	animation-delay: 0.6s;
+	left: 120px;
+}
+
+@keyframes loadingAnimation {
+	0% {
+		top: 30px;
+	}
+	20% {
+		top: 0px;
+	}
+	50% {
+		height: 30px;
+		top: 30px;
+		border-radius: 5px;
+	}
+	75% {
+		height: 90px;
+		top: 0px;
+		border-radius: 30px;
+	}
+	100% {
+		height: 30px;
+		top: 30px;
+	}
+}
+
+
+.p-img{
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+  background-color: #141620;
+border: solid white 1px;
+}
+#blah{
+  width: 7vw;
+  height: 7vw;
+  overflow: 'hidden';
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #141620;
+  border:white solid 2px;
+}
+@media only screen and (max-width: 1199px) {
+
+  #blah{
+    width: 25vw;
+    height: 25vw;
+  
+  }
+  }
+  
