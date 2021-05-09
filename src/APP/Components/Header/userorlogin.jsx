@@ -15,23 +15,21 @@ if(user){
 <React.Fragment>
   <span className="d-none linkst d-xl-inline p-0 m-0 fs-6"   onClick={()=>this.props.showslide("#p-slide")}
   >
-  <img
-   className="profile "
-   src={user.picture}
-
-   alt={user.fullname}
- />
+    {(user.picture) ? (<img className="profile "src={user.picture}alt={user.fullname}/>):(<span></span>) }
+  
  <p className="p-0 m-0  d-none d-xl-inline  mx-1">{user.fullname}</p>
  <p className="p-0 m-0 linkst fw-bold fs-5 d-block d-xl-none black ">{user.fullname}</p>
 </span>
 
   <Link className="d-block d-xl-none linkst d-inline p-0 m-0 fs-6" to="">
+  {(user.picture) ? (
             <img
              className="profile "
              src={user.picture}
              width="50px"
              alt={user.fullname}
-           />
+           />):(<span></span>) }
+          
            <p className="p-0 m-0 linkst fw-bold fs-5  black ">{user.fullname}</p>
          </Link>
   </React.Fragment>

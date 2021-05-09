@@ -10,7 +10,6 @@ class Cityshow extends Component {
     
   }
   render() { 
-   
     return ( <React.Fragment>
       <div className=" container-fluid text-center  m-0 p-0 my-2">
   <div className="row justify-content-center p-0 m-0">
@@ -18,7 +17,7 @@ class Cityshow extends Component {
         return (
           <div
           key={index}
-            onClick={(event) =>(window.location.href = `/${this.props.type}/${e.name.toLowerCase()}`)}
+            onClick={(event) =>(window.location.href = `/${this.props.type}/${e.id}`)}
             e-aos="zoom-in"
             style={{ backgroundImage: `url(${e.media})` }}
             className="s-data d-flex align-items-end col-11 col-md-5 col-xl-5 city-card text-white p-0 m-2"

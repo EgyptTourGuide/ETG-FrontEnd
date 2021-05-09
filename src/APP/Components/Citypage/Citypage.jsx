@@ -12,7 +12,7 @@ const Citypage = props => {
       <p className="text">Egypt Is The Land Of Dreams.</p>
     </div>
     <Search data={props.city} user={props.user} path={"/city"}></Search>
-     <Cityshow  data={props.city} {...props}></Cityshow>
+     <Cityshow  data={props.city} type="city" {...props}></Cityshow>
      <div className="footer-bg">
     <Footer ></Footer>
     </div>

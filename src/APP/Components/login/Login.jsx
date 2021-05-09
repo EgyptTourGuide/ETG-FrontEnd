@@ -26,7 +26,12 @@ class Login extends Component {
       .post(`${backendurl}/login`, state)
       .then((response) => {
         user =response.data;
-        window.location.replace("/home");
+        if(window.location.href==="http://localhost:3000/login"){
+          window.location.replace("/home");
+        }
+     else{
+      window.location.replace(window.location.href);
+     }
       })
       .catch(function (error) {
          backenderror = error.response.data.errors[0];

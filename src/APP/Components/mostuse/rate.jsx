@@ -3,21 +3,16 @@ import "./mostuse.css";
 import $ from "jquery";
 
 class Rate extends Component {
-  state = { rate: this.props.rate, size: this.props.size };
-  constructor(props) {
-    super(props);
- 
-  }
+  state = {  size: this.props.size }; 
   componentDidMount(){
     $(".sicon").addClass(`fa-${this.state.size}`);
 
   }
   render() {
-
     return (
       <React.Fragment>
         <span className="allstar col  p-0 m-0">
-          {[...Array(this.state.rate)].map((star,indexOf) => {
+          {[...Array(Math.round(this.props.rate) )].map((star,indexOf) => {
             return (
               <span key={indexOf} className=" col-1 p-0 m-0">
                 <i className="ratemarrgen sicon fillstar fas fa-star"></i>
@@ -25,7 +20,7 @@ class Rate extends Component {
             );
            
          })}
-          {[...Array(5 - this.state.rate)].map((star,indexOf) => {
+          {[...Array(5 - Math.round(this.props.rate) )].map((star,indexOf) => {
  
             return (
               <span key={indexOf} className=" col-1 p-0 m-0">

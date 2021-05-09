@@ -219,4 +219,139 @@ border: solid white 1px;
   
   }
   }
+.rev-con{
+  width: 100%;
+  height: 100vw;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+  #review-form{
+    padding: 0;
+    margin: 0;
+width: 30vw;
+padding: 10px;
+border: 1px solid white ;
+border-radius: 25px;
+background-color: #141620
+  }
+
+  @media only screen and (max-width: 1199px) {
+
+    #review-form{
+      width: 90vw;
+      padding: 10px;
+      border: 1px solid white ;
+      border-radius: 25px;
+      background-color: #141620
+      
+        }
+    }
+
+  .rate{
+
+   
+    font-size: 35px;
+  }
+ .ra-in{
+   position: absolute;
+  visibility:hidden;
+ }
+.ul-rate {
+  list-style: none;
+}
+  .rate-num{
+    opacity: 0.5;
+    color:white;
+    cursor: pointer;
+
+  }
+ .ul-rate li{
+  display: inline-block;
+  margin-left: 15px;
+ }
+
+.r-a:hover,.r-a:checked + label{
+  color: #ee5a43;
+    opacity: 1;
+    transform: scale(1.2);
+    text-shadow: 0px 0px 10px #ee5a43;
+}
+.r-as:hover,.r-as:checked + label{
+  color:  #ee4e4e;
+    opacity: 1;
+    transform: scale(1.2);
+    text-shadow: 0px 0px 10px #ee4e4e;
+}
+.r-s:hover,.r-s:checked + label{
+  color: #fd6a38;
+  opacity: 1;
+  transform: scale(1.2);
+  text-shadow: 0px 0px 10px #fd6a38;
+
+}
+
+.r-n:hover,.r-n:checked + label{
+  color: #FF9F01;
+  opacity: 1;
+  transform: scale(1.2);
+  text-shadow: 0px 0px 10px #FF9F01;
+
+}
+
+.r-g:hover,.r-g:checked + label{
+  color: #FFBF00;
+    opacity: 1;
+    transform: scale(1.2);
+    text-shadow: 0px 0px 10px #FFBF00;
+}
+
+.r-h:hover,.r-h:checked + label{
+  color: #FFFF00;
+    opacity: 1;
+    transform: scale(1.2);
+    text-shadow: 0px 0px 10px #FFFF00;
+
+}
+
+
+
+  .map{
+    position: sticky;
+    width: 100%;
+    height: 40vh;
+    
+  }
+
+  .thank-you{
+ 
+  }
+.emoji{
+  animation: anim-happy 1.5s ;
+  font-size: 90px;
+  color: #ffe227;
+
+}
+  
+  @keyframes anim-happy {
+    0% {
+      transform: rotateZ(-360deg);
+    }
+  
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+
+.th-text{
+  color: #00ff9e;
+
+  font-weight: bold;
+  font-size: 55px;
+}
+
+  
+
+  
   

@@ -12,6 +12,7 @@ import LoginPhone from './Components/login/LoginPhone';
 import Loading from "./Components/mostuse/loading";
 import {backendurl} from "./Components/call-backend/URLs";
 import { User} from "./Components/Context/Logincontext";
+import Place from './Components/Details/Place';
 
 class App extends Component {
 //     user: { name: "Clark", imgurl: "/images/man.png" },
@@ -19,7 +20,7 @@ class App extends Component {
 
   state = {
     user:JSON.parse(localStorage.getItem('user')),
-    looding:true,
+    alllooding:true,
     city: [],
     adventure: [
       {
@@ -213,101 +214,104 @@ const { data }= await axios.get( `${backendurl}/cities`);
 //set state
 if(data){
  
-   this.setState({city : data.cities});
-   console.log(this.state.looding);
-  this.setState({looding:false})
+   this.setState({city : data.cities,alllooding:false});
 }
 
 
   }
 
   render() {
-  
-     console.log(this.state.user);
-    
-      if(!this.state.looding)
+      if(this.state.alllooding)
       {
-    return (
-      <User.Provider value={this.state.user}>
-
-  <React.Fragment>
-    
-        <Switch>
-       
-          <Route
-            path="/"
-            exact
-            render={props => (
-              <Allhome
-              setuser={this.setuser}
-                city={this.state.city}
-               
-                adventure={this.state.adventure}
-                user={this.state.user}
-                {...props}
-                
-              />
-            )}
-          />
-          <Route
-            path="/city"
-            exact
-            render={props => (
-              <Citypage city={this.state.city} adventure={this.state.adventure} user={this.state.user} {...props}/>
-            )}
-          />
-             <Route
-            path="/adventure"
-            exact
-            render={props => (
-              <Adventurepage city={this.state.city} adventure={this.state.adventure} user={this.state.user} {...props}/>
-            )}
-          />
-            <Route
-            path="/:name/search/:name"
-            render={props => (
-              <Searchpage city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
-            )}
-          />
-            <Route
-            path="/:name/search"
-            render={props => (
-              <Searchpage city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
-            )}
-          />
-           <Route
-            path="/city/:name"
-            render={props => (
-              <City city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
-            )}
-          />
- <Route
-            path="/login"
-            exact
-            render={props => (
-              <LoginPhone city={this.state.city}  adventure={this.state.adventure} setuser={this.setuser} user={this.state.user} {...props}/>
-            )}
-          />
-            <Route
-            path="/register"
-            exact
-            render={props => (
-              <Register city={this.state.city}  adventure={this.state.adventure} user={this.state.user} {...props}/>
-            )}
-  
-          />
-          <Redirect from="/home" to="/" />
-          <Redirect to="/notfound" />
-         
-        </Switch>
-        </React.Fragment>
-       
-        </User.Provider>
-
-        );
+        return(<Loading/>);
       }
       else{
-        return(<Loading/>);
+        return (
+          <User.Provider value={this.state.user}>
+    
+      <React.Fragment>
+        
+            <Switch>
+           
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <Allhome
+                  setuser={this.setuser}
+                    city={this.state.city}
+                   
+                    adventure={this.state.adventure}
+                    user={this.state.user}
+                    {...props}
+                    
+                  />
+                )}
+              />
+              <Route
+                path="/city"
+                exact
+                render={props => (
+                  <Citypage setuser={this.setuser} city={this.state.city} adventure={this.state.adventure} user={this.state.user} {...props}/>
+                )}
+              />
+                 <Route
+                path="/adventure"
+                exact
+                render={props => (
+                  <Adventurepage setuser={this.setuser} city={this.state.city} adventure={this.state.adventure} user={this.state.user} {...props}/>
+                )}
+              />
+                <Route
+                path="/:name/search/:name"
+                render={props => (
+                  <Searchpage  setuser={this.setuser} city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
+                )}
+              />
+                <Route
+                path="/:name/search"
+                render={props => (
+                  <Searchpage setuser={this.setuser} city={this.state.city}  adventure={this.state.adventure} user={this.state.user}{...props} />
+                )}
+              />
+               <Route
+                path="/city/:id"
+                render={props => (
+                  <City setuser={this.setuser} city={this.state.city}  adventure={this.state.adventure} user={this.state.user} {...props} />
+                )}
+              />
+     <Route
+                path="/login"
+                exact
+                render={props => (
+                  <LoginPhone setuser={this.setuser} city={this.state.city}  adventure={this.state.adventure} setuser={this.setuser} user={this.state.user} {...props}/>
+                )}
+              />
+                <Route
+                path="/register"
+                exact
+                render={props => (
+                  <Register setuser={this.setuser}  city={this.state.city}  adventure={this.state.adventure} user={this.state.user} {...props}/>
+                )}
+      
+              />
+              <Route
+                path="/place/:id"
+                exact
+                render={props => (
+                  <Place setuser={this.setuser} city={this.state.city}  adventure={this.state.adventure} user={this.state.user} {...props}/>
+                )}
+      
+              />
+              <Redirect from="/home" to="/" />
+              {/* <Redirect to="/notfound" /> */}
+             
+            </Switch>
+            </React.Fragment>
+           
+            </User.Provider>
+    
+            );
       }
   }
 }

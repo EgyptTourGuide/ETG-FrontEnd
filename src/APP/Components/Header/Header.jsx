@@ -238,12 +238,12 @@ componentDidMount(){
          </div>
 <div className="l-name text-center">
   <p className="black p-0 m-0 fw-bold" >{scity[0].name}</p>
-  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${scity[0].name.toLowerCase()}`)} >Read More</button>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${scity[0].id}`)} >Read More</button>
   </div>
        <div className="h-data">
          {scity.map((e,index)=>{
            return(
-            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/city/${e.name.toLowerCase()}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
+            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/city/${e.id}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
            );
          })}
             <div  className="s-data " onClick={(event) =>(window.location.href = '/city')} ><p className="d-name black p-0 fw-bold see-more" >See More</p></div>
@@ -261,12 +261,12 @@ componentDidMount(){
          </div>
 <div className="l-name text-center">
   <p className="black p-0 m-0 fw-bold" >{ sadventure[0].name}</p>
-  <button className="btn-r" onClick={(event) =>(window.location.href = `/adventure/${ sadventure[0].name.toLowerCase()}`)} >Read More</button>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/adventure/${ sadventure[0].id}`)} >Read More</button>
   </div>
        <div className="h-data">
          { sadventure.map((e,index)=>{
            return(
-            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/adventure/${e.name.toLowerCase()}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
+            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/adventure/${e.id}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
            );
          })}
             <div  className="s-data " onClick={(event) =>(window.location.href = '/adventure')} ><p className="d-name black p-0 fw-bold see-more" >See More</p></div>
