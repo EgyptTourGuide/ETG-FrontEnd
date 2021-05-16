@@ -57,7 +57,9 @@ super(props);
             </div>
           </div>
         </div>
+        <div className="full-screen-err">
         <Footer className="footer-bg"></Footer>
+        </div>
       </React.Fragment>
     );
   }

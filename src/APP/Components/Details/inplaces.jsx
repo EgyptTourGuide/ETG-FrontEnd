@@ -16,7 +16,8 @@ function NextArrow(props) {
   return (
     <div
       style={{ position: "absolute", top: "0" }}
-      className="arrow  h-100 d-flex align-items-center justify-content-center p-2 right  text-white fas fa-chevron-right fa-2x"
+      id="right"
+      className=" h-100 d-flex align-items-center justify-content-center p-2   text-white fas fa-chevron-right fa-2x"
       onClick={onClick}
     />
   );
@@ -125,7 +126,7 @@ $("#rev-form").fadeIn();
       }
   render() {
     
-    if (!this.state.wait) {
+    if (!this.state.wait&&this.state.placein) {
       return (
         <React.Fragment>
           <Slider {...settings}>
@@ -252,6 +253,7 @@ $("#rev-form").fadeIn();
                 </div>
               </div>
             </div>
+
           {/* map and rate */}
             <div className="row  p-0 m-0 align-items-end">
           
@@ -328,7 +330,10 @@ $("#rev-form").fadeIn();
         </React.Fragment>
       );
     } else {
-      return <Loading />;
+      return (<>
+      <div className="full-screen-err " style={{width:"95vw"}} >
+       <Loading /></div>
+      </>);
     }
   }
 }

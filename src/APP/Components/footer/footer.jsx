@@ -31,7 +31,7 @@ class Footer extends Component {
     return (
       <React.Fragment>
 
-<div className="d-flex align-items-end">
+<div className=" d-flex align-items-end">
 <div className="con-s">
            <ConnectUS closeconnectus={()=>this.closeconnectus()} />
            </div>
@@ -48,10 +48,10 @@ class Footer extends Component {
                 </Link>
                 <Link className="mx-1 social-icon ">
                   {" "}
-                  <i className=" fab fa-twitter fa-lg"></i>
+                  <i className="icon-p fab fa-twitter fa-lg"></i>
                 </Link>
                 <Link className="mx-1 social-icon ">
-                  <i className="fab fa-linkedin-in fa-lg"></i>
+                  <i className="icon-p fab fa-linkedin-in fa-lg"></i>
                 </Link>
               </div>
 
@@ -62,7 +62,7 @@ class Footer extends Component {
             <div className="row justify-content-between align-items-center  m-0 p-0">
               <div className="col p-0 m-0">
                 <span className="connectus " onClick={()=>this.showconnectus()}>
-                <i id="message-icon" className="far fa-envelope me-2"></i>
+                <i id="message-icon" className="icon-p far fa-envelope me-2"></i>
                  
                   Connect Us
                 </span>
@@ -70,10 +70,11 @@ class Footer extends Component {
 
               <div className="col d-flex justify-content-end  p-0 m-0">
                 <Link className="me-0 mx-2 social-icon ">
-                  <i className=" fab fa-android fa-2x"></i>
+                  <i className="icon-p fab fa-android fa-2x"></i>
                 </Link>
-                <Link className="me-0 mx-2 social-icon ">
-                  <i className="fab fa-apple fa-2x "></i>
+                
+               <Link className="me-0 mx-2 social-icon">
+                  <i className="icon-p fab fa-apple fa-2x "></i>
                 </Link>
               </div>
             </div>

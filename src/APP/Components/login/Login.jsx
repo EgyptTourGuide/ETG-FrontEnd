@@ -26,8 +26,11 @@ class Login extends Component {
       .post(`${backendurl}/login`, state)
       .then((response) => {
         user =response.data;
-        if(window.location.href==="http://localhost:3000/login"){
-          window.location.replace("/home");
+        if(document.referrer==="http://localhost:3000/mustlogin"){
+          window.location.replace("/")
+        }
+        else if(window.location.href==="http://localhost:3000/login"){
+        window.location.replace(document.referrer)
         }
      else{
       window.location.replace(window.location.href);

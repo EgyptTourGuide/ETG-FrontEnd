@@ -22,7 +22,7 @@ async componentDidMount(){
      
     }
     render() { 
-        if (!this.state.looding)
+        if (!this.state.looding&&this.state.cityinfo)
         {
         return (
          <React.Fragment>
@@ -32,8 +32,13 @@ async componentDidMount(){
          <Footer></Footer></div>
         </React.Fragment> );}
         else{
-            return(<Loading></Loading>);
+            return(<>
+            <div className="full-screen-err">
+            <Loading></Loading>
+            </div>
+            </>);
         }
+
     }
 }
  

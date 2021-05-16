@@ -9,28 +9,27 @@ class UserorLogin extends Component {
      return (
 <User.Consumer>
 {user=>{
-
 if(user){ 
  return(
 <React.Fragment>
   <span className="d-none linkst d-xl-inline p-0 m-0 fs-6"   onClick={()=>this.props.showslide("#p-slide")}
   >
-    {(user.picture) ? (<img className="profile "src={user.picture}alt={user.fullname}/>):(<span></span>) }
+    {(user.picture) ? (<img className="profile "src={user.picture}alt={user.fullname.split(' ').slice(0,2).join(' ')}/>):(<span></span>) }
   
- <p className="p-0 m-0  d-none d-xl-inline  mx-1">{user.fullname}</p>
- <p className="p-0 m-0 linkst fw-bold fs-5 d-block d-xl-none black ">{user.fullname}</p>
+ <p className="p-0 m-0  d-none d-xl-inline  mx-1">{user.fullname.split(' ').slice(0,2).join(' ')}</p>
+ <p className="p-0 m-0 linkst fw-bold fs-5 d-block d-xl-none black ">{user.fullname.split(' ').slice(0,2).join(' ')}</p>
 </span>
 
-  <Link className="d-block d-xl-none linkst d-inline p-0 m-0 fs-6" to="">
+  <Link className="d-block d-xl-none linkst d-inline p-0 m-0 fs-6" to={`/etg/${user.fullname.replace(/\s/g,'')}`}>
   {(user.picture) ? (
             <img
              className="profile "
              src={user.picture}
              width="50px"
-             alt={user.fullname}
+             alt={user.fullname.split(' ').slice(0,2).join(' ')}
            />):(<span></span>) }
           
-           <p className="p-0 m-0 linkst fw-bold fs-5  black ">{user.fullname}</p>
+           <p className="p-0 m-0 linkst fw-bold fs-5  black ">{user.fullname.split(' ').slice(0,2).join(' ')}</p>
          </Link>
   </React.Fragment>
  );

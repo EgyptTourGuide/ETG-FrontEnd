@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Rate from "./../mostuse/rate";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import $ from "jquery";
-
 function NextArrow(props) {
   var { onClick } = props;
   return (
-    <div
-      className="arrow  h-100 d-flex align-items-center justify-content-center p-2 right  text-white fas fa-chevron-right fa-2x"
+    <div id="right"
+      className="h-100 d-flex align-items-center justify-content-center p-2   text-white fas fa-chevron-right fa-2x"
       onClick={onClick}
     />
   );
@@ -35,7 +33,7 @@ class Adventuresslide extends Component {
     /*choose pest 3 of adventure*/
     let pestadventure = this.state.pestadventure;
     for (let i = 0; i < 3; i++) {
-      pestadventure.push(this.state.adventure[i]);
+      pestadventure.push(this.state.adventure[0]);
     }
     this.tosetstate = (pestadventure) => {
       this.setState({ pestadventure });
@@ -82,12 +80,12 @@ class Adventuresslide extends Component {
               </p>
             </div>
 
-            <div className="row justify-content-center align-items-center   p-0 m-0">
+            <div className="row justify-content-center align-items-center  p-0 m-0">
               <Slider {...settings}>
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[0].name.toLowerCase()}`)
+                      (window.location.href = `/adventures/${this.state.pestadventure[0].id}`)
                     }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[0].media})`,
@@ -101,16 +99,11 @@ class Adventuresslide extends Component {
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
-                        <p className="text-white p-0 m-0">
-                          {this.state.pestadventure[0].city}
+                        <p className="text-white p-0 m-0 w-50">
+                          {this.state.pestadventure[0].description.substr(0,this.state.pestadventure[0].description.indexOf(".")+1)}
                         </p>
                       </div>
-                      <div className="row p-0 m-0">
-                        <Rate
-                          rate={this.state.pestadventure[0].rate}
-                          size={"sm"}
-                        ></Rate>
-                      </div>
+                   
                     </div>
                     <span className="col slideshape p-0 m-0"></span>
                   </div>
@@ -118,7 +111,7 @@ class Adventuresslide extends Component {
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[1].name.toLowerCase()}`)
+                      (window.location.href = `/adventures/${this.state.pestadventure[1].id}`)
                     }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[1].media})`,
@@ -132,15 +125,9 @@ class Adventuresslide extends Component {
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
-                        <p className="text-white p-0 m-0">
-                          {this.state.pestadventure[1].city}
+                        <p className="text-white p-0 m-0 w-50">
+                          {this.state.pestadventure[1].description.substr(0,this.state.pestadventure[1].description.indexOf(".")+1)}
                         </p>
-                      </div>
-                      <div className="row p-0 m-0">
-                        <Rate
-                          rate={this.state.pestadventure[1].rate}
-                          size={"sm"}
-                        ></Rate>
                       </div>
                     </div>
                     <span className="col slideshape p-0 m-0"></span>
@@ -163,16 +150,11 @@ class Adventuresslide extends Component {
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
-                        <p className="text-white p-0 m-0">
-                          {this.state.pestadventure[2].city}
+                        <p className="text-white p-0 m-0 w-50">
+                          {this.state.pestadventure[2].description.substr(0,this.state.pestadventure[2].description.indexOf(".")+1)}
                         </p>
                       </div>
-                      <div className="row p-0 m-0">
-                        <Rate
-                          rate={this.state.pestadventure[2].rate}
-                          size={"sm"}
-                        ></Rate>
-                      </div>
+                  
                     </div>
                     <span className="col slideshape p-0 m-0"></span>
                   </div>

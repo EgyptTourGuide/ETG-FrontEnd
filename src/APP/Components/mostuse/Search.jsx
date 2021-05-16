@@ -13,7 +13,7 @@ class Search extends Component {
     this.setState({ value });
     var newdata =[];
     if (value) {
-       newdata = this.state.data.filter((e) =>e.name.startsWith(value) );
+       newdata = this.state.data.filter((e) =>e.name.toLowerCase().includes(value.toLowerCase()) );
    if(newdata.length===0)
    {
     $("#error").show();
@@ -73,7 +73,7 @@ $("#s-bar").click(()=>{
                     <div
                       key={index}
                       onClick={(event) =>
-                        (window.location.href = `/city/${data.name.toLowerCase()}`)
+                        (window.location.href = `/${data.type?(data.type):(this.props.type)}/${data.id}`)
                       }
                       className="element  black  row align-items-center p-3 m-0"
                     >
@@ -81,7 +81,7 @@ $("#s-bar").click(()=>{
                         id="dataimg"
                         className="col-1 p-0 m-0"
                         style={{
-                          backgroundImage: `url(${data.urlimg})`,
+                          backgroundImage: `url(${data.media})`,
                         }}
                       ></div>
 
@@ -92,25 +92,21 @@ $("#s-bar").click(()=>{
                           <div >
                           <h2 className="fw-bold">
                           
-                            {data.name.charAt(0).toUpperCase() +
-                              data.name.slice(1)}
+                            {data.name.charAt(0).toUpperCase() + data.name.slice(1)}
                           </h2>
                           </div>
 
                           <div className=" mx-xl-2">
-                        
-                          <Rate
-                            rate={data.rate}
-                            size={"sm"}
-                          ></Rate>
+                        {data.rate?( <Rate rate={data.rate}size={"sm"}></Rate>):(<span></span>) }
+                          
+
                           </div>
                         </div>
 
                         <p className="titel p-0 m-0">
-                          {(
-                            data.about.charAt(0).toUpperCase() +
-                            data.about.slice(1)
-                          ).slice(0, data.about.search(/[^\w\s]/g) + 1)}
+                         
+                        {data.description?(( data.description.charAt(0).toUpperCase() +data.description.slice(1)).slice(0, data.description.search(/[^\w\s]/g) + 1)):(<span></span>) }
+
                         </p>
                       </div>
                      

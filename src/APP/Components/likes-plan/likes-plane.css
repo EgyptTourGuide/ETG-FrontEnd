@@ -1,0 +1,10 @@
+.text-break{
+    height: 70%;
+    width: 2px;
+    background-color: white;
+}
+.fullsc-load{
+    width: 100vw !important;
+    height: 100vh !important;
+
+}

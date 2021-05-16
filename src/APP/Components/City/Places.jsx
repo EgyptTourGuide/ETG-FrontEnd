@@ -4,6 +4,7 @@ import $ from "jquery";
 import InsideData from './Data';
 import { HandelFilter } from './../mostuse/handelfilter';
 import'./City.css'
+import Loading from '../mostuse/loading';
 class Places extends Component {
     state = { places:this.props.places, filter:this.props.places , from:"",start:"",to:"", error:"" }
 
@@ -63,6 +64,7 @@ handel
             }
             }
     render() { 
+        if(this.state.filter.length>0){
         return (
         <React.Fragment>
             <form  id="VisitDuration">
@@ -120,11 +122,16 @@ handel
     </div>
 </div>
 </span>
-<InsideData data={this.state.filter} type={`place/${this.props.path}`}/>
+<InsideData data={this.state.filter} type={`place`}/>
 
 
         </React.Fragment>  );
-    }
+        }
+        else{
+            return(<Loading/>)
+            
+        }    
+}
 }
  
 export default Places;

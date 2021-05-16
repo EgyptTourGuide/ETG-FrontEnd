@@ -258,8 +258,10 @@ class Register extends Component {
                   <span className="r-tg font-face-ab">TOUR GUIDE</span>
                 </span>
               </div>
+
               <div className="col-12 col-xl-6 text-center px-3 p-0 m-0">
                 <h3 className="text-white fw-bold">Create an Account</h3>
+
                 <form onSubmit={this.handelsubmit} className="p-0 m-0">
                   <FileUpload setavatar={this.setavatar} />
 
@@ -321,6 +323,7 @@ class Register extends Component {
                       />
                     </div>
                   </div>
+               
                   <div className="inp text-start  p-0 m-0 my-2">
                     <label className=" text-white p-0 m-0" htmlFor="r-email">
                       Email Address
@@ -353,6 +356,7 @@ class Register extends Component {
                       id="r-email"
                     />
                   </div>
+               
                   <div className="d-flex c-p justify-content-between p-0 m-0 my-2">
                     <div className="inp  text-start  p-0 m-0 me-1">
                       <label

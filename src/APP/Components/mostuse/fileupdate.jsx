@@ -25,7 +25,7 @@ class FileUpload extends Component {
       <React.Fragment>
         <div className="d-flex align-items-end justify-content-center my-3">
           <div>
-            <img  id="blah" src="/images/user.png" alt="profile" />
+            <img  id="blah" src={this.props.img?(this.props.img):("/images/user.png")} alt="profile" />
           </div>
           <div
             className="text-white p-0 m-0"

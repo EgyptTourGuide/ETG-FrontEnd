@@ -54,7 +54,9 @@ updataS=()=>{
       };
     } else {
       /*show scroll */
-     
+      const body = document.body;
+      body.style.overflowY = "auto";
+ 
     
       /*show slide*/
       $(".bg").animate({ width: "0vw" });
@@ -105,6 +107,10 @@ componentDidMount(){
   {
     $("#lo-slide").fadeOut(); 
   }
+  if (!$("#pr-s").is(e.target) && $("#p-slide").has(e.target).length === 0) 
+  {
+    $("#p-slide").fadeOut(); 
+  }
   })
 
   
@@ -147,7 +153,7 @@ componentDidMount(){
                     Visit Planner
                   </Link>
                 </div>
-                <div className="col-3 p-0 m-0  text-center " >
+                <div id="pr-s" className="col-3 p-0 m-0  text-center " >
                   {/* show login or user */}
                    <UserorLogin showslide={this.showslide}/>
                 </div>
@@ -257,7 +263,7 @@ componentDidMount(){
  {/* Slide adv */}
  <span id="a-slide">
           <div  className="a-slide p-0 m-0  "> 
-         <div className=" ph-item" style={{ backgroundImage: `url(${ sadventure[0].imgurl})` }}>
+         <div className=" ph-item" style={{ backgroundImage: `url(${ sadventure[0].media})` }}>
          </div>
 <div className="l-name text-center">
   <p className="black p-0 m-0 fw-bold" >{ sadventure[0].name}</p>
@@ -287,6 +293,7 @@ componentDidMount(){
 
 
   {/* Slide login */}
+  
   <div id="p-slide" >
    <div className="pro">
  <Profile/>

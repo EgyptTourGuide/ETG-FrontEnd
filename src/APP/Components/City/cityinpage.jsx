@@ -3,7 +3,7 @@ import { Link, NavLink, Route } from "react-router-dom";
 import Places from "./Places";
 import Hotels from "./Hotels";
 import Rate from "../mostuse/rate";
-import Delight from './Delight';
+import Delight from "./Delight";
 
 class CityInPage extends Component {
   state = {
@@ -25,17 +25,17 @@ class CityInPage extends Component {
               className="media row  align-content-between mt-1 p-3 justify-content-center p-0 m-0"
               style={{ backgroundImage: `url(${this.state.backgroundmedia})` }}
             >
-      
               <div className="d-flex justify-content-between">
-<div  >
-
-<h3 className="text-white"><i className="fas fa-map-marker-alt"></i> Location</h3>
-</div>
-<div >
-<i class="text-white fas fa-search fa-lg"></i>
-</div>
+                <div>
+                  <h3 className="text-white">
+                    <i className="fas fa-map-marker-alt"></i> Location
+                  </h3>
+                </div>
+                <div>
+                  <i class="text-white fas fa-search fa-lg"></i>
+                </div>
               </div>
-      
+
               <div className="row text-center  ">
                 <h1 className="text-white fw-bold ">
                   {this.state.cityinfo.name}

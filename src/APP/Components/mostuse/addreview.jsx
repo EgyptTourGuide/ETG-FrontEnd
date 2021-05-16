@@ -52,7 +52,7 @@ this.setState({error:"*Please answer all question"})
     }
 
     this.setState(state);
-
+console.log(state)
   }
   render() {
     return (
@@ -212,6 +212,7 @@ this.setState({error:"*Please answer all question"})
      <h2 className="th-text">Thank You</h2>
      </div>
      </div>
+    
       </React.Fragment>
     );
   }
