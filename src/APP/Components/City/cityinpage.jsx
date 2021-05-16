@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Link, NavLink, Route } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import Places from "./Places";
 import Hotels from "./Hotels";
-import Rate from "../mostuse/rate";
 import Delight from "./Delight";
 
 class CityInPage extends Component {

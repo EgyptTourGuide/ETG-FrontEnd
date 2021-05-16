@@ -8,13 +8,10 @@ import Search from "./Search";
 const steps = ["Search About Your Dreams In Egypt.", 5000];
 class Searchpage extends Component {
   state = { elements:[], path: "" };
-  constructor(props){
-super(props);
-  }
+
   componentDidMount() {
-    var elements=[]
-    ;
-    var path = "";
+    var elements=[];
+    //var path = "";
     if (this.props.location.pathname.startsWith("/city")) {
       if (this.props.match.params.name) {
        // elements = this.props.city.filter((e) => e.name.startsWith(this.props.match.params.name) );

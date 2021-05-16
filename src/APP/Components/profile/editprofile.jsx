@@ -3,7 +3,6 @@ import $ from "jquery";
 import FileUpload from "./../mostuse/fileupdate";
 import { countries } from "./../register/country";
 import "../register/register.css";
-import Pleaselogin from "../mostuse/MustLogin";
 import { backendurl } from "./../call-backend/URLs";
 import gettoken from "../mostuse/gettoken";
 import axios from "axios";

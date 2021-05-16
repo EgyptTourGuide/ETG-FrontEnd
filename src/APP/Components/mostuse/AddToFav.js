@@ -7,7 +7,7 @@ export default async function  AddToFav(type,id){
     if(user && type && id){
         var token =JSON.parse(localStorage.getItem('user')).token;
         const love={"type":type,"id":id}
-const done=await axios.post(`${backendurl}/profile/favourites`,love, {headers: {'Authorization': `${token}`}})
+await axios.post(`${backendurl}/profile/favourites`,love, {headers: {'Authorization': `${token}`}})
 .catch((error)=>{
     if(error.response.status === 403)
 

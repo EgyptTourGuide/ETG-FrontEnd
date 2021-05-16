@@ -5,7 +5,6 @@ import Cityshow from "../mostuse/cityshow";
 import "./Citypage.css";
 import Search from "../mostuse/Search";
 const Citypage = props => {
-  console.log(props.city)
   return (  <React.Fragment>
     <Header {...props} user={props.user} ></Header>
     

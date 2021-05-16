@@ -46,7 +46,7 @@ width: 100%;
 .search-slid{
 display: none;
 position: absolute;
-  z-index: 2;
+  z-index: 5;
   width: 80vw;
   max-height:  40vh;
   overflow-y: scroll;
@@ -322,7 +322,12 @@ background-color: #141620;
     height: 40vh;
     
   }
-
+  .emoji-no{
+    animation: anim-happy 1.5s ;
+    font-size: 90px;
+    color: #77acf1;
+  
+  }
  
 .emoji{
   animation: anim-happy 1.5s ;
@@ -330,7 +335,7 @@ background-color: #141620;
   color: #ffe227;
 
 }
-  
+
   @keyframes anim-happy {
     0% {
       transform: rotateZ(-360deg);

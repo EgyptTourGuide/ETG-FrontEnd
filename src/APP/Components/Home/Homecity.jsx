@@ -37,7 +37,7 @@ val=len;
         <div className="container-fluid m-0 p-0 text-center">
           <div className="row text-center  m-0 p-0">
             <div className="col-12 text-center text-white  m-0 p-0">
-              <h2 data-aos="fade-in" className="text-white">
+              <h2 data-aos="fade-in" className="text-white m-0 p-0">
                 The Most Amazing In Egypt.
               </h2>
               <p

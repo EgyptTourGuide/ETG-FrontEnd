@@ -16,7 +16,9 @@ class Allhome extends Component {
     return (
       <React.Fragment>
         <Home {...this.props} />
+        <div className="head-home">
          <Header {...this.props}  setuser={this.props.setuser}/> 
+         </div>
         <BackGround bgimg={this.state.bgimg}> </BackGround>
         <Homecity city={this.state.city} {...this.props}></Homecity>
         <Adventuresslide adventure={this.props.adventure}></Adventuresslide>

@@ -8,10 +8,6 @@ import  axios  from 'axios';
 import {backendurl} from "../call-backend/URLs";
 class City extends Component {
     state = {cityinfo:[],places:[],looding:true};
-constructor(props){
-    super(props)
-   
-}
 async componentDidMount(){
     const cityinfo =await axios.get(`${backendurl}/cities/${this.props.match.params.id}`);
     const places =await axios.get(`${backendurl}/places?city=${this.props.match.params.id}`);

@@ -252,7 +252,7 @@ border-radius:15px;
   position: absolute;
   border:0.5px solid white;
   padding: 1vw;
-  z-index: 3;
+  z-index: 3 !important;
   top: 6vw;
   right: 7vw;
   width: 15vw;
@@ -265,7 +265,7 @@ border-radius:15px;
 }
 .btn-e-brofile{
   width: 100%;
-  height: 25px;
+     height: 25px;
   font-size: 15px;
   background-color: transparent;
   color: #141620;

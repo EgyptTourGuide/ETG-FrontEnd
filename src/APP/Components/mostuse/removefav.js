@@ -4,7 +4,7 @@ import gettoken from './gettoken';
 export default async function removefev(id){
     var token=JSON.parse(localStorage.getItem('user')).token;
 
- const res=   await axios.delete(`${backendurl}/profile/favourites/${id}`,{headers: {'Authorization': `${token}`}})
+  await axios.delete(`${backendurl}/profile/favourites/${id}`,{headers: {'Authorization': `${token}`}})
 .catch(
    (error)=>{
 token=gettoken();

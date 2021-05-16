@@ -38,7 +38,9 @@ class Register extends Component {
               return { message: " *Please enter your correct full name" };
             case "any.empty":
               return { message: " *Your full name is required" };
-          }
+              default:
+              return { message: " *Please enter your full name" };
+            }
         });
       }),
     username: Joi.string()
@@ -60,6 +62,8 @@ class Register extends Component {
               return { message: " *Please enter correct Username" };
             case "any.empty":
               return { message: " *Username is required" };
+              default:
+                return { message: " *Please enter correct Username" };
           }
         });
       }),
@@ -74,6 +78,8 @@ class Register extends Component {
               return { message: " *Your email is required" };
             case "string.email":
               return { message: " *Please enter your correct email" };
+              default:
+                return { message: " *Please enter your correct email" };
           }
         });
       }),
@@ -85,6 +91,8 @@ class Register extends Component {
           switch (error.type) {
             case "any.empty":
               return { message: " *Please choose your country" };
+              default:
+                return { message: " *Please choose your country" };
           }
         });
       }),
@@ -95,6 +103,8 @@ class Register extends Component {
           switch (error.type) {
             case "any.empty":
               return { message: " *Your password is required" };
+              default:
+                return { message: " *Your password is required" };
           }
         });
       }),
@@ -111,6 +121,8 @@ class Register extends Component {
               return { message: " *Please enter your correct phone number" };
             case "any.empty":
               return { message: " *Please enter your phone number" };
+              default:
+                return { message: " *Please enter your phone number"  };
           }
         });
       }),
@@ -122,6 +134,8 @@ class Register extends Component {
           switch (error.type) {
             case "any.empty":
               return { message: " *Your confirme password is required" };
+              default:
+                return { message: " *Your confirme password is required"  };
           }
         });
       }),
@@ -220,7 +234,7 @@ class Register extends Component {
     } else if (
       !password.match(/[A-Z]/) ||
       !password.match(/[0-9]/) ||
-      !password.match(/[-!$#@%^&*()_+|~=`{}\[\]:";'<>?,.\/]/)
+      !password.match(/[-!$#@%^&*()_+|~=`{}:";'<>?,.]/)
     ) {
       passworderror =
         " *your password must include an uppercase letter ,number and symbols";

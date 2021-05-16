@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { backendurl } from './../call-backend/URLs';
 import $ from "jquery";
+import gettoken from "./gettoken";
 
 class AddReview extends Component {
   state = { questions: this.props.questions,answers:[] ,rate:"",comment:"",error:""};
@@ -10,7 +11,7 @@ class AddReview extends Component {
   
 
  sendreview=async()=>{
-   
+  if(JSON.parse(localStorage.getItem('user'))){
      if(this.state.answers.length<3)
      {
 this.setState({error:"*Please answer all question"})
@@ -24,18 +25,36 @@ this.setState({error:"*Please answer all question"})
      else{
         this.setState({error:""})
         if(JSON.parse(localStorage.getItem('user'))){
-            const token=JSON.parse(localStorage.getItem('user')).token;
+            var token=JSON.parse(localStorage.getItem('user')).token;
             var rev={"answers":this.state.answers,"rate":this.state.rate,"comment":this.state.comment}
-            const review=await axios.post(`${backendurl}/places/${this.props.id}/review`,rev,{headers: {'Authorization': `${token}` }})
+            await axios.post(`${backendurl}/${this.props.type}/${this.props.id}/review`,rev,{headers: {'Authorization': `${token}` }})
+            .then((res)=>{
+              console.log(res)
+              $("#review-form").hide();
+              $("#thank-you").fadeIn();
+            })
+            .catch((error)=>{
+              if(error.response.status===403){
+                token=gettoken();
+              }
+              if(error.response.status===422)
+              {
+                $("#review-form").hide();
+                $("#nonew").fadeIn();
+              }
+             
+            } )
            
-           $("#review-form").hide();
-           $("#thank-you").fadeIn();
+          
 
   setTimeout(()=>{this.props.closereview()}, 2000);
         }
-        
-     }
+      }
 
+     }
+else{
+  window.location.replace("/mustlogin")
+}
  }
   hadelratechange=e=>{
     let state={...this.state}
@@ -52,9 +71,10 @@ this.setState({error:"*Please answer all question"})
     }
 
     this.setState(state);
-console.log(state)
   }
   render() {
+
+   
     return (
       <React.Fragment>
 
@@ -213,8 +233,17 @@ console.log(state)
      </div>
      </div>
     
+
+     <div id="nonew">
+
+
+<div className=" text-center">
+<i className="emoji-no far fa-comment-alt"></i>
+<h2 className="th-text">You have already added a comment.</h2>
+</div>
+</div>
       </React.Fragment>
-    );
+    ); 
   }
 }
 

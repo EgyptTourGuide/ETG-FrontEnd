@@ -12,14 +12,14 @@ class Rooms extends Component {
 
             <div className="row justify-content-center">
 {this.state.room.map((e,ind)=>{
-       
+       var img=""
     if(e.media.length===0)
     {
-      var img=`url(/images/noimg.png)`
+       img=`url(/images/noimg.png)`
         
     }
     else{
-        var  img=`url(${e.media})`;
+          img=`url(${e.media})`;
     }
     if(!e.isBusy){
     return(

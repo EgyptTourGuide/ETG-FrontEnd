@@ -7,7 +7,6 @@ import $ from "jquery";
 import getfavorite from "../mostuse/getfavorite";
 import removefev from "../mostuse/removefav";
 import Loading from "../mostuse/loading";
-import NotFound from './../mostuse/NotFound';
 class InsideData extends Component {
   state = { type: this.props.type, fav: [] };
  
@@ -81,10 +80,9 @@ if(this.state.fav&&this.props.data.length>0 )
                       </div>
                       <div className="p-0 m-0 ">
                         {this.state.fav.filter((ele) => {
-                          ele.id == e.id
-                            ? $(`#${e.id}`).addClass("fas")
-                            : $(`#${e.id}`).addClass("far");
-                        })}
+                          ele.id === e.id ? $(`#${e.id}`).addClass("fas"): $(`#${e.id}`).addClass("far");
+                      return;
+                      })}
 
                         <i
                           id={e.id}

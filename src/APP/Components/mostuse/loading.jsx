@@ -3,14 +3,10 @@ import "./mostuse.css";
 import NotFound from "./NotFound";
 class Loading extends Component {
         state={load:true}
-   componentDidMount(){
-         setTimeout(() => {
-                 this.setState({load:false})
-         }, 2250);
-          
-   }
+ 
+   
         render() { 
-           
+          setTimeout(() => { this.setState({load:false}) }, 2250);
            if(this.state.load){
             return ( 
                         <React.Fragment>

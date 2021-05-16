@@ -8,7 +8,6 @@ import  axios  from 'axios';
 class Hotel extends Component {
     state = {hotelinf:{}  ,load:true}
     async componentDidMount(){
-        console.log(this.props.match.params.id)
 const hotelinf=await axios.get(`${backendurl}/hotels/${this.props.match.params.id}`)
 if(hotelinf){
     this.setState({hotelinf:hotelinf.data,load:false})

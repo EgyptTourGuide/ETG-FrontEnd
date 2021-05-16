@@ -149,7 +149,7 @@ componentDidMount(){
                   </span>
                 </div>
                 <div className="col-2 p-0 m-0 text-center">
-                  <Link className="linkst d-inline  fs-6" to="">
+                  <Link className="linkst d-inline  fs-6" to="/">
                     Visit Planner
                   </Link>
                 </div>
@@ -159,11 +159,9 @@ componentDidMount(){
                 </div>
                 {/* language */}
                 <div className="col-1 p-0 m-0 text-center">
-                  <Link className="linkst d-inline text-white  fs-6" to="">
+                  <Link className="linkst d-inline text-white  fs-6" to="/">
                     EN
-                  </Link>
-                  <Link className="linkst d-inline text-white  mx-2" to="">
-                    <i className="fas fa-chevron-down"></i>
+                    <i className="fas fa-chevron-down mx-2"></i>
                   </Link>
                 </div>
               </span>

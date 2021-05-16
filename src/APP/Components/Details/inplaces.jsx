@@ -56,20 +56,37 @@ class InPlaces extends Component {
     const placein = await axios.get(`${backendurl}/places/${this.props.path}`);
     if (placein) {
       const cprice = placein.data.place.ticket.egyptian;
+     
+      var comments=placein.data.place.reviews;
+      comments.sort(function(a,b){
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+
+
       this.setState({
         placein: placein.data.place,
         price: placein.data.place.ticket,
         cprice,
         wait: false,
-        comments:placein.data.place.reviews,
-        comment:placein.data.place.reviews[0],
-        rate:placein.data.place.reviews[0].rate
+        comments,
+        comment:comments[0],
+        rate:comments[0].rate
       });
-    }
+     
 
+    }
+   
+  
+   
     $("#egy").addClass("sel");
   }
 
+  togettime=d=>{
+    var dateFormat = require("dateformat");
+    var time= new Date(d);
+    const realtime= dateFormat(time, "mediumDate");
+    return realtime;
+  }
   changecomment=val=>{
 var num=this.state.num+val;
 var comment={};
@@ -117,11 +134,13 @@ var comment={};
     }
     return time;
   };
+
+
   handelshowrevform=()=>{
 $("#rev-form").fadeIn();
   }
   closereview =()=>{
-    console.log("D")
+  
     $("#rev-form").fadeOut();
       }
   render() {
@@ -289,7 +308,7 @@ $("#rev-form").fadeIn();
                 {/*  comment */}
                 <div className="d-flex align-items-center  justify-content-between rev  p-3" >
                   <div className=" col-1 text-start" onClick={()=>this.changecomment(-1)} >
-                <i class="c-arrow text-white fas fa-caret-left" ></i>
+                <i className="c-arrow text-white fas fa-caret-left" ></i>
                 </div>
                 <div className="col-10">
 <div className="d-flex  justify-content-between align-items-center">
@@ -297,8 +316,13 @@ $("#rev-form").fadeIn();
     <div>
       {this.state.comment.user.picture ?(<img src={this.state.comment.user.picture} width="50px" height="50px" className="rev-img-user" alt={this.state.comment.user.name} />):(<span></span>)}
     </div>
+   <div className="d-flex flex-column">
     <div>
     <p className="text-white p-0 m-0 mx-2 sm-s-n">{this.state.comment.user.name}</p>
+    </div>
+    <div>
+    <p className="text-white p-0 m-0 mx-2 sm-s-n" style={{fontSize:"12px",opacity:"0.5"}}>{this.togettime(this.state.comment.createdAt)}</p>
+    </div>
     </div>
   </div>
   <div className="sm-s-n">
@@ -309,7 +333,7 @@ $("#rev-form").fadeIn();
                 </div>
               
                 <div className="col-1 text-end p-0 m-0" onClick={()=>this.changecomment(1)}>
-                <i class="c-arrow text-white fas fa-caret-right"></i>
+                <i className="c-arrow text-white fas fa-caret-right"></i>
                 </div>
               </div>
 
@@ -321,7 +345,7 @@ $("#rev-form").fadeIn();
           </div>
 <span id="rev-form">
 <div className="review-banel p-0 m-0">
-<AddReview questions={this.state.placein.questions} closereview={this.closereview} id={this.state.placein.id}></AddReview>
+<AddReview questions={this.state.placein.questions} type={"places"} closereview={this.closereview} id={this.state.placein.id}></AddReview>
 
 </div>
 

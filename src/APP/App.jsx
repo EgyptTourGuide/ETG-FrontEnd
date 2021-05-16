@@ -60,7 +60,6 @@ class App extends Component {
   async componentDidMount() {
     const { data } = await axios.get(`${backendurl}/cities`);
     const adv = await axios.get(`${backendurl}/activity`);
-    console.log(adv);
     //set state
     if (data && adv) {
       this.setState({
@@ -163,10 +162,11 @@ class App extends Component {
               <Route
                 path="/login"
                 exact
-                render={(props) =>
+                render={
                   this.state.user ? (
                     <Redirect to="/" />
                   ) : (
+                    (props) =>{
                     <LoginPhone
                       setuser={this.setuser}
                       city={this.state.city}
@@ -174,7 +174,7 @@ class App extends Component {
                       setuser={this.setuser}
                       user={this.state.user}
                       {...props}
-                    />
+                    />}
                   )
                 }
               />

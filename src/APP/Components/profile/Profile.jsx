@@ -31,7 +31,7 @@ class Profile extends Component {
 
   <div className="d-flex align-items-center justify-content-center">
 <div >
-<img id="img-user-p" className="profile "src={this.state.user.picture}alt={this.state.user.fullname}/>
+<img id="img-user-p" className="profile "src={this.state.user.picture?(this.state.user.picture):("/images/user.png")}alt={this.state.user.fullname}/>
 </div>
 
 <div className="text-start mx-2  d-none d-xl-block">

@@ -4,11 +4,55 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Rooms from './Rooms';
 import Map from './../mostuse/Map';
 import Rate from '../mostuse/rate';
-
+import AddReview from './../mostuse/addreview';
+import $ from 'jquery';
+import Loading from '../mostuse/loading';
 
 class Inhotel extends Component {
-    state = {hotelinf:this.props.hotelinf  }
+    state = {hotelinf:this.props.hotelinf ,questions:this.props.hotelinf.questions,comments:{},comment:{},rate:"",num:0 }
+
+    componentDidMount(){
+      var comments=this.props.hotelinf.reviews;
+      comments.sort(function(a,b){
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+
+
+      this.setState({
+        comments,
+        comment:comments[0],
+        rate:comments[0].rate
+      });
+
+    }
+    changecomment=val=>{
+          var num=this.state.num+val;
+          var comment={};
+              if (num>=0 && num<this.state.comments.length){
+                comment=this.state.comments[num];
+                this.setState({comment,num});
+              }
+          
+            }
+
+
+            togettime=d=>{
+              var dateFormat = require("dateformat");
+              var time= new Date(d);
+              const realtime= dateFormat(time, "mediumDate");
+              return realtime;
+            }
+            handelshowrevform=()=>{
+              $("#rev-form").fadeIn();
+                }
+                closereview =()=>{
+                
+                  $("#rev-form").fadeOut();
+                    }
     render() { 
+
+if(this.state.comments.length>0)
+{
         return (<React.Fragment>
 
             
@@ -80,10 +124,10 @@ class Inhotel extends Component {
                   </div>
                 </div>
               </div>
-              
+          
               {/*  comment */}
 
-              {/* 
+             
               <div className="d-flex align-items-center  justify-content-between rev  p-3" >
                 <div className=" col-1 text-start" onClick={()=>this.changecomment(-1)} >
               <i class="c-arrow text-white fas fa-caret-left" ></i>
@@ -94,9 +138,14 @@ class Inhotel extends Component {
   <div>
     {this.state.comment.user.picture ?(<img src={this.state.comment.user.picture} width="50px" height="50px" className="rev-img-user" alt={this.state.comment.user.name} />):(<span></span>)}
   </div>
-  <div>
-  <p className="text-white p-0 m-0 mx-2 sm-s-n">{this.state.comment.user.name}</p>
-  </div>
+  <div className="d-flex flex-column">
+    <div>
+    <p className="text-white p-0 m-0 mx-2 sm-s-n">{this.state.comment.user.name}</p>
+    </div>
+    <div>
+    <p className="text-white p-0 m-0 mx-2 sm-s-n" style={{fontSize:"12px",opacity:"0.5"}}>{this.togettime(this.state.comment.createdAt)}</p>
+    </div>
+    </div>
 </div>
 <div className="sm-s-n">
   <Rate rate={this.state.comment.rate}></Rate> 
@@ -110,24 +159,22 @@ class Inhotel extends Component {
               </div>
             </div>
 
-*/}
+
             
           </div>
       
           </div>
       
 
-
-{/*
-<span id="rev-form">
+          <span id="rev-form">
 <div className="review-banel p-0 m-0">
-<AddReview questions={this.state.placein.questions} closereview={this.closereview} id={this.state.placein.id}></AddReview>
+<AddReview questions={this.state.questions} type={"hotels"}  closereview={this.closereview} id={this.state.hotelinf.id}></AddReview>
 
 </div>
 
 <span className="bg-rev-panel"></span>
 </span>  
-    */}
+    
     
 
 
@@ -138,6 +185,11 @@ class Inhotel extends Component {
 
         </React.Fragment>  );
     }
+    else{
+      return (<Loading></Loading>)
+    }
+  }
+ 
 }
  
 export default Inhotel;
