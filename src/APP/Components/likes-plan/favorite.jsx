@@ -20,7 +20,12 @@ class Favorite extends Component {
       })
       .catch((error) => {
         if (error.response.status === 403 && gettoken())
-          this.setState({ token: gettoken() });
+        var token="";
+        gettoken().then(res=>{
+          token=res;
+      })
+  
+          this.setState({ token });
       });
 
     if (favorite) {

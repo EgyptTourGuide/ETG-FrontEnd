@@ -7,7 +7,10 @@ export default async function removefev(id){
   await axios.delete(`${backendurl}/profile/favourites/${id}`,{headers: {'Authorization': `${token}`}})
 .catch(
    (error)=>{
-token=gettoken();
+    gettoken().then(res=>{
+      token=res;
+  })
+
 
 
   });

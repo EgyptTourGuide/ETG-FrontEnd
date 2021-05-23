@@ -6,15 +6,11 @@ import InsideData from "./Data";
 import './City.css'
 import HotelData from "./HotelData";
 class Hotels extends Component {
-  state = { hotels: [], looding: true, error: "", options: [] };
+  state = { hotels: [], looding: true, error: "" };
   async componentDidMount() {
-    const hotels = await axios.get(`${backendurl}/hotels?city=${this.props.path}`);
-    const option = await axios.get(`${backendurl}/settings/hotels/feature`);
-    if (hotels && option) {
-      var options=[];
-      option.data.features.map((e,ind)=>{options.push({"name":e,"id":ind})});
-      this.setState({ hotels: hotels.data,options,looding: false})
-    }
+    await axios.get(`${backendurl}/hotels?city=${this.props.path}`)
+    .then((res)=>{this.setState({ hotels: res.data,looding:false})});
+    
   }
   handelchange=e=>{
       console.log("D");

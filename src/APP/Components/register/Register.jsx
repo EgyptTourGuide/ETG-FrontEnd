@@ -170,7 +170,9 @@ class Register extends Component {
     var backenderror = "";
     await axios
       .post(`${backendurl}/signup`, user)
-      .then((response) => {
+      .then(async (response) => {
+        await axios.post(`${backendurl}/login`, {username:`${state.username}`,password:`${state.password}`})
+        .then((res)=>{this.props.setuser(res.data);})
         window.location.replace("/home");
       })
       .catch(function (error) {

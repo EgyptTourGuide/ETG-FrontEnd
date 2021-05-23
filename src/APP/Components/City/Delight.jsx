@@ -7,19 +7,13 @@ class Delight extends Component {
     state = {delight:[],looding:true  }
 
     async componentDidMount(){
- const delight=await axios.get(`${backendurl}/activity?city=${this.props.path}`);
- if (delight.data.length>0){
-    this.setState({delight:delight.data , looding:false})
-
- }
-
-
+ await axios.get(`${backendurl}/activity?city=${this.props.path}`).then(res=>{this.setState({delight:res.data.activities , looding:false})});
     }
     render() { 
         if(!this.state.looding){
         return ( 
         <React.Fragment>
-<InsideData data={this.state.delight} type={`delight/${this.props.path}`}></InsideData>
+<InsideData data={this.state.delight} type="place"></InsideData>
         </React.Fragment> );}
         else{
             return(<Loading></Loading>);

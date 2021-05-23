@@ -275,3 +275,9 @@ border-radius:15px;
 .btn-e-brofile:hover{
   background-color: #29bb89;
 }
+@media only screen and (min-width: 1199px) {
+  .loc{
+    color: white !important;
+  }
+
+}

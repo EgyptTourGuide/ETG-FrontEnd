@@ -1,0 +1,27 @@
+#bgVideo {
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.3;
+
+   
+
+  }
+  .data-z-in{
+      position: relative;
+      z-index: 5;
+  }
+.gradiant-bg{
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(to top, rgba(20,22,32, 1),  transparent) !important; 
+}
+

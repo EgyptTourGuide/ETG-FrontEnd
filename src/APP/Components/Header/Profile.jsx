@@ -11,10 +11,11 @@ if(user){
          <div className="text-start flex-container-c  ">
 <div className="d-flex align-items-center">
 <div>
-<img  className="profile "src={user.picture}alt={user.fullname}/>
+    {user.picture?(<img  className="profile "src={user.picture} alt={user.fullname}/>):(<span></span>)}
+
 </div>
 <div className="text-start mx-2 ">
-    <p style={{fontSize:"18px",textTransform:"capitalize"}} className="p-0 m-0 black fw-bold">{user.fullname.split(' ').slice(0,2).join(' ')} </p>
+    <p style={{fontSize:"100%",textTransform:"capitalize"}} className="p-0 m-0 black fw-bold">{user.fullname.split(' ').slice(0,2).join(' ')} </p>
     <p style={{fontSize:"10px"}} className="black p-0 m-0">{user.email}</p>
 </div>
 

@@ -9,12 +9,10 @@ import {backendurl} from "../call-backend/URLs";
 class City extends Component {
     state = {cityinfo:[],places:[],looding:true};
 async componentDidMount(){
-    const cityinfo =await axios.get(`${backendurl}/cities/${this.props.match.params.id}`);
-    const places =await axios.get(`${backendurl}/places?city=${this.props.match.params.id}`);
+    await axios.get(`${backendurl}/cities/${this.props.match.params.id}`).then(res=>{ this.setState({cityinfo:res.data.city})});
+    await axios.get(`${backendurl}/places?city=${this.props.match.params.id}`).then(res=>{ this.setState({places:res.data.places,looding:false});});
 
-    if(cityinfo && places ){
-        this.setState({cityinfo:cityinfo.data.city,places:places.data.places,looding:false});
-     }
+   
      
     }
     render() { 
@@ -22,7 +20,9 @@ async componentDidMount(){
         {
         return (
          <React.Fragment>
-         <Header {...this.props} setuser={this.props.setuser} user={this.props.user} ></Header>
+            <div className="head-bg">
+          <Header {...this.props} setuser={this.props.setuser} user={this.props.user} ></Header>
+          </div>
 <CityInPage cityinfo={this.state.cityinfo} places={this.state.places} ></CityInPage>
 <div className="footer-bg">
          <Footer></Footer></div>

@@ -35,7 +35,10 @@ this.setState({error:"*Please answer all question"})
             })
             .catch((error)=>{
               if(error.response.status===403){
-                token=gettoken();
+                gettoken().then(res=>{
+                  token=res;
+              })
+          
               }
               if(error.response.status===422)
               {

@@ -8,7 +8,6 @@ import Loading from '../mostuse/loading';
 class Places extends Component {
     state = { places:this.props.places, filter:this.props.places , from:"",start:"",to:"", error:"" }
 
-handel
 
 
     handelchange=e=>{
@@ -18,10 +17,12 @@ handel
     }
     filter=e=>{
         e.preventDefault();
-        if(this.state.from && this.state.to){
-       this.setState({start:this.state.from})
         const from=new Date(this.state.from);
         const to=new Date(this.state.to);
+        if(from && to && to>from){
+            
+       this.setState({start:this.state.from})
+      
         const time=(to.getTime()-from.getTime())/(1000 * 3600 * 24)+1;
         var filter=HandelFilter(this.state.places,from);
         this.setState({filter ,error:""})
@@ -62,6 +63,12 @@ handel
                this.setState({filter})
                
             }
+            }
+
+            handelupdate=()=>{
+                $("#aforyou").hide();
+                $("#VisitDuration").fadeIn();
+                
             }
     render() { 
         if(this.state.filter.length>0){
@@ -104,6 +111,7 @@ handel
               /> 
              
             </div>
+          
             <div>
             <button className="data-btn m-1" onClick={this.filter} style={{height:"35px",fontSize:"22px"}}>Go</button>
 
@@ -112,7 +120,10 @@ handel
             </form>
 <span id="aforyou">
 <div  className=" d-flex text-white align-items-center justify-content-center  p-0 m-0 my-1 flex-wrap">
-   <div className="w-100 text-center text-white"><h2>Prepared all available for you</h2></div>
+   <div className="w-100 text-center text-white align-items-center">
+       <h2 className="d-inline">Prepared all available for you</h2>
+       <i className="update-icon d-inline fas fa-pencil-alt p-0 mx-1 m-0" style={{fontSize:"20px"}} onClick={this.handelupdate}></i>
+    </div>
     <div className="mx-3 m-0 p-0 align-items-center">
     <i className="a-arrow fas fa-chevron-left  fa-lg" onClick={this.handelback}></i>
     </div>

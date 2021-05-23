@@ -11,7 +11,10 @@ await axios.post(`${backendurl}/profile/favourites`,love, {headers: {'Authorizat
 .catch((error)=>{
     if(error.response.status === 403)
 
-    token = gettoken();
+    gettoken().then(res=>{
+        token=res;
+    })
+
          
 });
     }

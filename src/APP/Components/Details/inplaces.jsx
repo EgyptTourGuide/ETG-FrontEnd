@@ -149,46 +149,18 @@ $("#rev-form").fadeIn();
       return (
         <React.Fragment>
           <Slider {...settings}>
-            <div>
-              <div
-                className="p-media-bg p-0 m-0"
-                style={{ backgroundImage: `url(${this.state.placein.media})` }}
-              >
-                {" "}
-              </div>
-            </div>
-            <div>
-              <div
-                className="p-media-bg p-0 m-0"
-                style={{ backgroundImage: `url(${this.state.placein.media})` }}
-              >
-                {" "}
-              </div>
-            </div>
-            <div>
-              <div
-                className="p-media-bg p-0 m-0"
-                style={{ backgroundImage: `url(${this.state.placein.media})` }}
-              >
-                {" "}
-              </div>
-            </div>
-            <div>
-              <div
-                className="p-media-bg p-0 m-0"
-                style={{ backgroundImage: `url(${this.state.placein.media})` }}
-              >
-                {" "}
-              </div>
-            </div>
-            <div>
-              <div
-                className="p-media-bg p-0 m-0"
-                style={{ backgroundImage: `url(${this.state.placein.media})` }}
-              >
-                {" "}
-              </div>
-            </div>
+            {this.state.placein.media.map((e,ind)=>{  
+                    return(
+                      <div key={ind}>
+                      <div
+                        className="p-media-bg p-0 m-0"
+                        style={{ backgroundImage: `url(${e})` }}
+                      >
+                      </div>
+                    </div>
+                    );
+             })}
+       
           </Slider>
 
           <div className="container-fluid px-3 px-xl-5 m-0">

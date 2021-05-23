@@ -30,7 +30,9 @@ class Login extends Component {
           window.location.replace("/")
         }
         else if(window.location.href==="http://localhost:3000/login"){
-        window.location.replace(document.referrer)
+       console.log(document.referrer)
+        // window.location.replace(document.referrer)
+       
         }
      else{
       window.location.replace(window.location.href);

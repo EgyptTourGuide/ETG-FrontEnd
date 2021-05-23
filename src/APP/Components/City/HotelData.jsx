@@ -1,7 +1,16 @@
 import React, { Component } from 'react'
 import { Multiselect } from "multiselect-react-dropdown";
+import { backendurl } from './../call-backend/URLs';
+import axios  from 'axios';
 class HotelData extends Component {
     state = {  }
+    async componentDidMount(){
+   await axios.get(`${backendurl}/settings/hotels/feature`)
+   .then((res)=>{
+    var data= [];
+    res.data.features.map((e,ind)=>{data.push({"name":e,"id":ind})})
+    this.setState({options:data})})
+    }
     render() { 
         return ( <React.Fragment>
               
@@ -13,7 +22,7 @@ class HotelData extends Component {
                 <span className="text-danger ">{this.state.error}</span>
               </div>
 
-              <div className="col-6 col-xl-3 text-start  p-1 m-0">
+              <div className="col-6 col-xl-4 text-start  p-1 m-0">
                 <label
                   className=" text-white p-0 m-0 fs-5 mx-2"
                   htmlFor="adults"
@@ -33,7 +42,7 @@ class HotelData extends Component {
 
               
 
-              <div className=" col-6 col-xl-3 text-start  p-1 m-0">
+              <div className=" col-6 col-xl-4 text-start  p-1 m-0">
                 <label className=" text-white p-0 m-0 fs-5 mx-2" htmlFor="room">
                   Room
                 </label>
@@ -48,7 +57,7 @@ class HotelData extends Component {
                 />
               </div>
 
-              <div className="col-6 col-xl-3 text-start  p-1 m-0">
+              <div className="col-6 col-xl-4 text-start  p-1 m-0">
                 <label className=" text-white p-0 m-0 fs-5 mx-2" htmlFor="bed">
                   Bed
                 </label>
@@ -63,7 +72,7 @@ class HotelData extends Component {
                 />
               </div>
 
-              <div className="col-6 col-xl-3 text-start  p-1 m-0">
+              <div className="col-6 col-xl-4 text-start  p-1 m-0">
                 <label
                   className=" text-white p-0 m-0 fs-5 mx-2"
                   htmlFor="meals"
@@ -81,7 +90,7 @@ class HotelData extends Component {
                  style={{}}
                 />
               </div>
-<div className="col-6 col-xl-3 select p-1 m-0">
+<div className="col-6 col-xl-4 select p-1 m-0">
 <label
                   className=" text-white p-0 m-0 fs-5 mx-2"
                 
@@ -93,7 +102,7 @@ class HotelData extends Component {
                style={{ searchBox:{height:"35px",padding:"0 0 0 10px"}, option:{color:"#141620"},optionContainer:{borderRadius:" 25px"},chips:{backgroundColor:"#4aa96c",borderRadius:"25px"}}}  
                 displayValue="name"/>
               </div>
-              <div className="col-12 col-xl-1 p-0 m-0">
+              <div className="col-12 col-xl-4 p-0 m-0">
                 <button
                   className="data-btn m-1"
                   onClick={this.filter}

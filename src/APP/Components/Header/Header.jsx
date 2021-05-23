@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { navitem } from "./headeritems.jsx";
 import { Animate } from "react-simple-animate";
 import $ from "jquery";
@@ -18,6 +18,12 @@ constructor(props){
 super(props);
 this.updataS();
 }
+
+showscroll(){
+  const body = document.body;
+  body.style.overflowY = "auto";
+}
+
 updataS=()=>{
    scity=this.state.city.slice(0,14);
  sadventure=this.state.adventure.slice(0,14);
@@ -29,11 +35,12 @@ updataS=()=>{
     this.setState(({ play }) => ({ play: !play }));
     this.slide();
   };
+
+ 
   slide = () => {
     
-    if (this.state.play === false) {
+    if (!this.state.play) {
       /*cancel scroll*/
-
       const body = document.body;
       body.style.height = "100vh";
       body.style.overflowY = "hidden";
@@ -54,10 +61,7 @@ updataS=()=>{
       };
     } else {
       /*show scroll */
-      const body = document.body;
-      body.style.overflowY = "auto";
- 
-    
+      this.showscroll();
       /*show slide*/
       $(".bg").animate({ width: "0vw" });
       setTimeout(function () {
@@ -115,6 +119,12 @@ componentDidMount(){
 
   
 }
+
+showscrollclick=(item)=>{
+  if(!window.location.href.includes(item.path))
+  {this.showscroll()}
+}
+
   render() {
     return (
       <React.Fragment>
@@ -149,7 +159,7 @@ componentDidMount(){
                   </span>
                 </div>
                 <div className="col-2 p-0 m-0 text-center">
-                  <Link className="linkst d-inline  fs-6" to="/">
+                  <Link className="linkst d-inline  fs-6" to="/visitplanner">
                     Visit Planner
                   </Link>
                 </div>
@@ -206,7 +216,7 @@ componentDidMount(){
                 }}
               >
                 <ul className=" m-0 p-0">
-                <li  className= " nav-text my-3 text-center  d-flex justify-content-center align-items-center" >
+                <li  className= " nav-text my-3 text-center  d-flex justify-content-center align-items-center"onClick={this.ani} >
                           <UserorLogin/> 
                       
                  
@@ -216,11 +226,10 @@ componentDidMount(){
                       <li
                         key={index}
                         className={
-                          item.cname +
-                          "  my-3   d-flex justify-content-center align-items-center"
+                          item.cname + "  my-3   d-flex justify-content-center align-items-center"
                         }
                       >
-                        <Link to={item.path} className=" linkst  black  fs-5">
+                        <Link to={item.path} onClick={()=>this.showscrollclick(item)}  className=" linkst  black  fs-5">
                           <span>{item.title}</span>
                         </Link>
                       </li>

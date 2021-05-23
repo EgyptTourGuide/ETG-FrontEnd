@@ -16,14 +16,18 @@ class CityInPage extends Component {
   };
 
   render() {
+    console.log(this.state.cityinfo.media)
     return (
       <React.Fragment>
         <div className="container-fluid">
           <div className="allmedia row justify-content-center p-0 m-0">
+           
+           
             <div
-              className="media row  align-content-between mt-1 p-3 justify-content-center p-0 m-0"
-              style={{ backgroundImage: `url(${this.state.backgroundmedia})` }}
+              className=" row  align-content-between mt-1 p-3 justify-content-center  p-0 m-0"
+
             >
+
               <div className="d-flex justify-content-between">
                 <div>
                   <h3 className="text-white">
@@ -35,29 +39,54 @@ class CityInPage extends Component {
                 </div>
               </div>
 
-              <div className="row text-center  ">
+{( this.state.backgroundmedia===this.props.cityinfo.media[0])?(<div className="info-bg-city   row text-center  ">
                 <h1 className="text-white fw-bold ">
                   {this.state.cityinfo.name}
                 </h1>
                 <p className="text-white" style={{ opacity: "0.8" }}>
                   {this.state.cityinfo.description}
                 </p>
-              </div>
+              </div>):(<span></span>)}
+              
 
               <div className="d-flex justify-content-center ">
                 {this.state.cityinfo.media.map((e, index) => {
-                  return (
+                if("jpeg jpg png gif".includes(e.split('.').pop()))
+             {   return (
                     <div
                       key={index}
-                      className="square-media p-0 m-0 my-1"
+                      className="hov-media square-media p-0 m-0 mx-1"
                       onClick={() => this.changebackground(index)}
                       style={{ backgroundImage: `url(${e})` }}
                     ></div>
-                  );
-                })}
+                  );}
+                  else{
+                    return (
+                      <div key={index} className="hov-media d-flex align-items-center justify-content-center p-0 m-0 mx-1 ">
+                        <div className="vplay-icon">
+                        <i className="fas fa-play text-white p-0 m-0" style={{fontSize:"10px"}}></i>
+                        </div>
+                      <video  onClick={() => this.changebackground(index)}  muted loop className="square-media vide ">
+                      <source src={`${e}`} type="video/mp4" />
+                    </video>
+                    </div>
+                    
+                    );
+                  }
+                }
+                
+                )}
               </div>
+   
+{("jpeg jpg png gif".includes(this.state.backgroundmedia.split('.').pop()))?( <div className=" pg-me-ci"  style={{ backgroundImage: `url(${this.state.backgroundmedia})` }}></div>):(   <video autoPlay  muted loop className="pg-me-ci vide  p-0 m-0">
+                      <source src={`${this.state.backgroundmedia}`} type="video/mp4" />
+                    </video>)}
+
+  
             </div>
-          </div>
+
+
+         </div>
           <div className="container-fluid">
             <nav className="row navbar navbar-expand navbar-dark ">
               <div className="col-12">

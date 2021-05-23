@@ -3,14 +3,7 @@
     width: 100%;
     height: 85vh;
 }
-.media{
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    background-position:50% 80%;
-    background-repeat: no-repeat;
-    background-size: auto;
-}
+
 .media-items{
     position: absolute;
     right: 1.8vw;
@@ -166,4 +159,45 @@ color: white !important;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+
+.update-icon{
+  opacity: 0.5;
+}
+
+
+.update-icon:hover{
+  opacity: 1;
+  color: #4aa96c;
+}
+
+
+
+.vide {
+  object-fit: cover;
+
+}
+.vplay-icon{
+  position: absolute;
+}
+
+.hov-media:hover{
+  transform: scale(1.1);
+}
+.pg-me-ci{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-position:50% 80%;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.info-bg-city{
+background-color:rgb(20, 22, 32,0.6) ;
+border-radius: 25px;
+  /* background-image:linear-gradient( ,rgb(20, 22, 32,0.5),rgb(20, 22, 32,1), rgb(20, 22, 32,0.5),rgb(20, 22, 32,0)) ; */
+
 }

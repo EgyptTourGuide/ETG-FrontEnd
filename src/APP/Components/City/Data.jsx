@@ -29,7 +29,7 @@ class InsideData extends Component {
   };
  async componentDidMount(){
    if(JSON.parse(localStorage.getItem('user'))){
-await getfavorite().then((res) =>{this.setState({ fav: res }); });}
+      await getfavorite().then((res) =>{this.setState({ fav: res }); });}
 
 
  }

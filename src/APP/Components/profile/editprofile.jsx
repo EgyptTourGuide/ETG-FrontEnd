@@ -8,32 +8,35 @@ import gettoken from "../mostuse/gettoken";
 import axios from "axios";
 import Loading from "../mostuse/loading";
 class EditProfile extends Component {
-  state = {user:{}, token:JSON.parse(localStorage.getItem('user')) ,fullname: "",    email: "",country: "", phone: "",  avatar: "",error:"",backenderror:""};
+  state = {user:{}, token:JSON.parse(localStorage.getItem('user')) ,fullname: "",    email: "",country: "", phone: "",  picture: "",error:"",backenderror:""};
    componentDidMount =async()=> {
     var token = this.state.token.token;
-    const user= await axios.get(`${backendurl}/profile `, { headers: { Authorization: `${token}`}})
-      .catch(error=> {
+   await axios.get(`${backendurl}/profile `, { headers: { Authorization: `${token}`}})
+   .then(res=>{
+    this.setState({
+      user:res.data,
+      fullname: res.data.name,
+      email: res.data.email,
+      country: res.data.country,
+      phone: res.data.phone,
+      picture: res.data.picture,
+    });
+   })
+      .catch(async error=> {
         if (error.response.status === 403) {
-          token = gettoken();
+         await gettoken().then(res=>{
+            token=res;
+        })
+    
           this.setState({token})}});
-    if (user) {
-      this.setState({
-        user:user.data,
-        fullname: user.data.name,
-        email: user.data.email,
-        country: user.data.country,
-        phone: user.data.phone,
-        avatar: user.data.picture,
-      });
-     
-    }
+  
 
     $(".input").attr("disabled", "disabled");
     $(".input").addClass("d-in-p");
   }
  
   setavatar = (e) => {
-    this.setState({ avatar: e.target.files[0] });
+    this.setState({ picture: e.target.files[0] });
   };
   handelabled = (id) => {
     $(`#${id}`).removeAttr("disabled");
@@ -53,20 +56,42 @@ delete state.user;
 delete state.token;
 delete state.error;
 delete state.backenderror
+
 if(state.fullname.length>10 &&state.phone&&state.email.includes("@",".")&&state.country){
 const saveuser = new FormData();
 Object.keys(state).map((key) => {
-  saveuser.append(key, state[key]);
+  saveuser.append( (key==="picture")?(`avatar`):(key), state[key]);
 });
+
 var backenderror = "";
-await axios.put(`${backendurl}/profile`, saveuser, { headers: { Authorization: `${this.state.token.token}`}}).catch( (error)=> {
+await axios.put(`${backendurl}/profile`, saveuser, { headers: { Authorization: `${this.state.token.token}`}})
+.then(async res=>{
+  const user= JSON.parse(localStorage.getItem("user"));
+ var dat= Object.fromEntries((new Map( [...[...saveuser]])));
+ var token = this.state.token.token;
+ await axios.get(`${backendurl}/profile `, { headers: { Authorization: `${token}`}})
+ .then(res=>{
+const picture=res.data.picture;
+var newuser={...user ,...dat};
+ newuser =Object.assign(newuser,{picture:`${picture}`})
+  delete newuser.avatar;
+this.props.setuser(newuser);
+window.location.replace(window.location.href);
+ })
+ 
+   
+})
+.catch( async(error)=> {
     if (error.response){
       backenderror = error.response.data.errors;
     }
     if (error.response.status === 403) {
-      const token = gettoken();
+       const token = await gettoken();
       this.setState({token})}
-  });
+  }
+  
+  );
+
   $(".input").attr("disabled", "disabled");
   $(".input").addClass("d-in-p");
 this.setState({ backenderror,error:"" });
@@ -75,13 +100,15 @@ else{
   this.setState({error:"*Please verify your data is correct."})
 }
   }
+
+
   render() {
     if (this.state.user.id) {
       return (
         <React.Fragment>
           <div className="container-fluid ">
             <form onSubmit={this.handelsubmit} className="p-0 m-0">
-              <FileUpload setavatar={this.setavatar} img={this.state.avatar} />
+              <FileUpload setavatar={this.setavatar} img={this.state.picture} />
 <span className="row text-center"> 
 <p className="text-danger">{this.state.error}</p>
 </span>
@@ -147,7 +174,7 @@ else{
                       className="custom-select input p-1 px-2 m-0"
                       onClick={() => this.countrychange()}
                       id="p-countrySelect"
-                      value={this.state.country}
+                      defaultValue={this.state.country}
                     >
                       <option value={null}>Choose Your Country</option>
                       {countries.map((e, index) => {

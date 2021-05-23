@@ -19,7 +19,7 @@ class Cityshow extends Component {
           key={index}
             onClick={(event) =>(window.location.href = `/${this.props.type}/${e.id}`)}
             e-aos="zoom-in"
-            style={{ backgroundImage: `url(${e.media})`}}
+            style={{ backgroundImage: `url(${e.media[0]})`}}
             
             className="s-data d-flex align-items-end col-11 col-md-5 col-xl-5 city-card text-white p-0 m-2"
           >

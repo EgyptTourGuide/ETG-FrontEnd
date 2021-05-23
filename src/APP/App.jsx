@@ -17,6 +17,8 @@ import Hotel from "./Components/City/hotel";
 import LikesPlan from "./Components/likes-plan/Likes-Plan";
 import Profile from './Components/profile/Profile';
 import Pleaselogin from "./Components/mostuse/MustLogin";
+import Adventure from './Components/delight/adventure';
+import Tour from './Components/Tour/Tour';
 
 
 class App extends Component {
@@ -54,24 +56,17 @@ class App extends Component {
 
   setuser = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
-    // this.setState({user});
+    this.setState({user});
+   console.log(user)
   };
 
   async componentDidMount() {
-    const { data } = await axios.get(`${backendurl}/cities`);
-    const adv = await axios.get(`${backendurl}/activity`);
-    //set state
-    if (data && adv) {
-      this.setState({
-        city: data.cities,
-        adventure: adv.data,
-        alllooding: false,
-      });
-    }
+     await axios.get(`${backendurl}/cities`).then(res=>{this.setState({city: res.data.cities})});
+    await axios.get(`${backendurl}/activity`).then(res=>{this.setState({adventure:res.data,alllooding: false});});
   }
 
   render() {
-    if (this.state.alllooding && this.state.city.length === 0) {
+    if (this.state.alllooding || this.state.city.length === 0 || this.state.adventure.length === 0) {
       return (
         <>
           <div className="full-screen-err">
@@ -81,6 +76,7 @@ class App extends Component {
       );
     } else {
       return (
+       
         <User.Provider value={this.state.user}>
           <React.Fragment>
             <Switch>
@@ -162,11 +158,10 @@ class App extends Component {
               <Route
                 path="/login"
                 exact
-                render={
+                render={(props) =>(
                   this.state.user ? (
                     <Redirect to="/" />
                   ) : (
-                    (props) =>{
                     <LoginPhone
                       setuser={this.setuser}
                       city={this.state.city}
@@ -174,9 +169,10 @@ class App extends Component {
                       setuser={this.setuser}
                       user={this.state.user}
                       {...props}
-                    />}
+                    />
                   )
-                }
+                )
+                  }
               />
               )
               <Route
@@ -218,6 +214,35 @@ class App extends Component {
                   />
                 )}
               />
+                 <Route
+                path="/adventure/:id"
+                exact
+                render={(props) => (
+                  <Adventure
+                    setuser={this.setuser}
+                    city={this.state.city}
+                    adventure={this.state.adventure}
+                    user={this.state.user}
+                    {...props}
+                  />
+                )}
+              />
+
+<Route
+                path="/visitplanner"
+                exact
+                render={(props) => (
+                  <Tour
+                    setuser={this.setuser}
+                    city={this.state.city}
+                    adventure={this.state.adventure}
+                    user={this.state.user}
+                    {...props}
+                  />
+                )}
+              />
+
+
               <Route
                 path="/in/:name"
                 exact
@@ -237,10 +262,11 @@ class App extends Component {
               />
               <Route
                 path="/etg/:name"
+                exact
                 render={(props) =>
                   this.state.user ? (
                     <Profile
-                   
+                    setuser={this.setuser}
                       city={this.state.city}
                       adventure={this.state.adventure}
                       user={this.state.user}
@@ -262,6 +288,7 @@ class App extends Component {
             </Switch>
           </React.Fragment>
         </User.Provider>
+    
       );
     }
   }
