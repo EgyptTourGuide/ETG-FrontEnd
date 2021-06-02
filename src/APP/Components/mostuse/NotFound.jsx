@@ -17,6 +17,10 @@ const NotFound = () => {
     <h1 className="fw-bold p-0 m-0" style={{color:"#fdca40"}}>Oops!</h1>
 <p className="text-white p-0 m-0" style={{fontSize:"15px",letterSpacing:"3px"}}>No Data Found</p>
 </div>
+
+<div className=" text-center p-0 m-0 my-2">
+  <button className="reload-btn" onClick={()=>{window.location.reload()}}>Reload</button>
+</div>
 </div>
     </React.Fragment>);
 }

@@ -7,6 +7,7 @@ import Rate from '../mostuse/rate';
 import AddReview from './../mostuse/addreview';
 import $ from 'jquery';
 import Loading from '../mostuse/loading';
+import Features from '../mostuse/Features';
 
 class Inhotel extends Component {
     state = {hotelinf:this.props.hotelinf ,questions:this.props.hotelinf.questions,comments:{},comment:{},rate:"",num:0 }
@@ -17,13 +18,13 @@ class Inhotel extends Component {
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
 
-
+if(comments.length>0){
       this.setState({
         comments,
         comment:comments[0],
         rate:comments[0].rate
       });
-
+    }
     }
     changecomment=val=>{
           var num=this.state.num+val;
@@ -50,9 +51,6 @@ class Inhotel extends Component {
                   $("#rev-form").fadeOut();
                     }
     render() { 
-
-if(this.state.comments.length>0)
-{
         return (<React.Fragment>
 
             
@@ -77,18 +75,18 @@ if(this.state.comments.length>0)
 <div className="container-fluid">
 <div className="row p-3">
 <div className="text-center">
-    <h2 className="text-white">{this.state.hotelinf.name}</h2>
+    <h2 className="text-white">{this.state.hotelinf.name}<span className="mx-2 yellow" style={{fontSize:"25px"}}>{this.state.hotelinf.stars}<i className="fas fa-star ms-1"></i></span></h2>
     <p className="text-start text-white">{this.state.hotelinf.description}</p>
 </div>
 <div>
     <h3 className="text-white">Features</h3>
-
+<Features features={this.state.hotelinf.features}></Features>
 </div>
 <div>
 <h3 className="text-white">Room</h3>
 
 
-<Rooms room={this.state.hotelinf.rooms}></Rooms>
+<Rooms room={this.state.hotelinf.rooms} hid={this.state.hotelinf.id}></Rooms>
 
 
 
@@ -127,7 +125,7 @@ if(this.state.comments.length>0)
           
               {/*  comment */}
 
-             
+             {this.state.comment.id?(
               <div className="d-flex align-items-center  justify-content-between rev  p-3" >
                 <div className=" col-1 text-start" onClick={()=>this.changecomment(-1)} >
               <i class="c-arrow text-white fas fa-caret-left" ></i>
@@ -159,7 +157,7 @@ if(this.state.comments.length>0)
               </div>
             </div>
 
-
+):(<span></span>)}
             
           </div>
       
@@ -185,10 +183,7 @@ if(this.state.comments.length>0)
 
         </React.Fragment>  );
     }
-    else{
-      return (<Loading></Loading>)
-    }
-  }
+
  
 }
  

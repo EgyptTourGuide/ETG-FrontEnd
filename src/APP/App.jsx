@@ -19,6 +19,8 @@ import Profile from './Components/profile/Profile';
 import Pleaselogin from "./Components/mostuse/MustLogin";
 import Adventure from './Components/delight/adventure';
 import Tour from './Components/Tour/Tour';
+import Room from './Components/City/Room';
+import Notifications from './Components/notifications/Notifications';
 
 
 class App extends Component {
@@ -57,16 +59,23 @@ class App extends Component {
   setuser = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
     this.setState({user});
-   console.log(user)
+    
   };
 
-  async componentDidMount() {
-     await axios.get(`${backendurl}/cities`).then(res=>{this.setState({city: res.data.cities})});
-    await axios.get(`${backendurl}/activity`).then(res=>{this.setState({adventure:res.data,alllooding: false});});
+ async componentDidMount() {
+
+ await  axios.get(`${backendurl}/cities`)
+ .then(res=>{this.setState({city: res.data.cities})});
+   await axios.get(`${backendurl}/activity`).then(res=>{this.setState({adventure:res.data})});
+   
+   if(this.state.city.length>0||this.state.adventure.length>0){
+this.setState({alllooding: false})
+   }
+
   }
 
   render() {
-    if (this.state.alllooding || this.state.city.length === 0 || this.state.adventure.length === 0) {
+    if (this.state.alllooding) {
       return (
         <>
           <div className="full-screen-err">
@@ -201,6 +210,19 @@ class App extends Component {
                   />
                 )}
               />
+                   <Route
+                path="/room/:id/:hid"
+                exact
+                render={(props) => (
+                  <Room
+                    setuser={this.setuser}
+                    city={this.state.city}
+                    adventure={this.state.adventure}
+                    user={this.state.user}
+                    {...props}
+                  />
+                )}
+              />
               <Route
                 path="/hotel/:id"
                 exact
@@ -215,8 +237,8 @@ class App extends Component {
                 )}
               />
                  <Route
-                path="/adventure/:id"
-                exact
+                path="/adventure/:id/:cid?"
+               
                 render={(props) => (
                   <Adventure
                     setuser={this.setuser}
@@ -249,6 +271,25 @@ class App extends Component {
                 render={(props) =>
                   this.state.user ? (
                     <LikesPlan
+                      setuser={this.setuser}
+                      city={this.state.city}
+                      adventure={this.state.adventure}
+                      user={this.state.user}
+                      {...props}
+                    />
+                  ) : (
+                    <Redirect to="/mustlogin" />
+                  )
+                }
+              />
+
+              
+<Route
+                path="/notifications"
+                exact
+                render={(props) =>
+                  this.state.user ? (
+                    <Notifications
                       setuser={this.setuser}
                       city={this.state.city}
                       adventure={this.state.adventure}

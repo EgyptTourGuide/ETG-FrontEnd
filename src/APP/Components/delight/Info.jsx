@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from "react-slick";
-
+import "./adventure.css"
 function NextArrow(props) {
     var { onClick } = props;
     return (
@@ -23,9 +23,26 @@ function NextArrow(props) {
     );
   }
   
-  const settings = {
-    className: "acti-bg p-0 m-0",
+
+  
+class Info extends Component {
+    state = { activity:this.props.activity }
+    render() { 
+        return ( <React.Fragment>
+<div className="container-fluid">
+<div className="order-med row align-items-center my-1">
+  
+<div className="col-12 col-xl-3 text-white">
+<h2 className="text-center">{this.state.activity.name}</h2>
+<p>{this.state.activity.description}</p>
+</div>
+
+
+<div className="pic-med col-12 col-xl-9">
+<Slider { ... {
+    className: "acti-bg p-0 m-0 w-100",
     centerMode: true,
+    dots:true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -37,29 +54,18 @@ function NextArrow(props) {
     pauseOnHover: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-  };
-  
-class Info extends Component {
-    state = { activity:this.props.activity }
-    render() { 
-        return ( <React.Fragment>
-<div className="container-fluid">
-<div className="order-med row align-items-center my-1">
-<div className="col-12 col-xl-3 text-white">
-<h2 className="text-center">{this.state.activity.name}</h2>
-<p>{this.state.activity.description}</p>
-</div>
-<div className="pic col-12 col-xl-9">
-<Slider {...settings}>
+  }}>
             {this.state.activity.media.map((e,ind)=>{  
                     return(
-                      <div key={ind}>
+                      <div >
                       <div
+                      key={ind}
                         className="acti-bg act-media-bg p-0 m-0"
                         style={{ backgroundImage: `url(${e})` }}
                       >
                       </div>
                     </div>
+                    
                     );
              })}
        

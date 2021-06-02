@@ -28,9 +28,9 @@ class CityInPage extends Component {
 
             >
 
-              <div className="d-flex justify-content-between">
-                <div>
-                  <h3 className="text-white">
+              <div className="d-flex justify-content-between" >
+                <div  onClick={()=>{ window.open(`https://www.google.com/maps?q=${this.state.cityinfo.location.coordinates[0]},${this.state.cityinfo.location.coordinates[1]}`, '_blank')}}>
+                  <h3 className=" location-city">
                     <i className="fas fa-map-marker-alt"></i> Location
                   </h3>
                 </div>
@@ -39,7 +39,8 @@ class CityInPage extends Component {
                 </div>
               </div>
 
-{( this.state.backgroundmedia===this.props.cityinfo.media[0])?(<div className="info-bg-city   row text-center  ">
+{( this.state.backgroundmedia===this.props.cityinfo.media[0])?
+(<div className="info-bg-city   row text-center  ">
                 <h1 className="text-white fw-bold ">
                   {this.state.cityinfo.name}
                 </h1>
@@ -162,5 +163,5 @@ class CityInPage extends Component {
     );
   }
 }
-
 export default CityInPage;
+

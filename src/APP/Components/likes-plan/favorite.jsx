@@ -1,37 +1,23 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { backendurl } from "./../call-backend/URLs";
 import Loading from "../mostuse/loading";
-import gettoken from "../mostuse/gettoken";
 import InsideData from "./../City/Data";
 import Search from "../mostuse/Search";
 import "./likes-plane.css";
+import getfavorite from "../mostuse/getfavorite";
 class Favorite extends Component {
   state = {
     favorite: {},
-    load: true,
-    token: JSON.parse(localStorage.getItem("user")).token,
+    load: true
   };
 
   async componentDidMount() {
-    const favorite = await axios
-      .get(`${backendurl}/profile/favourites`, {
-        headers: { Authorization: `${this.state.token}` },
-      })
-      .catch((error) => {
-        if (error.response.status === 403 && gettoken())
-        var token="";
-        gettoken().then(res=>{
-          token=res;
-      })
-  
-          this.setState({ token });
-      });
+    const favorite = await getfavorite()
+   
 
     if (favorite) {
-      this.setState({ favorite: favorite.data.favourites, load: false });
+      this.setState({ favorite: favorite, load: false });
     }
-   
+ 
   }
 
   render() {
@@ -41,7 +27,7 @@ class Favorite extends Component {
           <span className="mt-3 my-1">
             <Search data={this.state.favorite}></Search>
           </span>
-          <InsideData data={this.state.favorite}></InsideData>
+          <InsideData data={this.state.favorite} ></InsideData>
         </React.Fragment>
       );
     } else {

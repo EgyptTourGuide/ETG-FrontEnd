@@ -3,9 +3,6 @@ import Typical from "react-typical";
 import Scroll from "./../Header/scroll/scroll";
 import "./Home.css";
 import Search from "./../mostuse/Search";
-
-
-
 const Home = props => {
   const steps = [
     "Search About Your Dreams In Egypt.",
@@ -13,9 +10,7 @@ const Home = props => {
     "With Egypt Tour Guide Everything Is Possiblel.",
     9000,
   ];
-
   return (      
-    
      <React.Fragment>
     <div className=" container-fluid  items p-0 m-0">
       <div className="row   m-0 p-0">
@@ -24,7 +19,7 @@ const Home = props => {
         </div>
         <div className="row justify-content-start p-0 m-0">
         <Search
-          data={[...props.city,...props.adventure]}
+          data={  [...props.city,...props.adventure]}
          path={"/home"}
         ></Search>
         </div>

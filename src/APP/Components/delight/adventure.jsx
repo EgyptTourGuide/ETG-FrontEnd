@@ -10,7 +10,7 @@ import Pestplaces from './Pestplaces';
 class Adventure extends Component {
     state = {activity:{} ,load:false}
    async componentDidMount(){
-        console.log(this.props.match.params);
+        console.log(this.props.match);
    await axios.get(`${backendurl}/activity/${this.props.match.params.id}`)
    .then(res=>{this.setState({activity:res.data.activity,load:true})})
     }
@@ -19,7 +19,7 @@ class Adventure extends Component {
         return (<React.Fragment>
    <Header {...this.props} setuser={this.props.setuser} user={this.props.user} ></Header>
     <Info activity={this.state.activity} ></Info>
-<Pestplaces name={this.state.activity.name}></Pestplaces>
+<Pestplaces name={this.state.activity.name} id={this.state.activity.id} cityid={this.props.match.params.cid}></Pestplaces>
 
    <div className="footer-bg">
          <Footer></Footer></div>

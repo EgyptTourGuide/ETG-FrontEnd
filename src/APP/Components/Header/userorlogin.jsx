@@ -4,7 +4,6 @@ import { User } from "../Context/Logincontext";
 
 
 class UserorLogin extends Component {
-  state = {}
   render() { 
      return (
 <User.Consumer>
@@ -56,65 +55,8 @@ else{
          </React.Fragment>
   );
 }
- // return(<h2>user</h2>);
 }}
 </User.Consumer>
-
-     
-      //   // user ? `${
-      //   //       <Link className="linkst d-inline p-0 m-0 fs-6" to="">
-              
-      //   //       {user}
-      //   //          <img
-      //   //           className="profile "
-      //   //           src={user.picture}
-      //   //           width="50px"
-      //   //           alt={user.fullname}
-      //   //         />
-      //   //         <p className="p-0 m-0 d-inline mx-1">{user.fullname}</p>
-      //   //       </Link>
-      //   // }`:`${
-      //   //   <React.Fragment>
-      //   //   <span
-      //   //         className="d-none d-xl-block linkst d-inline  px-1"
-      //   //         onClick={() => this.props.showslide("#lo-slide")}
-      //   //       >
-      //   //         <p id="al" className="p-0 m-0">
-      //   //           Login
-      //   //         </p>
-      //   //       </span>
-        
-    
-      //   //     <span className="d-block d-xl-none  login-m m-0 p-0">
-      //   //       <Link to="/login" className=" linkst  black  fs-5">
-      //   //         Login
-      //   //       </Link>
-      //   //     </span>
-      //   //   </React.Fragment>
-          
-      //   // }`
-      
-      // }
-  
-      //   {/* <React.Fragment>
-      //   <span
-      //         className="d-none d-xl-block linkst d-inline  px-1"
-      //         onClick={() => this.props.showslide("#lo-slide")}
-      //       >
-      //         <p id="al" className="p-0 m-0">
-      //           Login
-      //         </p>
-      //       </span>
-      
-  
-      //     <span className="d-block d-xl-none  login-m m-0 p-0">
-      //       <Link to="/login" className=" linkst  black  fs-5">
-      //         Login
-      //       </Link>
-      //     </span>
-      //   </React.Fragment> */}
-      // </UserConsumer>
-  
 
     );
   }

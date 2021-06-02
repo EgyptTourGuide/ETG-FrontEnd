@@ -8,15 +8,13 @@ import "./Header.css";
 import Login from "../login/Login.jsx";
 import UserorLogin from "./userorlogin.jsx";
 import Profile from './Profile';
-
-
-var scity=[];
-var sadventure=[];
 class Header extends Component {
-  state = {play: false, menu: "Menu" ,city:this.props.city,adventure:this.props.adventure};
 constructor(props){
 super(props);
-this.updataS();
+const city=props.city.slice(0,14)
+const adv=props.adventure.slice(0,14)
+this.state={play: false, menu: "Menu",scity:city,sadventure:adv ,city:this.props.city,adventure:this.props.adventure};
+
 }
 
 showscroll(){
@@ -24,11 +22,6 @@ showscroll(){
   body.style.overflowY = "auto";
 }
 
-updataS=()=>{
-   scity=this.state.city.slice(0,14);
- sadventure=this.state.adventure.slice(0,14);
-
-}
 
 
   ani = () => {
@@ -247,14 +240,14 @@ showscrollclick=(item)=>{
            {/* Slide city */}
      <span id="c-slide">
           <div  className="h-slide p-0 m-0  "> 
-         <div className=" ph-item" style={{ backgroundImage: `url(${scity[0].media[0]})` }}>
+         <div className=" ph-item" style={{ backgroundImage: `url(${this.state.scity[0].media[0]})` }}>
          </div>
 <div className="l-name text-center">
-  <p className="black p-0 m-0 fw-bold" >{scity[0].name}</p>
-  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${scity[0].id}`)} >Read More</button>
+  <p className="black p-0 m-0 fw-bold" >{this.state.scity[0].name}</p>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${this.state.scity[0].id}`)} >Read More</button>
   </div>
        <div className="h-data">
-         {scity.map((e,index)=>{
+         {this.state.scity.map((e,index)=>{
            return(
             <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/city/${e.id}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
            );
@@ -270,14 +263,14 @@ showscrollclick=(item)=>{
  {/* Slide adv */}
  <span id="a-slide">
           <div  className="a-slide p-0 m-0  "> 
-         <div className=" ph-item" style={{ backgroundImage: `url(${ sadventure[0].media})` }}>
+         <div className=" ph-item" style={{ backgroundImage: `url(${ this.state.sadventure[0].media})` }}>
          </div>
 <div className="l-name text-center">
-  <p className="black p-0 m-0 fw-bold" >{ sadventure[0].name}</p>
-  <button className="btn-r" onClick={(event) =>(window.location.href = `/adventure/${ sadventure[0].id}`)} >Read More</button>
+  <p className="black p-0 m-0 fw-bold" >{ this.state.sadventure[0].name}</p>
+  <button className="btn-r" onClick={(event) =>(window.location.href = `/adventure/${ this.state.sadventure[0].id}`)} >Read More</button>
   </div>
        <div className="h-data">
-         { sadventure.map((e,index)=>{
+         { this.state.sadventure.map((e,index)=>{
            return(
             <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/adventure/${e.id}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
            );

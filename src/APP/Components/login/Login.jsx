@@ -21,11 +21,10 @@ class Login extends Component {
     var state={...this.state}
     delete state.backenderror;
     var backenderror="";
-    var user={};
     await axios
       .post(`${backendurl}/login`, state)
       .then((response) => {
-        user =response.data;
+        this.setuser(response.data);
         if(document.referrer==="http://localhost:3000/mustlogin"){
           window.location.replace("/")
         }
@@ -42,7 +41,7 @@ class Login extends Component {
          backenderror = error.response.data.errors[0];
     
       });
-      this.setuser(user);
+      
       this.setState({backenderror});
   };
   render() { 

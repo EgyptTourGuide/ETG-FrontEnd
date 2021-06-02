@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import $ from "jquery";
+import NotFound from "../mostuse/NotFound";
 function NextArrow(props) {
   var { onClick } = props;
   return (
@@ -26,47 +27,44 @@ function PrevArrow(props) {
 }
 
 class Adventuresslide extends Component {
-  constructor(props) {
-    super(props);
+  state = { adventure: this.props.adventure, pestadventure: [],notfound:true };
 
-    this.state = { adventure: this.props.adventure, pestadventure: [] };
-    /*choose pest 3 of adventure*/
-    let pestadventure = this.state.pestadventure;
-    for (let i = 0; i < 3; i++) {
-      pestadventure.push(this.state.adventure[0]);
-    }
-    this.tosetstate = (pestadventure) => {
-      this.setState({ pestadventure });
-    };
-    /*end choose */
-    this.state.slide = this.state.pestadventure;
-  }
   componentDidMount() {
+
+    if(this.state.adventure.length>0)
+    {    
+        /*choose pest 3 of adventure*/
+        let pestadventure = this.state.pestadventure;
+        for (let i = 0; i < 3; i++) {
+          if(this.state.adventure[i])
+          {pestadventure.push(this.state.adventure[i]);}
+          else{
+            pestadventure.push(this.state.adventure[0]);
+          }
+        }
+        this.setState({ pestadventure ,notfound:false });
+        /*end choose */
+    
+      }
+      else{
+        this.setState({notfound:true});
+      }
     AOS.init({
       duration: 500,
     });
     $(".slick-slider").addClass("m-0 p-0");
+
   }
 
   render() {
-    const settings = {
-      className: "center d-flex  justify-content-center  align-items-center",
-      centerMode: true,
-      infinite: true,
-      centerPadding: "80px",
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      speed: 500,
-      autoplay: true,
-      arrows: true,
-      autoplaySpeed: 10000,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
-    };
+    if(this.state.notfound){
+return(<NotFound></NotFound>)
+    }
+    else
     return (
       <React.Fragment>
         <div className="container-fluid text-center m-0 p-0">
-          <div className="row m-0 p-0   justify-content-center  align-items-center">
+          <div className="row m-0 p-0  justify-content-center  align-items-center">
             <div className="row text-center text-white justify-content-center m-0 p-0">
               <h2 data-aos="fade-in" className="text-white">
                 Adventures.
@@ -80,43 +78,60 @@ class Adventuresslide extends Component {
               </p>
             </div>
 
-            <div className="row justify-content-center align-items-center  p-0 m-0">
-              <Slider {...settings}>
+            <div className="row justify-content-between align-items-center  p-0 m-0">
+              <Slider {...{
+      className: "center d-flex  justify-content-between  align-items-center p-0 m-0",
+      centerMode: true,
+      infinite: true,
+      centerPadding: "80px",
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 500,
+      autoplay: true,
+      arrows: true,
+      autoplaySpeed: 10000,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+    }}>
+   
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[0].id}`)
+                      (window.location.href = `/adventure/${this.state.pestadventure[0].id}`)
                     }
-                    style={{
-                      backgroundImage: `url(${this.state.pestadventure[0].media})`,
-                    }}
-                    className="col mx-3 m-0 p-0  S-slid d-flex  align-items-end"
+                    style={{backgroundImage:`url(${this.state.pestadventure[0]?(this.state.pestadventure[0].media[0]):('/images/noimg.png')})` }}
+                  
+                    className="col mx-2 m-0 p-0  S-slid d-flex  align-items-end"
                   >
-                    <div className="row text-start m-1 p-0 slidedata">
+                    <div className="row text-start m-0 p-0 slidedata">
                       <div className="row p-0 m-0 ">
                         <h2 className="upe text-white p-0 m-0">
                           {this.state.pestadventure[0].name}
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
-                        <p className="text-white p-0 m-0 w-50">
-                          {this.state.pestadventure[0].description.substr(0,this.state.pestadventure[0].description.indexOf(".")+1)}
+                        <p className="text-white tex-des p-0 m-0 w-50">
+                        {this.state.pestadventure[0].description.substr(0,this.state.pestadventure[0].description.indexOf(".")+1)}
                         </p>
                       </div>
                    
                     </div>
+                   
                     <span className="col slideshape p-0 m-0"></span>
+              
                   </div>
                 </div>
+              
+                        
                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[1].id}`)
+                      (window.location.href = `/adventure/${this.state.pestadventure[1].id}`)
                     }
                     style={{
                       backgroundImage: `url(${this.state.pestadventure[1].media})`,
                     }}
-                    className="colm x-3 m-0 p-0  S-slid d-flex  align-items-end"
+                    className="col mx-2 m-0 p-0  S-slid d-flex  align-items-end"
                   >
                     <div className="row text-start m-1  p-0 slidedata">
                       <div className="row p-0 m-0">
@@ -125,7 +140,7 @@ class Adventuresslide extends Component {
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
-                        <p className="text-white p-0 m-0 w-50">
+                        <p className="text-white tex-des p-0 m-0 w-50">
                           {this.state.pestadventure[1].description.substr(0,this.state.pestadventure[1].description.indexOf(".")+1)}
                         </p>
                       </div>
@@ -133,15 +148,18 @@ class Adventuresslide extends Component {
                     <span className="col slideshape p-0 m-0"></span>
                   </div>
                 </div>
-                <div>
+            
+         
+            
+                 <div>
                   <div
                     onClick={(event) =>
-                      (window.location.href = `/adventures/${this.state.pestadventure[2].name.toLowerCase()}`)
+                      (window.location.href = `/adventure/${this.state.pestadventure[2].id}`)
                     }
                     style={{
-                      backgroundImage: `url(${this.state.pestadventure[2].media})`,
+                      backgroundImage: `url(${this.state.pestadventure[2].media[0]})`,
                     }}
-                    className="col mx-3 m-0 p-0  S-slid d-flex  align-items-end"
+                    className="col mx-2 m-0 p-0  S-slid d-flex  align-items-end"
                   >
                     <div className="row text-start m-1  p-0 slidedata">
                       <div className="row p-0 m-0">
@@ -150,7 +168,7 @@ class Adventuresslide extends Component {
                         </h2>
                       </div>
                       <div className="row p-0 m-0">
-                        <p className="text-white p-0 m-0 w-50">
+                        <p className="text-white tex-des p-0 m-0 w-50">
                           {this.state.pestadventure[2].description.substr(0,this.state.pestadventure[2].description.indexOf(".")+1)}
                         </p>
                       </div>
@@ -159,6 +177,10 @@ class Adventuresslide extends Component {
                     <span className="col slideshape p-0 m-0"></span>
                   </div>
                 </div>
+           
+             
+           
+           
               </Slider>
             </div>
           </div>
@@ -169,3 +191,7 @@ class Adventuresslide extends Component {
 }
 
 export default Adventuresslide;
+
+
+
+

@@ -6,8 +6,8 @@ import "./login.css";
 const LoginPhone = (props) => {
   return (
     <React.Fragment>
-        <div className="back-login" style={{ backgroundImage: "url(/images/login.jpg)" }}>
-      <div className="loginphone d-flex justify-content-center align-content-between flex-wrap" >
+        <div className="back-login m-0 p-0" style={{ backgroundImage: "url(/images/login.jpg)" }}>
+      <div className="loginphone d-flex justify-content-center align-content-between flex-wrap m-0 p-0" >
         <Header {...props} user={props.user}></Header>
         <div className="d-flex align-items-center justify-content-center ">
           <div className="loginpage">

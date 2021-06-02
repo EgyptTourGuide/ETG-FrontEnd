@@ -81,7 +81,7 @@ $("#s-bar").click(()=>{
                         id="dataimg"
                         className="col-1 p-0 m-0"
                         style={{
-                          backgroundImage: `url(${data.media})`,
+                          backgroundImage: `url(${data.media[0]})`,
                         }}
                       ></div>
 

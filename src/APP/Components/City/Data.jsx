@@ -9,33 +9,39 @@ import removefev from "../mostuse/removefav";
 import Loading from "../mostuse/loading";
 class InsideData extends Component {
   state = { type: this.props.type, fav: [] };
+  constructor(props) {
+   super(props);
  
+this.getfav();
+   
+ }
+ 
+ async getfav(){
+  if(JSON.parse(localStorage.getItem('user'))){
+    await getfavorite().then((res) =>{this.setState({ fav: res }); });}
+ }
   changeicon =async (id, type) => {
     
     if ($(`#${id}`).hasClass("far") && !($(`#${id}`).hasClass("fas"))) {
-      console.log("d")
+
       $(`#${id}`).removeClass("far");
       $(`#${id}`).addClass("fas");
 
       type ? AddToFav(type, id) : AddToFav(this.state.type, id)
-    } else {
-      console.log("a")
+      
+    } 
+    
+    else {
       $(`#${id}`).removeClass("fas");
       
       $(`#${id}`).addClass("far");
      await removefev(id);
-      this.componentDidMount();
+      this.getfav();
     }
   };
- async componentDidMount(){
-   if(JSON.parse(localStorage.getItem('user'))){
-      await getfavorite().then((res) =>{this.setState({ fav: res }); });}
-
-
- }
   render() {
     AOS.init({ duration: 500 });
-if(this.state.fav&&this.props.data.length>0 )
+if(this.state.fav&&this.props.data )
 { 
   return (
       <React.Fragment>
@@ -53,32 +59,37 @@ if(this.state.fav&&this.props.data.length>0 )
                 <div
                   key={index}
                   e-aos="zoom-in"
-                  style={{ backgroundImage: `url(${e.media})` }}
+                  style={{ backgroundImage: `url(${e.media[0]})` }}
                   className="s-data d-flex align-items-end  col-11 col-md-5 col-xl-5 city-card text-white p-2 m-2"
                 >
                   <div className="data-card d-flex align-content-between flex-wrap ">
-                    <div className="w-100 d-flex justify-content-between align-items-center">
-                      <div>
+                    <div className="row justify-content-between align-items-center">
+                      <div >
                         <h4 className="fw-bold upe p-0 m-0">{e.name}</h4>
                       </div>
-                      <div>
+                      <div className="">
                         <Rate rate={rate} size={"sm"}></Rate>{" "}
                       </div>
                     </div>
-                    <div className="w-100 d-flex align-items-center justify-content-between">
+                    <div id="btnandlove" className="w-100 d-flex align-items-center justify-content-between">
                       <div>
                         <button
                           className="data-btn"
                           onClick={(event) =>
-                            (window.location.href = `/${
-                              e.type ? e.type : this.state.type
-                            }/${e.id}`)
+                            {(this.state.type==="adventure")?(
+                              (window.location.href = `/adventure/${e.id}/${this.props.cityid}`)
+                            ):
+                              (window.location.href = `/${
+                                e.type ? e.type : this.state.type
+                              }/${e.id}`)
+                            }
+                           
                           }
                         >
                           Read More
                         </button>
                       </div>
-                      <div className="p-0 m-0 ">
+                      <div id="love-ptn-city" className="p-0 m-0 ">
                         {this.state.fav.filter((ele) => {
                           ele.id === e.id ? $(`#${e.id}`).addClass("fas"): $(`#${e.id}`).addClass("far");
                       return;

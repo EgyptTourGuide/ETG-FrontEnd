@@ -13,12 +13,12 @@ class Loading extends Component {
            if(this.state.load){
             return ( 
                         <React.Fragment>
-                        <div className="loading container-fluid d-flex text-center align-items-center">
-                          <div className=" row text-center align-items-center">
-                            <div className="text-center text-white">
+                        <div className="loading container-fluid d-flex text-center align-items-center ">
+                          <div className=" row text-center align-items-center ">
+                            <div className="text-center text-white ">
                               <span className="le font-face-rh ">Egypt</span>
                               <br />
-                              <span className="ltg font-face-ab">TOUR GUIDE</span>
+                              <span className="ltg font-face-ab ">TOUR GUIDE</span>
                             </div>
                             <div id="loadingIndicator">
                               <div className="loadingBar" id="loadingBar1"></div>

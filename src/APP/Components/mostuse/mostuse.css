@@ -506,3 +506,46 @@ color: #ffd56b;
     
   }
 }
+
+/* features */
+.spa{
+  color:#1eae98;
+}
+.air{
+  color:#c0fefc;
+}
+.chair{
+  color:#f1ca89;
+}
+
+.casino{
+  color:#ff8882;
+}
+
+.gym{
+  color:#929aab;
+}
+.river{
+  color:#00adb5;
+}
+@media only screen and (max-width: 1199px) {
+.features-text{
+  font-size:20px ;
+}
+}
+
+
+
+.reload-btn{
+  width: 130px;
+  border: 1px solid #fdca40;
+  background-color: #fdca40;
+  border-radius: 15px;
+  color: #141620;
+
+}
+.reload-btn:hover{
+  color:white;
+  border: 1px solid #fdca40;
+  background-color: transparent;
+}

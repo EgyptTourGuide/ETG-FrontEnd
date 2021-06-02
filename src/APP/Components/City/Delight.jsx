@@ -13,8 +13,9 @@ class Delight extends Component {
         if(!this.state.looding){
         return ( 
         <React.Fragment>
-<InsideData data={this.state.delight} type="place"></InsideData>
-        </React.Fragment> );}
+            <span className="hide-love">
+<InsideData data={this.state.delight} type="adventure" cityid={this.props.path}></InsideData>
+</span> </React.Fragment> );}
         else{
             return(<Loading></Loading>);
         }
