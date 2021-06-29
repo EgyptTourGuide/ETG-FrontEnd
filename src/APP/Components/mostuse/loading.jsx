@@ -6,7 +6,7 @@ class Loading extends Component {
  
    componentDidMount(){
     
-    setTimeout(() => { this.setState({load:false}) },5000);
+    setTimeout(() => { this.setState({load:false}) },10000);
    }
         render() { 
        
@@ -40,3 +40,7 @@ class Loading extends Component {
 }
  
 export default Loading;
+
+
+
+

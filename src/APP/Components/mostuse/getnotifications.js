@@ -6,9 +6,10 @@ export default async function getnotifications(){
     
  
 var token=JSON.parse(localStorage.getItem('user')).token;
-var data={};
+var data=[];
     const favorite= await axios.get(`${backendurl}/profile/notifications`,{headers: {'Authorization': `${token}`}})
     .then(res=>{
+        
         data=res.data.notifications;
     })  
     .catch(
@@ -19,7 +20,7 @@ var data={};
     })
 
           });
-    
+   
     return data;
     
 }

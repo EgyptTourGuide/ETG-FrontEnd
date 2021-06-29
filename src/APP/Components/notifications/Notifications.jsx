@@ -1,17 +1,21 @@
-
-
 import React, { Component } from 'react'
+import Footer from '../footer/footer';
+import Header from '../Header/Header';
 import getnotifications from '../mostuse/getnotifications';
+import Notificationshow from './Notificationshow';
 
 class Notifications extends Component {
-  state = {notifications:[]  }
-  async componentDidMount(){
- const notifications=  await getnotifications();
- this.setState(notifications)
-  }
+
   render() {
-    console.log(this.state.notifications) 
-    return ( <></> );
+    return ( <>
+                <Header {...this.props} setuser={this.props.setuser} user={this.props.user} />
+                
+                <Notificationshow></Notificationshow>
+                
+                <div className="footer-bg">
+         <Footer/></div>
+    </> );
+
   }
 }
  
@@ -20,4 +24,4 @@ export default Notifications;
 
 
 
-   
+

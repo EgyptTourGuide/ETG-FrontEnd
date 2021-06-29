@@ -8,3 +8,27 @@
     height: 100vh !important;
 
 }
+
+
+.card-hotel{
+    height: 150px;
+    border-radius: 25px;
+    background-size:cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+
+}
+
+.from-to-color{
+color: #FFC947 !important;
+}
+.price-color{
+    color:#FB3640 !important;
+    font-size: 20px;
+}
+.card-data{
+    border-radius: 15px;
+    padding: 5px;
+    background-color: rgba(20,22,32,0.5);
+}
