@@ -61,7 +61,7 @@ class Plan extends Component {
                           <>
                             <div
                               className="col-5 col-xl-3  card-hotel m-2 d-flex p-2 flex-column justify-content-between"
-                            onClick={()=>{window.location.assign(`/room/${room.id}/${hotels.hotel.id}`)}}
+                            
                               key={indx + ind}
                               style={{
                                 backgroundImage: `url(${room.media[0]})`,
@@ -69,10 +69,11 @@ class Plan extends Component {
                             >
                               
                               <div className="d-flex align-items-center justify-content-between card-data">
-                                <h4 className="text-white fw-bold p-0 m-0">
+                                <h4 className="text-white fw-bold p-0 m-0 loca-hotel" onClick={()=>{window.location.assign(`/hotel/${hotels.hotel.id}`)}}>
                                   {hotels.hotel.name}
+                                  
                                 </h4>
-                                <p className="text-white fw-bold p-0 m-0">
+                                <p className="text-white fw-bold p-0 m-0 loca-hotel" onClick={()=>{window.location.assign(`/hotel/${hotels.hotel.id}`)}}>
                                   {" "}
                                   <i className="fas fa-map-marker-alt"></i>{" "}
                                   {hotels.city.name}
@@ -90,8 +91,10 @@ class Plan extends Component {
                                   </div>
                                 </div>
                              
-                                <div >
+                                <div className="text-end">
                                 <p className="p-0 m-0 fw-bold price-color">{room.price}$</p>
+                              
+                             <button className="p-0 m-0 btn-read" onClick={()=>{window.location.assign(`/room/${room.id}/${hotels.hotel.id}`)}}>Read more</button>
                               </div>
                               </div>
 

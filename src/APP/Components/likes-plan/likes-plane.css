@@ -32,3 +32,23 @@ color: #FFC947 !important;
     padding: 5px;
     background-color: rgba(20,22,32,0.5);
 }
+
+.loca-hotel{
+    cursor: pointer;
+
+}
+
+.loca-hotel:hover{
+    color: tomato !important;
+}
+.btn-read{
+    color: white;
+    border: none;
+    width: 100px;
+    border-radius: 25px;
+    background-color: #1EAE98;
+}
+.btn-read:hover{
+    background-color: transparent;
+ font-weight: bold;
+}
