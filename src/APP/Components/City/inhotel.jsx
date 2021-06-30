@@ -6,7 +6,6 @@ import Map from './../mostuse/Map';
 import Rate from '../mostuse/rate';
 import AddReview from './../mostuse/addreview';
 import $ from 'jquery';
-import Loading from '../mostuse/loading';
 import Features from '../mostuse/Features';
 
 class Inhotel extends Component {

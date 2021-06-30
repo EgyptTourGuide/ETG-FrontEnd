@@ -1,54 +1,49 @@
-.text-break{
-    height: 70%;
-    width: 2px;
-    background-color: white;
+.text-break {
+  height: 70%;
+  width: 2px;
+  background-color: white;
 }
-.fullsc-load{
-    width: 100vw !important;
-    height: 100vh !important;
-
-}
-
-
-.card-hotel{
-    height: 150px;
-    border-radius: 25px;
-    background-size:cover ;
-    background-position: center;
-    background-repeat: no-repeat;
-   
-
+.fullsc-load {
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
-.from-to-color{
-color: #FFC947 !important;
-}
-.price-color{
-    color:#FB3640 !important;
-    font-size: 20px;
-}
-.card-data{
-    border-radius: 15px;
-    padding: 5px;
-    background-color: rgba(20,22,32,0.5);
+.card-hotel {
+  height: 150px;
+  border-radius: 25px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.loca-hotel{
-    cursor: pointer;
-
+.from-to-color {
+  color: #ffc947 !important;
+}
+.price-color {
+  color: #fb3640 !important;
+  font-size: 20px;
+}
+.card-data {
+  border-radius: 15px;
+  padding: 5px;
+  background-color: rgba(20, 22, 32, 0.5);
 }
 
-.loca-hotel:hover{
-    color: tomato !important;
+.loca-hotel {
+  cursor: pointer;
 }
-.btn-read{
-    color: white;
-    border: none;
-    width: 100px;
-    border-radius: 25px;
-    background-color: #1EAE98;
+
+.loca-hotel:hover {
+  color: tomato !important;
 }
-.btn-read:hover{
-    background-color: transparent;
- font-weight: bold;
+.btn-read {
+  color: white;
+  border: none;
+  width: 100px;
+  border-radius: 25px;
+  background-color: #1eae98;
+}
+.btn-read:hover {
+  background-color: transparent;
+  font-weight: bold;
 }

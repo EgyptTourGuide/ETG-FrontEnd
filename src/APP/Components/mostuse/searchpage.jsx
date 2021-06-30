@@ -7,21 +7,21 @@ import Search from "./Search";
 
 const steps = ["Search About Your Dreams In Egypt.", 5000];
 class Searchpage extends Component {
-  state = { elements:[], path: "" };
+  state = { elements: [], path: "" };
 
   componentDidMount() {
-    var elements=[];
+    var elements = [];
     //var path = "";
     if (this.props.location.pathname.startsWith("/city")) {
       if (this.props.match.params.name) {
-       // elements = this.props.city.filter((e) => e.name.startsWith(this.props.match.params.name) );
-        elements = this.props.city; 
-        this.setState({ elements});
-    }
-        //  else {
-    //     elements = this.props.city;
-    //   }
-    //   path = "/city";
+        // elements = this.props.city.filter((e) => e.name.startsWith(this.props.match.params.name) );
+        elements = this.props.city;
+        this.setState({ elements });
+      }
+      //  else {
+      //     elements = this.props.city;
+      //   }
+      //   path = "/city";
     }
 
     //  else if (this.props.location.pathname.startsWith("/adventure")) {
@@ -32,7 +32,7 @@ class Searchpage extends Component {
     //   elements = [...this.props.adventure, ...this.props.city].filter((e) =>e.name.startsWith(this.props.match.params.name));
     //   path = "/home";
     // }
-   
+
     console.log(this.state.elements);
   }
 
@@ -55,7 +55,7 @@ class Searchpage extends Component {
           </div>
         </div>
         <div className="full-screen-err">
-        <Footer className="footer-bg"></Footer>
+          <Footer className="footer-bg"></Footer>
         </div>
       </React.Fragment>
     );

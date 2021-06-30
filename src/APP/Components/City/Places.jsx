@@ -35,7 +35,7 @@ componentDidMount(){
       const visitduration ={ "from":this.state.from,"to":this.state.to}
       console.log(visitduration)
       localStorage.setItem("visitduration", JSON.stringify(visitduration));
-     const time = (to.getTime() - from.getTime()) / (1000 * 3600 * 24) + 1;
+     
       var filter = HandelFilter(this.state.places, from);
       this.setState({ filter, error: "" });
       $("#VisitDuration").hide();
@@ -48,7 +48,7 @@ componentDidMount(){
   
   handelnext = () => {
     var start = new Date(this.state.start);
-    var from = new Date(this.state.from);
+
     var fulldate = "";
     if (start.getTime() < new Date(this.state.to).getTime() - 49766400) {
       start = new Date(start.setDate(start.getDate() + 1));

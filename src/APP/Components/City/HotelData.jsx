@@ -10,6 +10,7 @@ class HotelData extends Component {
       var data = [];
       res.data.features.map((e, ind) => {
         data.push({ name: e, id: ind });
+        return(e);
       });
       this.setState({ options: data });
     });
