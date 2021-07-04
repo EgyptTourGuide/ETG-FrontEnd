@@ -21,7 +21,6 @@ class LikesPlan extends Component {
           setuser={this.props.setuser}
           user={this.props.user}
         />
-
         <div className="container-fluid px-4">
           <div className="row ">
             <div className="col-5 text-center ">
@@ -48,7 +47,6 @@ class LikesPlan extends Component {
               </NavLink>
             </div>
           </div>
-
           <div className="row text-center">
             <Route
               path="/in/favorite"

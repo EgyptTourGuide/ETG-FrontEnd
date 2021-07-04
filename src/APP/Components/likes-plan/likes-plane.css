@@ -7,7 +7,6 @@
   width: 100vw !important;
   height: 100vh !important;
 }
-
 .card-hotel {
   height: 150px;
   border-radius: 25px;
@@ -15,7 +14,6 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
 .from-to-color {
   color: #ffc947 !important;
 }
@@ -28,11 +26,9 @@
   padding: 5px;
   background-color: rgba(20, 22, 32, 0.5);
 }
-
 .loca-hotel {
   cursor: pointer;
 }
-
 .loca-hotel:hover {
   color: tomato !important;
 }

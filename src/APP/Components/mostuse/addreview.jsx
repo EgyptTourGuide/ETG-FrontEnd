@@ -50,7 +50,6 @@ class AddReview extends Component {
                 $("#nonew").fadeIn();
               }
             });
-
           setTimeout(() => {
             this.props.closereview();
           }, 2000);
@@ -73,7 +72,6 @@ class AddReview extends Component {
         state.answers[e.currentTarget.name] = false;
       }
     }
-
     this.setState(state);
   };
   render() {
