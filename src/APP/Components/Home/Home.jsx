@@ -4,12 +4,7 @@ import Scroll from "./../Header/scroll/scroll";
 import "./Home.css";
 import Search from "./../mostuse/Search";
 const Home = props => {
-  const steps = [
-    "Search About Your Dreams In Egypt.",
-    9000,
-    "With Egypt Tour Guide Everything Is Possiblel.",
-    9000,
-  ];
+  const steps = ["Search About Your Dreams In Egypt.",9000,"With Egypt Tour Guide Everything Is Possiblel.", 9000,];
   return (      
      <React.Fragment>
     <div className=" container-fluid  items p-0 m-0">
@@ -23,7 +18,6 @@ const Home = props => {
          path={"/home"}
         ></Search>
         </div>
-        
       </div>
     </div>
     <div id="scroll" className="container-fluid text-center p-0 m-0">
@@ -35,5 +29,4 @@ const Home = props => {
     </div>
   </React.Fragment> );
 }
- 
 export default Home;

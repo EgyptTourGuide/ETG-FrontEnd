@@ -15,17 +15,13 @@ import { User } from "./Components/Context/Logincontext";
 import Place from "./Components/Details/Place";
 import Hotel from "./Components/City/hotel";
 import LikesPlan from "./Components/likes-plan/Likes-Plan";
-import Profile from './Components/profile/Profile';
+import Profile from "./Components/profile/Profile";
 import Pleaselogin from "./Components/mostuse/MustLogin";
-import Adventure from './Components/delight/adventure';
-import Tour from './Components/Tour/Tour';
-import Room from './Components/City/Room';
-import Notifications from './Components/notifications/Notifications';
-
-
+import Adventure from "./Components/delight/adventure";
+import Tour from "./Components/Tour/Tour";
+import Room from "./Components/City/Room";
+import Notifications from "./Components/notifications/Notifications";
 class App extends Component {
-
-
   state = {
     user: JSON.parse(localStorage.getItem("user")),
     alllooding: true,
@@ -55,23 +51,21 @@ class App extends Component {
 
     /*end sort*/
   }
-
   setuser = (user) => {
     localStorage.setItem("user", JSON.stringify(user));
-    this.setState({user});
-    
+    this.setState({ user });
   };
+  async componentDidMount() {
+    await axios.get(`${backendurl}/cities`).then((res) => {
+      this.setState({ city: res.data.cities });
+    });
+    await axios.get(`${backendurl}/activity`).then((res) => {
+      this.setState({ adventure: res.data });
+    });
 
- async componentDidMount() {
-
- await  axios.get(`${backendurl}/cities`)
- .then(res=>{this.setState({city: res.data.cities})});
-   await axios.get(`${backendurl}/activity`).then(res=>{this.setState({adventure:res.data})});
-   
-   if(this.state.city.length>0||this.state.adventure.length>0){
-this.setState({alllooding: false})
-   }
-
+    if (this.state.city.length > 0 || this.state.adventure.length > 0) {
+      this.setState({ alllooding: false });
+    }
   }
 
   render() {
@@ -85,7 +79,6 @@ this.setState({alllooding: false})
       );
     } else {
       return (
-       
         <User.Provider value={this.state.user}>
           <React.Fragment>
             <Switch>
@@ -167,7 +160,7 @@ this.setState({alllooding: false})
               <Route
                 path="/login"
                 exact
-                render={(props) =>(
+                render={(props) =>
                   this.state.user ? (
                     <Redirect to="/" />
                   ) : (
@@ -180,8 +173,7 @@ this.setState({alllooding: false})
                       {...props}
                     />
                   )
-                )
-                  }
+                }
               />
               )
               <Route
@@ -210,7 +202,7 @@ this.setState({alllooding: false})
                   />
                 )}
               />
-                   <Route
+              <Route
                 path="/room/:id/:hid"
                 exact
                 render={(props) => (
@@ -236,9 +228,8 @@ this.setState({alllooding: false})
                   />
                 )}
               />
-                 <Route
+              <Route
                 path="/adventure/:id/:cid?"
-               
                 render={(props) => (
                   <Adventure
                     setuser={this.setuser}
@@ -249,8 +240,7 @@ this.setState({alllooding: false})
                   />
                 )}
               />
-
-<Route
+              <Route
                 path="/visitplanner"
                 exact
                 render={(props) => (
@@ -263,8 +253,6 @@ this.setState({alllooding: false})
                   />
                 )}
               />
-
-
               <Route
                 path="/in/:name"
                 exact
@@ -282,9 +270,7 @@ this.setState({alllooding: false})
                   )
                 }
               />
-
-              
-<Route
+              <Route
                 path="/notifications"
                 exact
                 render={(props) =>
@@ -307,7 +293,7 @@ this.setState({alllooding: false})
                 render={(props) =>
                   this.state.user ? (
                     <Profile
-                    setuser={this.setuser}
+                      setuser={this.setuser}
                       city={this.state.city}
                       adventure={this.state.adventure}
                       user={this.state.user}
@@ -318,18 +304,12 @@ this.setState({alllooding: false})
                   )
                 }
               />
-              <Route
-                path="/mustlogin"
-                exact
-                component={Pleaselogin}
-                ></Route>
+              <Route path="/mustlogin" exact component={Pleaselogin}></Route>
               <Redirect from="/home" to="/" />
-
               {/* <Redirect to="/notfound" /> */}
             </Switch>
           </React.Fragment>
         </User.Provider>
-    
       );
     }
   }
