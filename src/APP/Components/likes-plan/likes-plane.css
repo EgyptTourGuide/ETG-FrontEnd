@@ -14,6 +14,14 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@media only screen and (max-width: 960px) {
+  .card-hotel {
+    height: 200px;
+
+  }
+  
+}
 .from-to-color {
   color: #ffc947 !important;
 }

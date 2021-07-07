@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import Plan from "./../likes-plan/plan";
 import EditProfile from "./editprofile";
 import Footer from "./../footer/footer";
+import Notificationshow from './../notifications/Notificationshow';
 class Profile extends Component {
   state = { user: this.props.user, token: "" };
   componentDidMount() {
@@ -75,7 +76,16 @@ class Profile extends Component {
                       </div>
                     </NavLink>
                     <hr className=" my-2 p-0" />
-
+                    <NavLink
+                      className="nav-l-p"
+                      activeStyle={{
+                        borderBottom: "white 2px solid",
+                        fontWeight: "bold",
+                        color: "tomato",
+                      }}
+                      exact
+                      to={`/etg/notifications`}
+                    >
                     <div className="d-flex align-items-center justify-content-xl-start justify-content-center linkst">
                       <div className=" col-xl-1 d-flex justify-content-center">
                         <i
@@ -87,7 +97,7 @@ class Profile extends Component {
                         <p className="p-0 m-0">Notification</p>
                       </div>
                     </div>
-
+</NavLink>
                     <hr className=" my-2 p-0" />
 
                     <NavLink
@@ -179,6 +189,13 @@ class Profile extends Component {
                   exact
                   render={(props) => (
                     <Favorite token={this.state.token}></Favorite>
+                  )}
+                ></Route>
+                <Route
+                  path="/etg/notifications"
+                  exact
+                  render={(props) => (
+                    <Notificationshow></Notificationshow>
                   )}
                 ></Route>
                 <Route

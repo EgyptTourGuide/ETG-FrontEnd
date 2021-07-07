@@ -13,7 +13,7 @@ const Citypage = props => {
       <p className="text">Egypt Is The Land Of Dreams.</p>
     </div>
    
-    <Search data={props.city} user={props.user} path={"/city"}></Search>
+    <Search data={props.city} user={props.user} type={"city"}></Search>
      <Cityshow  data={props.city} type="city" {...props}></Cityshow>
    
      <div className="footer-bg">

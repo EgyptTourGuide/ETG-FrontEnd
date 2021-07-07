@@ -21,6 +21,7 @@ import Adventure from "./Components/delight/adventure";
 import Tour from "./Components/Tour/Tour";
 import Room from "./Components/City/Room";
 import Notifications from "./Components/notifications/Notifications";
+import Notfound404 from './Components/404/Notfound404';
 class App extends Component {
   state = {
     user: JSON.parse(localStorage.getItem("user")),
@@ -305,8 +306,9 @@ class App extends Component {
                 }
               />
               <Route path="/mustlogin" exact component={Pleaselogin}></Route>
+              <Route path="/404" component={Notfound404}></Route>
               <Redirect from="/home" to="/" />
-              {/* <Redirect to="/notfound" /> */}
+               <Redirect to="/404" />
             </Switch>
           </React.Fragment>
         </User.Provider>

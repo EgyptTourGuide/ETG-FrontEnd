@@ -11,8 +11,8 @@ import Profile from './Profile';
 class Header extends Component {
 constructor(props){
 super(props);
-const city=props.city.slice(0,14)
-const adv=props.adventure.slice(0,14)
+const city=props.city.slice(0,7)
+const adv=props.adventure.slice(0,7)
 this.state={play: false, menu: "Menu",scity:city,sadventure:adv ,city:this.props.city,adventure:this.props.adventure};
 
 }
@@ -133,6 +133,7 @@ showscrollclick=(item)=>{
 
             <span className="col-8 d-flex justify-content-end  d-none d-xl-block">
               <span className=" col-12 d-flex align-items-center justify-content-end   ">
+                
                 <div className="col-2 p-0 m-0 ">
                   <Link className="linkst d-inline   fs-6" to="/city">
                     Where To Go
@@ -150,6 +151,11 @@ showscrollclick=(item)=>{
                     <i id="aa" className="fas fa-chevron-down"></i>
 
                   </span>
+                </div>
+                <div className="col-1 p-0 m-0 text-center">
+                  <Link className="linkst d-inline  fs-6" to="/trip">
+                  Trip
+                  </Link>
                 </div>
                 <div className="col-2 p-0 m-0 text-center">
                   <Link className="linkst d-inline  fs-6" to="/visitplanner">
@@ -246,13 +252,20 @@ showscrollclick=(item)=>{
   <p className="black p-0 m-0 fw-bold" >{this.state.scity[0].name}</p>
   <button className="btn-r" onClick={(event) =>(window.location.href = `/city/${this.state.scity[0].id}`)} >Read More</button>
   </div>
-       <div className="h-data">
+       <div className="container-fluid mb-4">
+         <div className="row">
          {this.state.scity.map((e,index)=>{
            return(
-            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/city/${e.id}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
+            <div key={index} className="col-6 " 
+            onClick={(event) =>(window.location.href = `/city/${e.id}`)} >
+              <p className="d-name black p-0 m-0" >{e.name}</p></div>
            );
          })}
-            <div  className="s-data " onClick={(event) =>(window.location.href = '/city')} ><p className="d-name black p-0 fw-bold see-more" >See More</p></div>
+                     <div  className="col-6 " 
+                     onClick={(event) =>(window.location.href = '/city')} >
+                       <p className="d-name black p-0 m-0 fw-bold see-more" >See More</p></div>
+
+         </div>
 
     
        </div>
@@ -269,15 +282,16 @@ showscrollclick=(item)=>{
   <p className="black p-0 m-0 fw-bold" >{ this.state.sadventure[0].name}</p>
   <button className="btn-r" onClick={(event) =>(window.location.href = `/adventure/${ this.state.sadventure[0].id}`)} >Read More</button>
   </div>
-       <div className="h-data">
+  <div className="container-fluid mb-4">
+         <div className="row">
          { this.state.sadventure.map((e,index)=>{
            return(
-            <div key={index} className="s-data " onClick={(event) =>(window.location.href = `/adventure/${e.id}`)} ><p className="d-name black p-0 " >{e.name}</p></div>
+            <div key={index} className="col-6 " onClick={(event) =>(window.location.href = `/adventure/${e.id}`)} ><p className="d-name black p-0 m-0" >{e.name}</p></div>
            );
          })}
-            <div  className="s-data " onClick={(event) =>(window.location.href = '/adventure')} ><p className="d-name black p-0 fw-bold see-more" >See More</p></div>
+            <div  className="col-6 " onClick={(event) =>(window.location.href = '/adventure')} ><p className="d-name black p-0 m-0 fw-bold see-more" >See More</p></div>
 
-    
+    </div>
        </div>
         </div>
         </span>

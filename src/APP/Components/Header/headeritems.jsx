@@ -10,6 +10,11 @@ export const navitem = [
     cname: "nav-text",
   },
   {
+    title: "Trip",
+    path: "/trip",
+    cname: "nav-text",
+  },
+  {
     title: "Visit Planner",
     path: "/visitplanner",
     cname: "nav-text",

@@ -14,9 +14,7 @@ class CityInPage extends Component {
     var backgroundmedia = this.state.cityinfo.media[ind];
     this.setState({ backgroundmedia });
   };
-
   render() {
-    console.log(this.state.cityinfo.media);
     return (
       <React.Fragment>
         <div className="container-fluid">

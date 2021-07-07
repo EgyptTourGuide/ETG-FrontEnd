@@ -64,6 +64,7 @@ class Search extends Component {
                   <i className="far fa-frown fa-lg m-2"></i>No Results Found
                 </span>
                 {this.state.newdata.map((data, index) => {
+                  console.log(data.media[0])
                   return (
                     <div
                       key={index}
@@ -78,7 +79,7 @@ class Search extends Component {
                         id="dataimg"
                         className="col-1 p-0 m-0"
                         style={{
-                          backgroundImage: `url(${data.media[0]})`,
+                          backgroundImage: `url(${(data.media.length>0)?((typeof data.media=="string")?(data.media):(data.media[0])):('/images/noimg.png')})`,
                         }}
                       ></div>
 

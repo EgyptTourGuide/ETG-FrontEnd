@@ -184,20 +184,9 @@ border-radius: 0 15px 15px 0;
   background-size: cover;
   clip-path: polygon(0px 0px, 100% 0px, 50% 100%, 0px 100%);
 }
-.h-data{
-  width: 21vw;
-margin-left: 3vw;
-  display: flex;
-  flex-wrap: wrap;
- 
-}
-.s-data{
-  width: 7vw ;
 
-}
 .d-name{
   text-transform: capitalize;
-  margin: 2px;
   cursor: pointer;
 }
 .d-name:hover{
