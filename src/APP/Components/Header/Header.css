@@ -137,7 +137,7 @@ display: flex;
   position: absolute;
   z-index: 5;
   top: 6vw;
-  right: 18vw;
+  right: 22vw;
   width: 32vw;
   height: 180px;
   background-color: rgb(255, 255, 255,0.8);
@@ -159,7 +159,7 @@ border-radius: 0 15px 15px 0;
     position: absolute;
     z-index: 5;
     top: 6vw;
-    right: 7vw;
+    right: 10vw;
     width: 32vw;
     height: 180px;
     background-color: rgb(255, 255, 255,0.8);
@@ -241,15 +241,15 @@ border-radius:15px;
   position: absolute;
   border:0.5px solid white;
   padding: 1vw;
-  z-index: 3 !important;
+  z-index: 50 !important;
   top: 6vw;
-  right: 7vw;
+  right: 1vw;
   width: 15vw;
   background-color: rgb(255, 255, 255,0.8);
   align-items: center;
 border-radius:15px;
 }
-#p-slide{
+#pr-slide{
   display: none;
 }
 .btn-e-brofile{

@@ -39,7 +39,7 @@ class Notificationshow extends Component {
     return time;
   };
   render() {
-    if (this.state.load) {
+    if (this.state.load&&this.state.notifications.length===0) {
       return <Loading></Loading>;
     } else
       return (

@@ -11,11 +11,12 @@ class UserorLogin extends Component {
 if(user){ 
  return(
 <React.Fragment>
-  <span className="d-none linkst d-xl-inline p-0 m-0 fs-6"   onClick={()=>this.props.showslide("#p-slide")}
-  >
-    {(user.picture) ? (<img className="profile "src={user.picture}alt={user.fullname.split(' ').slice(0,2).join(' ')}/>):(<span></span>) }
   
- <p className="p-0 m-0  d-none d-xl-inline  mx-1">{user.fullname.split(' ').slice(0,2).join(' ')}</p>
+  <span className=" d-none linkst d-xl-inline p-0 m-0 fs-6"   onClick={()=>this.props.showslide("#pr-slide")}
+  >
+   
+    {(user.picture) ? (<img className="img-name profile "src={user.picture}alt={user.fullname.split(' ').slice(0,2).join(' ')}/>):(<span></span>) }
+ <p className="img-name p-0 m-0  d-none d-xl-inline  mx-1">{user.fullname.split(' ').slice(0,2).join(' ')}</p>
  <p className="p-0 m-0 linkst fw-bold fs-5 d-block d-xl-none black ">{user.fullname.split(' ').slice(0,2).join(' ')}</p>
 </span>
 

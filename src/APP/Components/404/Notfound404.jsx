@@ -21,6 +21,7 @@ class Notfound404 extends Component {
             <div className="s-repot">
               <img src="/images/repot.png" className="report" alt="" />
             </div>
+            
           </div>
 
           <div>

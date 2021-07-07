@@ -85,11 +85,6 @@ componentDidMount(){
    $("#lo-slide").fadeOut();
    $("#p-slide").fadeOut();
   });
-
-
-
-
-   
   $(document).mouseup(function (e)
   {
   if (!$("#ac").is(e.target) && $("#c-slide").has(e.target).length === 0) 
@@ -104,9 +99,10 @@ componentDidMount(){
   {
     $("#lo-slide").fadeOut(); 
   }
-  if (!$("#pr-s").is(e.target) && $("#p-slide").has(e.target).length === 0) 
+  if (!$(".img-name").is(e.target)  && $("#pr-slide").has(e.target).length === 0) 
   {
-    $("#p-slide").fadeOut(); 
+  
+    $("#pr-slide").fadeOut(); 
   }
   })
 
@@ -162,16 +158,11 @@ showscrollclick=(item)=>{
                     Visit Planner
                   </Link>
                 </div>
-                <div id="pr-s" className="col-3 p-0 m-0  text-center " >
+                <div className="col-3 p-0 m-0  text-center " >
                   {/* show login or user */}
+              
                    <UserorLogin showslide={this.showslide}/>
-                </div>
-                {/* language */}
-                <div className="col-1 p-0 m-0 text-center">
-                  <Link className="linkst d-inline text-white  fs-6" to="/">
-                    EN
-                    <i className="fas fa-chevron-down mx-2"></i>
-                  </Link>
+                   
                 </div>
               </span>
           
@@ -308,7 +299,7 @@ showscrollclick=(item)=>{
 
   {/* Slide login */}
   
-  <div id="p-slide" >
+  <div id="pr-slide" >
    <div className="pro">
  <Profile/>
  </div>

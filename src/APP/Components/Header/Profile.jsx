@@ -8,7 +8,8 @@ const Profile = () => {
   if (user) {
     return (
       <React.Fragment>
-        <div className="text-start flex-container-c  ">
+        
+        <div  className="text-start flex-container-c  ">
           <div className="d-flex align-items-center">
             <div>
               {user.picture ? (

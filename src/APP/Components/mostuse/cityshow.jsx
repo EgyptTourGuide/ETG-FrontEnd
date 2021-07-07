@@ -8,7 +8,6 @@ class Cityshow extends Component {
     AOS.init({ duration: 500 });
   }
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <div className=" container-fluid text-center  m-0 p-0 my-2">
