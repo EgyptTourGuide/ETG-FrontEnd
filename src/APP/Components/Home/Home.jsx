@@ -12,7 +12,7 @@ const Home = props => {
         <div className="row p-2 m-0 text-center text-white fs-4 font-weight-bold  ">
           <Typical wrapper="span" steps={steps} loop={100} />
         </div>
-        <div className="row justify-content-start p-0 m-0">
+        <div className="row justify-content-center p-0 m-0">
         <Search
           data={  [...props.city,...props.adventure]}
          path={"/home"}
