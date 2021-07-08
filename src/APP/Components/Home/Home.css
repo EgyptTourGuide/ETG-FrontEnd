@@ -15,7 +15,6 @@
   position: absolute;
   top: 40%;
   width: 100%;
- 
 }
 
 #scroll {
@@ -56,7 +55,7 @@
 
 /*Slider*/
 
-.S-slid{
+.S-slid {
   cursor: pointer;
   height: 300px;
   border-radius: 25px;
@@ -133,12 +132,12 @@
     right: 10px;
   }
 }
-.head-home{
+.head-home {
   position: absolute;
   width: 100%;
 }
 @media only screen and (max-width: 1199px) {
-.tex-des{
-
-  font-size: 10px;
-}}
+  .tex-des {
+    font-size: 10px;
+  }
+}

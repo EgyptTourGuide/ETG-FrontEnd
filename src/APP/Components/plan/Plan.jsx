@@ -121,7 +121,7 @@ class Plan extends Component {
           </div>
 
           <div className="row">
-              <div className=""></div>
+            <div className=""></div>
           </div>
         </div>
 
