@@ -1,0 +1,73 @@
+.p-trip{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+@media only screen and (max-width: 720px) {
+   
+    .p-trip{
+        font-size: 12px;
+        letter-spacing:1.3px;
+    }
+}
+.img-card{
+    width: 100%;
+    height: 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:25px  25px  0 0;
+}
+.shap-p-card{
+   
+    width: 100% !important; 
+    height: 20px !important;
+    background-color: white;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    margin-bottom: -1px;
+}
+.plan-card{
+    width: 100%;
+    height: 300px;
+    border-radius: 25px !important;
+
+
+ 
+}
+.card-data-plan{
+    width: 100%;
+    background-color: white;
+    border-radius:0 0 25px  25px  ;
+    color: #141620;
+}
+.plan-card:hover .img-card{
+    background-size: 110%;
+     
+    }
+
+.city-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px white solid;
+}
+.plan-media{
+  min-width: 89vw !important; 
+    height: 450px;
+    background-color: transparent;
+    border-radius: 25px;
+       
+    background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.slick-dots li button::before{
+  color: white !important;
+
+}
+.slick-active{
+    color: white !important;
+    opacity: 1 !important;
+}

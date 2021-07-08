@@ -4,8 +4,7 @@ import { backendurl } from "./../call-backend/URLs";
 export default async function getnotifications() {
   var token = JSON.parse(localStorage.getItem("user")).token;
   var data = [];
-  await axios
-    .get(`${backendurl}/profile/notifications`, {
+  await axios.get(`${backendurl}/profile/notifications`, {
       headers: { Authorization: `${token}` },
     })
     .then((res) => {

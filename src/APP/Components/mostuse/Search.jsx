@@ -44,6 +44,13 @@ class Search extends Component {
       }
     });
   };
+  handsh(data){
+    this.props.handelshow(data);
+this.setState({value:""});
+        $(".search-slid").hide();
+        $("#s-bar").css("border-radius", "15px");
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -64,14 +71,16 @@ class Search extends Component {
                   <i className="far fa-frown fa-lg m-2"></i>No Results Found
                 </span>
                 {this.state.newdata.map((data, index) => {
-                  console.log(data.media[0])
                   return (
                     <div
                       key={index}
-                      onClick={(event) =>
+                      onClick={
+                        (data.type|| this.props.type)?((event) =>
                         (window.location.href = `/${
                           data.type ? data.type : this.props.type
-                        }/${data.id}`)
+                        }/${data.id}`)):(()=>this.handsh(data))
+                        
+                        
                       }
                       className="element  black  row align-items-center p-3 m-0"
                     >

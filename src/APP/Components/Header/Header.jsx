@@ -158,7 +158,7 @@ showscrollclick=(item)=>{
                     Visit Planner
                   </Link>
                 </div>
-                <div className="col-3 p-0 m-0  text-center " >
+                <div className=" p-0 m-0  text-center " >
                   {/* show login or user */}
               
                    <UserorLogin showslide={this.showslide}/>

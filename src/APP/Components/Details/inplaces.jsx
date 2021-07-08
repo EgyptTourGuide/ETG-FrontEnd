@@ -35,7 +35,7 @@ function PrevArrow(props) {
 
 const settings = {
   className: "p-m-slide p-media-bg p-0 m-0",
-  centerMode: true,
+  dots: true,
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -151,6 +151,7 @@ class InPlaces extends Component {
     if (!this.state.wait && this.state.placein) {
       return (
         <React.Fragment>
+       
           <Slider {...settings}>
             {this.state.placein.media.map((e, ind) => {
               return (

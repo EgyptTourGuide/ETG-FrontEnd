@@ -22,6 +22,8 @@ import Tour from "./Components/Tour/Tour";
 import Room from "./Components/City/Room";
 import Notifications from "./Components/notifications/Notifications";
 import Notfound404 from './Components/404/Notfound404';
+import Plans from './Components/plan/Plans';
+import Plan from './Components/plan/Plan';
 class App extends Component {
   state = {
     user: JSON.parse(localStorage.getItem("user")),
@@ -304,6 +306,30 @@ class App extends Component {
                     <Redirect to="/mustlogin" />
                   )
                 }
+              />
+              <Route
+                path="/trip"
+                exact
+                render={(props) =>
+                    <Plans
+                      setuser={this.setuser}
+                      city={this.state.city}
+                      adventure={this.state.adventure}
+                      user={this.state.user}
+                      {...props}
+                    />}
+              />
+               <Route
+                path="/plan/:id"
+                exact
+                render={(props) =>
+                    <Plan
+                      setuser={this.setuser}
+                      city={this.state.city}
+                      adventure={this.state.adventure}
+                      user={this.state.user}
+                      {...props}
+                    />}
               />
               <Route path="/mustlogin" exact component={Pleaselogin}></Route>
               <Route path="/404" component={Notfound404}></Route>
