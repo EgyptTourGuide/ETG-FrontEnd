@@ -15,10 +15,6 @@
   position: absolute;
   top: 40%;
   width: 100%;
-<<<<<<< HEAD
-=======
- 
->>>>>>> 488fdb50c68d1b003a02aa5a1ad54bb7770393ac
 }
 
 #scroll {
@@ -141,14 +137,14 @@
   width: 100%;
 }
 @media only screen and (max-width: 1199px) {
-<<<<<<< HEAD
+
   .tex-des {
     font-size: 10px;
   }
-}
-=======
+
+
 .tex-des{
 
   font-size: 10px;
 }}
->>>>>>> 488fdb50c68d1b003a02aa5a1ad54bb7770393ac
+

@@ -121,7 +121,10 @@ class Plan extends Component {
           </div>
 
           <div className="row">
-            <div className=""></div>
+            <div className="">
+
+              {/*  :) :*) :.(  ;) ــــــــــــــــــ */}
+            </div>
           </div>
         </div>
 
