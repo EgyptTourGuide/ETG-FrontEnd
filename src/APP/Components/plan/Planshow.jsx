@@ -48,7 +48,7 @@ class Planshow extends Component {
                           className="fas fa-history"
                           style={{ color: "#FFA900" }}
                         ></i>{" "}
-                        {ele.duration.days} Days
+                        {ele.duration.days>0?(`${ele.duration.days} Days`):(`${ele.duration.hours} Hours`)}
                       </p>
                       <p className="ms-2 m-0 p-0 fw-bold">
                         From:{" "}

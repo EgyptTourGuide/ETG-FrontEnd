@@ -17,7 +17,8 @@ class Adventure extends Component {
     render() { 
         if(this.state.load){
         return (<React.Fragment>
-   <Header {...this.props} setuser={this.props.setuser} user={this.props.user} ></Header>
+            <div className="s-h">
+   <Header {...this.props} setuser={this.props.setuser} user={this.props.user} ></Header></div>
     <Info activity={this.state.activity} ></Info>
 <Pestplaces name={this.state.activity.name} id={this.state.activity.id} cityid={this.props.match.params.cid}></Pestplaces>
 

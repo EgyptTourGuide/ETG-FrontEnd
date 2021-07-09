@@ -167,7 +167,7 @@ class InPlaces extends Component {
 
           <div className="container-fluid px-3 px-xl-5 m-0">
             <div className="row text-center">
-              <h2 className="text-white fw-bold my-2">
+              <h2 className="text-white fw-bold my-2 mt-4 m-0 p-0">
                 {this.state.placein.name}
               </h2>
             </div>

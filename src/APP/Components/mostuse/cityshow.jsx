@@ -10,13 +10,12 @@ class Cityshow extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className=" container-fluid text-center  m-0 p-0 my-2">
+        <div className=" container-fluid text-center m-0 p-0 my-2 " >
           <div className="row justify-content-center p-0 m-0">
             {this.props.data.map((e, index) => {
               return (
                 <div
                   key={index}
-                  // (window.location.href = `/adventure/${e.id}/${this.props.cityid}`)
                   onClick={(event) => {
                     this.props.id
                       ? window.location.replace(

@@ -47,6 +47,23 @@
   background-size: cover;
   border: 1px white solid;
 }
+.plan-tour .city-img {
+  min-width: 80px;
+  min-height: 80px;
+
+ }
+@media only screen and (max-width: 960px) {
+  .plan-tour .city-img {
+   min-width: 60px;
+   min-height: 60px;
+
+  }
+  .plan-tour h4{
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
 .plan-media {
   min-width: 89vw !important;
   height: 450px;
@@ -63,4 +80,21 @@
 .slick-active {
   color: white !important;
   opacity: 1 !important;
+}
+.w-bg{
+  background-color: rgba(225,225,225, 0.4);
+  border-radius: 25px;
+  padding: 10px;
+}
+.name-place{
+  color: white;
+}
+.place-tour{
+  cursor: pointer;
+}
+.place-tour:hover .city-img {
+  border: 2px tomato solid;
+}
+.place-tour:hover .name-place {
+color: tomato;
 }

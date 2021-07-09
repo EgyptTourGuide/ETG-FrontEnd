@@ -17,10 +17,7 @@ class InsideData extends Component {
 
   async getfav() {
     if (JSON.parse(localStorage.getItem("user"))) {
-      await getfavorite().then((res) => {
-        this.setState({ fav: res });
-      });
-    }
+      await getfavorite().then((res) => {this.setState({ fav: res });});}
   }
   changeicon = async (id, type) => {
     if ($(`#${id}`).hasClass("far") && !$(`#${id}`).hasClass("fas")) {
@@ -38,7 +35,7 @@ class InsideData extends Component {
   };
   render() {
     AOS.init({ duration: 500 });
-    if (this.state.fav && this.props.data) {
+    if (this.state.fav.length>0||this.state.fav===[] && this.props.data) {
       return (
         <React.Fragment>
           <div className=" container-fluid   m-0 p-0 my-2">

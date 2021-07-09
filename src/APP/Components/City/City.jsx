@@ -20,7 +20,7 @@ async componentDidMount(){
         {
         return (
          <React.Fragment>
-            <div className="head-bg">
+            <div className="head-bg" >
           <Header {...this.props} setuser={this.props.setuser} user={this.props.user} ></Header>
           </div>
 <CityInPage cityinfo={this.state.cityinfo} places={this.state.places} ></CityInPage>

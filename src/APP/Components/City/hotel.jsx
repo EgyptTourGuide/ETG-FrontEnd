@@ -19,7 +19,7 @@ if(res.data.description){
     render() { 
         if(!this.state.load){
         return ( <React.Fragment>
-            <div className="h-me">
+            <div className="h-me s-h">
                <Header {...this.props} setuser={this.props.setuser} user={this.props.user} />
                </div>
 <Inhotel hotelinf={this.state.hotelinf}></Inhotel>

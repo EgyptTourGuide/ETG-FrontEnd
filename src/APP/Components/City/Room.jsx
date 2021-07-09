@@ -22,7 +22,7 @@ else{
         return ( 
         <React.Fragment>
 
-            <span className="head-bg" style={{position: "absolute",zIndex:"10",width:"100%"}}>
+            <span className="head-bg s-h" style={{position: "absolute",zIndex:"10",width:"100%"}}>
          <Header {...this.props} user={this.props.user} ></Header></span>
          <InRoom room={this.state.room} hotelinf={this.state.hotelinf}></InRoom>
          <div className="footer-bg ">

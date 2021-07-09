@@ -241,7 +241,7 @@ border-radius:15px;
   position: absolute;
   border:0.5px solid white;
   padding: 1vw;
-  z-index: 50 !important;
+  z-index: 5 !important;
   top: 6vw;
   right: 1vw;
   width: 15vw;
@@ -251,6 +251,7 @@ border-radius:15px;
 }
 #pr-slide{
   display: none;
+  z-index: 50 !important;
 }
 .btn-e-brofile{
   width: 100%;

@@ -117,7 +117,7 @@ showscrollclick=(item)=>{
   render() {
     return (
       <React.Fragment>
-        <div className="header container-fluid  p-0 m-0">
+        <div className="header s-h container-fluid solve p-0 m-0">
           <div className="row m-0 p-2 d-flex align-items-center  justify-content-between">
             <div className="zim col-2">
               <Link className="nodiewction" to="/">

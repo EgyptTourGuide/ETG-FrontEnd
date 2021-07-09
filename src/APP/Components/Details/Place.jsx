@@ -12,7 +12,7 @@ class Place extends Component {
        
         return (
         <React.Fragment>
-            <span className="head-bg" style={{position: "absolute",zIndex:"10",width:"100%"}}>
+            <span className="head-bg s-h" style={{position: "absolute",zIndex:"10",width:"100%"}}>
          <Header {...this.props} user={this.props.user} ></Header></span>
          <InPlaces path={this.props.match.params.id}></InPlaces>
          <div className="footer-bg ">

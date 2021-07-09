@@ -64,4 +64,9 @@
 .head-bg{
  
   background-image: linear-gradient(rgba(20,22,32, 1),  transparent );
+  z-index: 50 !important;
+}
+.s-h{
+  position: relative;
+  z-index: 50 !important;
 }
