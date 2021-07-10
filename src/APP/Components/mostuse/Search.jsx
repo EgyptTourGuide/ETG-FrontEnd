@@ -54,7 +54,7 @@ this.setState({value:""});
   render() {
     return (
       <React.Fragment>
-        <div className="container-fluid d-flex justify-content-center s-w p-0 m-0 ">
+        <div className="container-fluid d-flex justify-content-center p-0 m-0 ">
           <div className="row s-w p-0 m-0 justify-content-end align-items-center ">
             <div className="col-12 p-0 m-0">
               <input
