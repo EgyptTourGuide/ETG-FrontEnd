@@ -6,6 +6,7 @@ import NotFound from "../mostuse/NotFound";
 import Loading from "./../mostuse/loading";
 import Search from "./../mostuse/Search";
 import Hotelshow from "./Hotelshow";
+import Planshow from "../plan/Planshow";
 class Plan extends Component {
   state = {
     plans: [],
@@ -32,25 +33,18 @@ class Plan extends Component {
           load: false,
         });
       })
-      .catch((error) => {
-        if (error.response.status === 403 && gettoken()) var token = "";
-        gettoken().then((res) => {
-          token = res;
-        });
-
-        this.setState({ token });
+      .catch((err) => {
+        if (err.response.status === 403)
+          gettoken().then((res) => {
+            this.setState({ token: res });
+          });
       });
   }
-
-
- 
   render() {
-    console.log(this.state.hotel)
     if (!this.state.load) {
       return (
         <React.Fragment>
           <div className="container-fluid">
-
             {this.state.hotels.length > 0 || this.state.plans.length > 0 ? (
               <>
                 {this.state.hotels.length > 0 ? (
@@ -64,21 +58,15 @@ class Plan extends Component {
                       Hotels
                     </h3>
                     <div>
-                    <div className="row my-3">
-              <Search
-                data={[...this.state.hotel]}
-                type={"hotel"}
-              ></Search>
-            </div>
+                      <div className="row my-3">
+                        <Search
+                          data={[...this.state.hotel]}
+                          type={"hotel"}
+                        ></Search>
+                      </div>
 
                       <div className="row justify-content-center justify-content-xl-start">
-                     
-                     <Hotelshow hotel={this.state.hotels}></Hotelshow>
-                        
-          
-          
-          
-          
+                        <Hotelshow hotel={this.state.hotels}></Hotelshow>
                       </div>
                     </div>
                   </div>
@@ -87,16 +75,27 @@ class Plan extends Component {
                 )}
 
                 {this.state.plans.length > 0 ? (
-                  <div className="row text-start">
-                    <h3 className="text-white">
-                      {" "}
-                      <i
-                        className="fas fa-table"
-                        style={{ color: "#66DE93" }}
-                      ></i>{" "}
-                      Plans
-                    </h3>
-                  </div>
+                  <>
+                    <div className="row my-2 mt-4 text-start">
+                      <h3 className="text-white">
+                        {" "}
+                        <i
+                          className="fas fa-table"
+                          style={{ color: "#66DE93" }}
+                        ></i>{" "}
+                        Plans
+                      </h3>
+                    </div>
+
+                    <div className="row"></div>
+                    <div className="row">
+                      <Planshow
+                        plans={this.state.plans}
+                        type={"profile"}
+                        path={"etg/plan"}
+                      ></Planshow>
+                    </div>
+                  </>
                 ) : (
                   <span></span>
                 )}

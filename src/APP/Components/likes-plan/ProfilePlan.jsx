@@ -9,11 +9,10 @@ import { backendurl } from "./../call-backend/URLs";
 import Loading from "./../mostuse/loading";
 import $ from "jquery";
 import AddReview from "./../mostuse/addreview";
-import Rate from "./../mostuse/rate";
-import "./Plans.css";
 import gettoken from "./../mostuse/gettoken";
 import SingleHotel from "../likes-plan/SingleHotel";
 import getnotifications from "../mostuse/getnotifications";
+import Rate from './../mostuse/rate';
 function NextArrow(props) {
   var { onClick } = props;
   return (
@@ -25,7 +24,6 @@ function NextArrow(props) {
     />
   );
 }
-
 function PrevArrow(props) {
   const { onClick } = props;
   return (
@@ -35,7 +33,6 @@ function PrevArrow(props) {
     />
   );
 }
-
 const settings = {
   className: " plan-media p-0 m-0",
   dots: true,
@@ -51,44 +48,51 @@ const settings = {
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
 };
-
-class Plan extends Component {
+class ProfilePlan extends Component {
   state = {
     plan: [],
     load: true,
     tour: [],
     comments: [],
     comment: {},
-    num: 0,
-    start: "",
-    persons: 0,
-    withHotel: false,
     token: JSON.parse(localStorage.getItem("user")).token,
     transport: [],
     TotalPrice: "",
-    id: "",
     hotel:[],
-    msg: "",
-    endDate:"",
-    daynum:0,
   };
   async componentDidMount() {
-    await axios
-      .get(`${backendurl}/plans/${this.props.match.params.id}`)
+  
+
+    await axios.get(`${backendurl}/profile/plans`, {
+        headers: { Authorization: `${this.state.token}` },
+      })
       .then((res) => {
-        this.setState({ plan: res.data.plan, load: false });
-        var comments = res.data.plan.reviews;
-        comments.sort(function (a, b) {
-          return new Date(b.createdAt) - new Date(a.createdAt);
+        var hotel = [];
+        res.data.hotels.map((rels) => {
+          hotel.push(rels.hotel);
         });
-        if (comments.length > 0) {
-          this.setState({ comments, comment: comments[0] });
-        }
+        this.setState({
+          plans: res.data.plans,
+          hotels: res.data.hotels,
+          hotel,
+          load: false,
+        });
+      })
+      .catch((err) => {
+        if (err.response.status === 403)
+          gettoken().then((res) => {
+            this.setState({ token: res });
+          });
+      });
 
         this.state.plan.duration.days>0?(this.handelchangeday(1)):(this.handelchangeday(0))
         
-      });
+     
   }
+
+
+
+
   handelchangeday=day=> {
     var tour = [];
 var daynum=this.state.daynum+day;
@@ -625,4 +629,5 @@ getnotifications();
   }
 }
 
-export default Plan;
+
+export default ProfilePlan;

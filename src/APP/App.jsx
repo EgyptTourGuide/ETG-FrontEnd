@@ -24,6 +24,7 @@ import Notifications from "./Components/notifications/Notifications";
 import Notfound404 from './Components/404/Notfound404';
 import Plans from './Components/plan/Plans';
 import Plan from './Components/plan/Plan';
+import ProfilePlan from './Components/likes-plan/ProfilePlan';
 class App extends Component {
   state = {
     user: JSON.parse(localStorage.getItem("user")),
@@ -296,6 +297,23 @@ class App extends Component {
                 render={(props) =>
                   this.state.user ? (
                     <Profile
+                      setuser={this.setuser}
+                      city={this.state.city}
+                      adventure={this.state.adventure}
+                      user={this.state.user}
+                      {...props}
+                    />
+                  ) : (
+                    <Redirect to="/mustlogin" />
+                  )
+                }
+              />
+              <Route
+                path="/etg/:name"
+                exact
+                render={(props) =>
+                  this.state.user ? (
+                    <ProfilePlan
                       setuser={this.setuser}
                       city={this.state.city}
                       adventure={this.state.adventure}
