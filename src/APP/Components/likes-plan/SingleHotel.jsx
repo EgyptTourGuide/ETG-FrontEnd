@@ -89,9 +89,12 @@ class SingleHotel extends Component {
             </div>
 
             <div className="text-end">
+            {!this.props.show?(""):(
               <p className="p-0 m-0 fw-bold price-color">
                 {this.props.room.price}$
-              </p>
+              </p>)}
+
+
               {this.props.show ? (
                 ""
               ) : (

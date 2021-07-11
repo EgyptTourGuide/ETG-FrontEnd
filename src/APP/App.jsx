@@ -309,7 +309,7 @@ class App extends Component {
                 }
               />
               <Route
-                path="/etg/:name"
+                path="/etg/plan/:id"
                 exact
                 render={(props) =>
                   this.state.user ? (

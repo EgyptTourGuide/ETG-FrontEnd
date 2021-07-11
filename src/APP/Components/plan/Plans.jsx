@@ -20,6 +20,7 @@ class Plans extends Component {
     await axios
       .get(`${backendurl}/plans?city=${this.state.cityid}`)
       .then((res) => {
+       
         this.setState({ plans: res.data.plans, load: false });
       });
 
@@ -36,8 +37,9 @@ class Plans extends Component {
       });
   };
   render() {
+   
     if (this.state.cities.length > 0)
-      return (
+    return (
         <React.Fragment>
           <Header
             {...this.props}

@@ -42,6 +42,7 @@ class Plan extends Component {
   }
   render() {
     if (!this.state.load) {
+      console.log(this.state.hotels)
       return (
         <React.Fragment>
           <div className="container-fluid">

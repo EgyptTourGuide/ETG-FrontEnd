@@ -20,7 +20,7 @@ class Planshow extends Component {
                 <div
                   className="col-12 col-xl-4 m-0 p-2 plan-card d-flex flex-column"
                   key={ind}
-                  onClick={e=>{window.location.assign(`/${this.props.path?(this.props.path):('plan')}/${ele.plan?(ele.plan.id):(ele.id)}`)}}
+                  onClick={e=>{window.location.assign(`/${this.props.path?(this.props.path):('plan')}/${ele.id}`)}}
                 >
                   <div
                     className="img-card d-flex justify-content-between flex-column"
